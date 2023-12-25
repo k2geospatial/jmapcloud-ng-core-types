@@ -25,6 +25,7 @@ export interface JCoreService extends JCoreMainService {
   Projection: JProjectionService
   MapContext: JMapContextService
   UI: JUIService
+  SimpleSearch: JSimpleSearchService
 }
 
 export interface JUIService {
@@ -33,6 +34,12 @@ export interface JUIService {
   closeIFramePopup(): void
   getContainerWidth(): number
   getContainerHeight(): number
+}
+
+export interface JSimpleSearchService {
+  getInvalidQueryStringCharacters(): string
+  setQueryString(queryString: string): void
+  getMinimumQueryStringLength(): number
 }
 
 export interface JLibraryService {
@@ -142,8 +149,11 @@ export interface JFeatureService {
   getById(layerId: JId, featureId: JId): Promise<GeoJSON.Feature>
   getByIds(layerId: JId, featureIds: JId[]): Promise<GeoJSON.Feature[]>
   geometryUpdateById(params: JFeatureGeometryUpdateParams): Promise<GeoJSON.Feature>
-  deleteById(layerId: JId, featureId: JId): Promise<GeoJSON.Feature>
-  deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
+  deleteById(layerId: JId, featureId: JId): Promise<JId>
+  // deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
+  // TODO: see if the future endpoint will return detail about individual deleted features success or failure
+  // https://k2geospatial.atlassian.net/browse/JMAP8-1589
+  deleteByIds(layerId: JId, featureIds: JId[]): Promise<JId[]>
 }
 
 export interface JCoreMainService {
@@ -196,6 +206,7 @@ export interface JEventService {
   Language: JLanguageEventModule
   Map: JMapEventModule
   Geocoding: JGeocodingEventModule
+  SimpleSearch: JSimpleSearchEventModule
   Photo: JPhotoEventModule
   Project: JProjectEventModule
   User: JUserEventModule
@@ -293,6 +304,13 @@ export interface JGeocodingEventModule extends JEventModule {
   on: {
     success(listenerId: string, fn: (params: JGeocodingSuccessEventParams) => void): void
     error(listenerId: string, fn: (params: JGeocodingErrorEventParams) => void): void
+  }
+}
+
+export interface JSimpleSearchEventModule extends JEventModule {
+  on: {
+    success(listenerId: string, fn: (params: JSimpleSearchSuccessEventParams) => void): void
+    error(listenerId: string, fn: (params: JSimpleSearchErrorEventParams) => void): void
   }
 }
 
@@ -396,6 +414,7 @@ export interface JCoreState {
   photo: JPhotoState
   query: JQueryState
   geocoding: JGeocodingState
+  simpleSearch: JSimpleSearchState
   geolocation: JGeolocationState
   form: JFormState
   server: JServerState
@@ -446,6 +465,14 @@ export interface JGeocodingState {
   hasLoadingError: boolean
   searchString: string
   results: JGeocodingResult[]
+}
+
+export interface JSimpleSearchState {
+  isLoadPending: boolean
+  isLoading: boolean
+  hasLoadingError: boolean
+  queryString: string
+  results: JSimpleSearchResult
 }
 
 export interface JGeolocationState {
