@@ -566,11 +566,11 @@ declare namespace JMap {
      * // deletes the feature id="4" on layer id="3"
      * JMap.Feature
      *  .deleteById(3, 4)
-     *  .then(deletedFeature => console.info("Feature has been deleted", deletedFeature))
+     *  .then(deletedFeatureId => console.info("Feature id=" + deletedFeatureId + " has been deleted"))
      *  .catch(error => console.error("An error occured", error))
      * ```
      */
-    function deleteById(layerId: JId, featureId: JId): Promise<GeoJSON.Feature>
+    function deleteById(layerId: JId, featureId: JId): Promise<JId>
 
     /**
      * **JMap.Feature.deleteByIds**
@@ -589,7 +589,11 @@ declare namespace JMap {
      *  .catch(error => console.error("An error occured", error))
      * ```
      */
-    function deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
+
+    // deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
+    // TODO: see if the future endpoint will return detail about individual deleted features success or failure
+    // https://k2geospatial.atlassian.net/browse/JMAP8-1589
+    function deleteByIds(layerId: JId, featureIds: JId[]): Promise<JId[]>
   }
 
   /**
@@ -6790,6 +6794,64 @@ declare namespace JMap {
   }
 
   /**
+   * **JMap.SimpleSearch**
+   *
+   * A search mechanism that let the user find features on any layer that has been indexed.
+   *
+   * The JMap Cloud administrator is responsible for specifying which attributes of which spatial data sources are indexed. Once indices are set, a global search can be made over a whole project to find features based on those indexed attributes.
+   *
+   * JMap Cloud implements the OpenSearch standard. For more details, see {@link https://opensearch.org/docs/latest/ the official documentation}
+   *
+   */
+
+  namespace SimpleSearch {
+    /**
+     * ***JMap.SimpleSearch.setQueryString***
+     *
+     * Executes a "query string" search on all layers of the current project using the passed string as the query. See {@link https://opensearch.org/docs/latest/query-dsl/full-text/query-string/#query-string-syntax here} for details.
+     *
+     * All query_string reserved characters are escaped, and the following characters can't be used: "<>"
+     *
+     * This method will fetch a result object indicating all matches found.
+     *
+     * @throws if no project is loaded, if the passed search string is not a string or if it contains invalid characters.
+     * @param queryString the search string to be used
+     * @example ```ts
+     *
+     * ```
+     */
+    function setQueryString(queryString: string): void
+
+    /**
+     * **JMap.SimpleSearch.getMinimumQueryStringLength**
+     *
+     * Returns the query string length required to trigger a simple search
+     *
+     * @example ```ts
+     *
+     * // returns the minimum search string length
+     * JMap.SimpleSearch.getMinimumQueryStringLength()
+     * // 1
+     * ```
+     */
+    function getMinimumQueryStringLength(): number
+
+    /**
+     * **JMap.SimpleSearch.getInvalidQueryStringCharacters**
+     *
+     * Returns a string composed of all forbidden characters in simple search strings.
+     *
+     * @example ```ts
+     *
+     * // returns the invalid characters
+     * JMap.SimpleSearch.getInvalidQueryStringCharacters()
+     * // "<>"
+     * ```
+     */
+    function getInvalidQueryStringCharacters(): string
+  }
+
+  /**
    * **JMap.Query**
    *
    * A feature query mecanism has been set in JMap to get filtered features.
@@ -7343,6 +7405,112 @@ declare namespace JMap {
        *
        * // remove the listener "my-geocoding-listener"
        * JMap.Event.Geocoding.remove("my-geocoding-listener")
+       * ```
+       */
+      function remove(listenerId: string): void
+    }
+
+    /**
+     * ***JMap.Event.SimpleSearch***
+     *
+     * Here you can manage all simple search event listeners.
+     *
+     * Click to see all events available: ***{@link JMap.Event.SimpleSearch.on}***.
+     */
+    namespace SimpleSearch {
+      /**
+       * ***JMap.Event.SimpleSearch.on***
+       *
+       * Here you have all JMap Cloud NG Core simple search events on which you can attach a listener.
+       */
+      namespace on {
+        /**
+         * ***JMap.Event.SimpleSearch.on.success***
+         *
+         * This event is triggered when a simple search has been completed.
+         *
+         * @param listenerId Your listener id (must be unique)
+         * @param fn Your listener function
+         * @example ```ts
+         *
+         * // log a message in the console once the simple search has been completed
+         * JMap.Event.SimpleSearch.on.success(
+         *   "custom-simple-search-success",
+         *   params => console.log("A simple search has been completed", params.results)
+         * )
+         * ```
+         */
+        function success(listenerId: string, fn: (params: JSimpleSearchSuccessEventParams) => void): void
+
+        /**
+         * ***JMap.Event.SimpleSearch.on.error***
+         *
+         * This event is triggered when a simple search has been processed, but an error occured.
+         *
+         * @param listenerId Your listener id (must be unique)
+         * @param fn Your listener function
+         * @example ```ts
+         *
+         * // log a message in the console if a simple search error occured
+         * JMap.Event.SimpleSearch.on.error(
+         *   "custom-simple-search-error",
+         *   params => console.log("A simple search has failed", params)
+         * )
+         * ```
+         */
+        function error(listenerId: string, fn: (params: JSimpleSearchErrorEventParams) => void): void
+      }
+
+      /**
+       * ***JMap.Event.SimpleSearch.activate***
+       *
+       * Activate the listener.
+       *
+       * If the listener is already active, do nothing.
+       *
+       * If the listener is inactive, it will be reactivated and will be called again ...
+       *
+       * @param listenerId The listener id
+       * @example ```ts
+       *
+       * // activate the listener "my-simple-search-listener"
+       * JMap.Event.SimpleSearch.activate("my-simple-search-listener")
+       * ```
+       */
+      function activate(listenerId: string): void
+
+      /**
+       * ***JMap.Event.SimpleSearch.deactivate***
+       *
+       * Deactivate the listener.
+       *
+       * If the listener id doesn't exists or if the listener is already inactive, do nothing.
+       *
+       * If the listener is active, it will be deactivated and will be ignored ...
+       *
+       * @param listenerId The listener id
+       * @example ```ts
+       *
+       * // deactivate the listener "my-simple-search-listener"
+       * JMap.Event.SimpleSearch.deactivate("my-simple-search-listener")
+       * ```
+       */
+      function deactivate(listenerId: string): void
+
+      /**
+       * ***JMap.Event.SimpleSearch.remove***
+       *
+       * Remove the listener.
+       *
+       * If the listener doesn't exist, do nothing.
+       *
+       * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
+       *
+       * @param listenerId The listener id
+       * @example ```ts
+       *
+       * // remove the listener "my-simple-search-listener"
+       * JMap.Event.SimpleSearch.remove("my-simple-search-listener")
        * ```
        */
       function remove(listenerId: string): void
