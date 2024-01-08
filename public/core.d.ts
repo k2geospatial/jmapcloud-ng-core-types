@@ -6796,7 +6796,7 @@ declare namespace JMap {
   /**
    * **JMap.SimpleSearch**
    *
-   * A search mecanism that let the user find features on any layer that has been indexed.
+   * A search mechanism that let the user find features on any layer that has been indexed.
    *
    * The JMap Cloud administrator is responsible for specifying which attributes of which spatial data sources are indexed. Once indices are set, a global search can be made over a whole project to find features based on those indexed attributes.
    *
@@ -6831,7 +6831,7 @@ declare namespace JMap {
      *
      * // returns the minimum search string length
      * JMap.SimpleSearch.getMinimumQueryStringLength()
-     * // 3
+     * // 1
      * ```
      */
     function getMinimumQueryStringLength(): number
@@ -6845,7 +6845,7 @@ declare namespace JMap {
      *
      * // returns the invalid characters
      * JMap.SimpleSearch.getInvalidQueryStringCharacters()
-     * // ";"
+     * // "<>"
      * ```
      */
     function getInvalidQueryStringCharacters(): string
