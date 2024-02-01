@@ -368,8 +368,6 @@ declare interface JLayerThematic {
   name: string
   description: string
   type: JLAYER_THEMATIC_TYPES
-  title: string
-  subTitle: string
   dynamicLegend: boolean
 }
 
