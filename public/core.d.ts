@@ -3104,11 +3104,11 @@ declare namespace JMap {
     /**
      * ***JMap.Map.isTerrainAvailable***
      *
-     * Returns true if the map is associated with a Terrain.
+     * Returns true if the map is associated with a terrain.
      *
      * @example ```ts
      *
-     * // returns true if the map is associated with a Terrain
+     * // returns true if the map is associated with a terrain
      * JMap.Map.isTerrainAvailable()
      * ```
      */
@@ -3117,11 +3117,11 @@ declare namespace JMap {
     /**
      * ***JMap.Map.isTerrainActive***
      *
-     * Returns true if the map is associated with an active Terrain, false otherwise.
+     * Returns true if the map is associated with an active terrain, false otherwise.
      *
      * @example ```ts
      *
-     * // returns true if the map is associated with an active Terrain, false otherwise
+     * // returns true if the map is associated with an active terrain, false otherwise
      * JMap.Map.isTerrainActive()
      * ```
      */
@@ -3130,14 +3130,14 @@ declare namespace JMap {
     /**
      * ***JMap.Map.setTerrainActive***
      *
-     * Returns true if the map is associated with a Terrain.
+     * Returns true if the map is associated with a terrain.
      *
-     * @param active whether to activate or deactivate the Terrain
-     * @throws Error is no Terrain is available
+     * @param active whether to activate or deactivate the terrain
+     * @throws Error is no terrain is available
      *
      * @example ```ts
      *
-     * // returns true if the map is associated with a Terrain
+     * // returns true if the map is associated with a terrain
      * if(JMap.Map.isTerrainAvailable()){
      *    JMap.Map.setTerrainActive(true)
      * }else{
