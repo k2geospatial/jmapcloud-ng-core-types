@@ -501,6 +501,8 @@ export interface JMapState {
   scaleControlPosition: JMAP_POSITIONS
   distanceUnit: JMAP_DISTANCE_UNITS
   isNavigationHistoryControlVisible: boolean
+  isTerrainAvailable: boolean
+  isTerrainActive: boolean
   isScaleControlVisible: boolean
   isMapRotationControlVisible: boolean
   isInfoControlVisible: boolean
@@ -691,6 +693,9 @@ export interface JMapService {
   getZoom(): number
   getMaplibreSourceIdByJMapLayerId(layerId: JId): string
   isScaleControlVisible(): boolean
+  isTerrainAvailable(): boolean
+  isTerrainActive(): boolean
+  setTerrainActive(active: boolean): void
   setScaleControlVisibility(isVisible: boolean, position?: JMAP_POSITIONS): void
   setScaleControlUnits(units: "imperial" | "metric" | "nautical"): void
   setScaleControlPosition(position: JMAP_POSITIONS): void
