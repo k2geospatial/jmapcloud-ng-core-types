@@ -181,7 +181,6 @@ export interface JGeolocationService {
 }
 
 export interface JQueryService {
-  initializeQueryFormById(layerId: JId, queryId: string): Promise<JQuery>
   getAllGroups(): JQueryGroup[]
   groupExist(groupId: JId): boolean
   getQueriesByLayerId(layerId: JId): JQuery[]
@@ -976,9 +975,7 @@ export interface JServerService {
   isReady(): boolean
   getVersion(): JServerVersion
   getType(): JSERVER_TYPES
-  isSaas(): boolean
-  isLegacy(): boolean
-  getMinimumVersion(): JMinimumServerVersion
+  getMinimumVersion(): JServerVersion
   isMinimumVersionRespected(serverInfo?: JServerInfo): boolean
   getShortVersion(): string
   isStandardLoginAvailable(): boolean
