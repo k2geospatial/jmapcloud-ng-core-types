@@ -62,8 +62,9 @@ declare interface JServerVersion {
 }
 
 declare interface JMinimumServerVersion {
-  legacy: JServerVersion
-  saas: JServerVersion
+  title: string
+  mainVersion: number
+  buildNumber: number
 }
 
 declare interface JServerInfoReadyEventParams {
