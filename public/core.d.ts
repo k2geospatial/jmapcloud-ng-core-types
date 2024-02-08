@@ -6160,44 +6160,6 @@ declare namespace JMap {
     function login(login: string, password: string): Promise<JSessionData>
 
     /**
-     * **JMap.User.loginIntoOrganization**
-     *
-     * For JMapCloud only.
-     *
-     * Sets and returns Session Data specific to a JMap Cloud organization. You need to be previously authenticated via the {@link JMap.User.login} method before calling this method.
-     * This method can also be used to switch between organizations while a user is already logged in.
-     *
-     * @throws Error if user is not authenticated
-     * @param organizationId
-     * @example ```ts
-     *
-     * const userLogin = "jdo@mycompany.com"
-     * const userPassword = "xxx"
-     *
-     * // Open a new user session, and get back user data from server
-     * JMap.User
-     *    .login(userLogin, userPassword)
-     *    .then(sessionData => {
-     *        console.log(`User ${userLogin} has been authenticated, will login to one of it's organization`)
-     *        if(sessionData.organizationInfos.length === 0){
-     *          console.error("User has no organization")
-     *        }else{
-     *          const organizationInfo = sessionData.organizationInfos[sessionData.organizationInfos.length - 1]
-     *          JMap.User
-     *            .loginIntoOrganization(organizationInfo.id)
-     *            .then(sessionData2=>{
-     *              console.log(`User ${userLogin} has been logged into organization "${sessionData2.currentOrganization.name}", his session token is "${sessionData2.accessToken}"`)
-     *            })
-     *        }
-     *    })
-     *    .catch(error => {
-     *      console.error(`Cannot loggin ${userLogin}, error: `, error)
-     *    })
-     * ```
-     */
-    function loginIntoOrganization(organizationId: string): Promise<JSessionData>
-
-    /**
      * **JMap.User.loginWithIdentityProvider**
      *
      * Logs in the user using the specified Identity Provider. See {@link JMap.Server.getAllIdentityProvidersById} for info about Identity providers

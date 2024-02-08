@@ -974,7 +974,6 @@ export interface JExtensionService {
 export interface JServerService {
   isReady(): boolean
   getVersion(): JServerVersion
-  getType(): JSERVER_TYPES
   getMinimumVersion(): JServerVersion
   isMinimumVersionRespected(serverInfo?: JServerInfo): boolean
   getShortVersion(): string
