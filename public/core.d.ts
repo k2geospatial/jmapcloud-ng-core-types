@@ -3060,6 +3060,52 @@ declare namespace JMap {
     function isScaleControlVisible(): boolean
 
     /**
+     * ***JMap.Map.isTerrainAvailable***
+     *
+     * Returns true if the map is associated with a terrain.
+     *
+     * @example ```ts
+     *
+     * // returns true if the map is associated with a terrain
+     * JMap.Map.isTerrainAvailable()
+     * ```
+     */
+    function isTerrainAvailable(): boolean
+
+    /**
+     * ***JMap.Map.isTerrainActive***
+     *
+     * Returns true if the map is associated with an active terrain, false otherwise.
+     *
+     * @example ```ts
+     *
+     * // returns true if the map is associated with an active terrain, false otherwise
+     * JMap.Map.isTerrainActive()
+     * ```
+     */
+    function isTerrainActive(): boolean
+
+    /**
+     * ***JMap.Map.setTerrainActive***
+     *
+     * Returns true if the map is associated with a terrain.
+     *
+     * @param active whether to activate or deactivate the terrain
+     * @throws Error is no terrain is available
+     *
+     * @example ```ts
+     *
+     * // returns true if the map is associated with a terrain
+     * if(JMap.Map.isTerrainAvailable()){
+     *    JMap.Map.setTerrainActive(true)
+     * }else{
+     *    console.log("no terrain available")
+     * }
+     * ```
+     */
+    function setTerrainActive(active: boolean): void
+
+    /**
      * ***JMap.Map.setScaleControlVisibility***
      *
      * Changes the scale control panel visibility on the map.
