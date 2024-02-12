@@ -61,12 +61,6 @@ declare interface JServerVersion {
   buildNumber: number
 }
 
-declare interface JMinimumServerVersion {
-  title: string
-  mainVersion: number
-  buildNumber: number
-}
-
 declare interface JServerInfoReadyEventParams {
   serverInfo: JServerInfo
   isMinimumVersionRespected: boolean

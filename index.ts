@@ -979,6 +979,7 @@ export interface JExtensionService {
 export interface JServerService {
   isReady(): boolean
   getVersion(): JServerVersion
+  //TODO: JIRA JMAP8-1655
   getMinimumVersion(): JServerVersion
   isMinimumVersionRespected(serverInfo?: JServerInfo): boolean
   getShortVersion(): string
