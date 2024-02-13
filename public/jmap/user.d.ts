@@ -79,7 +79,7 @@ declare interface JOrganizationExternalApiKey {
   type: JORGANIZATION_EXTERNAL_API_KEY_TYPES
 }
 
-declare interface JJMapCloudPasswordPolicyCompliance {
+declare interface JJMapPasswordPolicyCompliance {
   hasLowercaseLetters: boolean
   hasUppercaseLetters: boolean
   hasNumbers: boolean
