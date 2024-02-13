@@ -6476,7 +6476,7 @@ declare namespace JMap {
      */
     function getPasswordPolicyCompliance(
       password: string
-    ): JJMapCloudPasswordPolicyCompliance
+    ): JJMapPasswordPolicyCompliance
 
     /**
      * ***JMap.User.isPseudoUser***
