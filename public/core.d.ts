@@ -129,61 +129,6 @@ declare namespace JMap {
      */
     function getVersion(): JServerVersion
 
-    /**
-     * **JMap.Server.getType**
-     *
-     * Returns the server type.
-     *
-     * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
-     * // display the server type, "legacy" (JMap 7) or "saas" (JMap Cloud)
-     * console.log(`Server type is "${JMap.Server.getType()}"`)
-     * ```
-     */
-    function getType(): JSERVER_TYPES
-
-    /**
-     * **JMap.Server.isSaas**
-     *
-     * Returns true if the server is a JMap Cloud instance.
-     *
-     * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
-     * // display the type of server
-     * console.log(`Server type is "${JMap.Server.isSaas() ? 'JMap Cloud' : 'JMap 7'}"`)
-     * ```
-     */
-    function isSaas(): boolean
-
-    /**
-     * **JMap.Server.isLegacy**
-     *
-     * Returns true if the server is a JMap 7 instance.
-     *
-     * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
-     * // display the type of server
-     * console.log(`Server type is "${JMap.Server.isLegacy() ? 'JMap 7' : 'JMap Cloud'}"`)
-     * ```
-     */
-    function isLegacy(): boolean
-
-    /**
-     * **JMap.Server.getMinimumVersion**
-     *
-     * Returns the minimum server version required by NG to work fine.
-     *
-     * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
-     * // returns the minimum server version required by NG to work fine
-     * JMap.Server.getMinimumVersion()
-     * ```
-     */
-    function getMinimumVersion(): JMinimumServerVersion
 
     /**
      * **JMap.Server.isMinimumVersionRespected**
@@ -6512,7 +6457,7 @@ declare namespace JMap {
     /**
      * ***JMap.User.getPasswordPolicyCompliance***
      *
-     * Returns an object describing the password compliance with the platform's password policy (JMap Server or JMap Cloud)
+     * Returns an object describing the password compliance with the platform's password policy ( JMap Cloud)
      *
      * @example ```ts
      *
@@ -6531,7 +6476,7 @@ declare namespace JMap {
      */
     function getPasswordPolicyCompliance(
       password: string
-    ): JJMapServerPasswordPolicyCompliance | JJMapCloudPasswordPolicyCompliance
+    ): JJMapCloudPasswordPolicyCompliance
 
     /**
      * ***JMap.User.isPseudoUser***

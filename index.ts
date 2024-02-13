@@ -181,7 +181,6 @@ export interface JGeolocationService {
 }
 
 export interface JQueryService {
-  initializeQueryFormById(layerId: JId, queryId: string): Promise<JQuery>
   getAllGroups(): JQueryGroup[]
   groupExist(groupId: JId): boolean
   getQueriesByLayerId(layerId: JId): JQuery[]
@@ -935,9 +934,7 @@ export interface JUserService {
   changeFullName(newFullName: string): Promise<void>
   getMinimumPasswordLength(): number
   isPasswordCompliant(password: string): boolean
-  getPasswordPolicyCompliance(
-    password: string
-  ): JJMapServerPasswordPolicyCompliance | JJMapCloudPasswordPolicyCompliance
+  getPasswordPolicyCompliance(password: string): JJMapCloudPasswordPolicyCompliance
   isPseudoUser(): boolean
   getOrganizationId(): string
 }
@@ -980,10 +977,8 @@ export interface JExtensionService {
 export interface JServerService {
   isReady(): boolean
   getVersion(): JServerVersion
-  getType(): JSERVER_TYPES
-  isSaas(): boolean
-  isLegacy(): boolean
-  getMinimumVersion(): JMinimumServerVersion
+  //TODO: JIRA JMAP8-1655
+  getMinimumVersion(): JServerVersion
   isMinimumVersionRespected(serverInfo?: JServerInfo): boolean
   getShortVersion(): string
   isStandardLoginAvailable(): boolean
