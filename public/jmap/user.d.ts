@@ -79,15 +79,12 @@ declare interface JOrganizationExternalApiKey {
   type: JORGANIZATION_EXTERNAL_API_KEY_TYPES
 }
 
-declare interface JJMapServerPasswordPolicyCompliance {
-  hasMinimumLength: boolean
-}
-
-declare interface JJMapCloudPasswordPolicyCompliance extends JJMapServerPasswordPolicyCompliance {
+declare interface JJMapCloudPasswordPolicyCompliance {
   hasLowercaseLetters: boolean
   hasUppercaseLetters: boolean
   hasNumbers: boolean
   hasSpecialCharacters: boolean
+  hasMinimumLength: boolean
 }
 
 // ALL_JORGANIZATION_EXTERNAL_API_KEY_TYPES in all-enum.ts

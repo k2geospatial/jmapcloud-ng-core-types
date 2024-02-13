@@ -129,19 +129,6 @@ declare namespace JMap {
      */
     function getVersion(): JServerVersion
 
-    /**
-     * **JMap.Server.getMinimumVersion**
-     *
-     * Returns the minimum server version required by NG to work fine.
-     *
-     * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
-     * // returns the minimum server version required by NG to work fine
-     * JMap.Server.getMinimumVersion()
-     * ```
-     */
-    function getMinimumVersion(): JMinimumServerVersion
 
     /**
      * **JMap.Server.isMinimumVersionRespected**
@@ -6470,7 +6457,7 @@ declare namespace JMap {
     /**
      * ***JMap.User.getPasswordPolicyCompliance***
      *
-     * Returns an object describing the password compliance with the platform's password policy (JMap Server or JMap Cloud)
+     * Returns an object describing the password compliance with the platform's password policy ( JMap Cloud)
      *
      * @example ```ts
      *
@@ -6489,7 +6476,7 @@ declare namespace JMap {
      */
     function getPasswordPolicyCompliance(
       password: string
-    ): JJMapServerPasswordPolicyCompliance | JJMapCloudPasswordPolicyCompliance
+    ): JJMapCloudPasswordPolicyCompliance
 
     /**
      * ***JMap.User.isPseudoUser***
