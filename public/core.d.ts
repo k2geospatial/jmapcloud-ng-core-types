@@ -129,7 +129,6 @@ declare namespace JMap {
      */
     function getVersion(): JServerVersion
 
-
     /**
      * **JMap.Server.isMinimumVersionRespected**
      *
@@ -456,6 +455,33 @@ declare namespace JMap {
      */
     function getById(layerId: JId, featureId: JId): Promise<GeoJSON.Feature>
 
+    /**
+     * **JMap.Feature.getByLayerId**
+     *
+     * Returns the feature (EPSG:4326 projection) for the given layer and bbox.
+     *
+     * @param layerId the JMap layer id
+     * @param bbox the bounding box
+     * @throws if layer not found or bbox is invalid
+     * @example ```ts
+     *
+     * // returns the feature of layer id="3" and bbox
+     * JMap.Feature.getByLayer(3, {
+     *   ne: {
+     *     x: -73.69935286533261,
+     *     y: 45.51487645603402
+     *   },
+     *   sw: {
+     *     x: -73.78637009135603,
+     *     y: 45.47581946298703
+     *   }
+     * })
+     *   .then(features => console.info("Features has been fetched", features))
+     *   .catch(error => console.error("An error occured", error))
+     * ```
+     */
+
+    function getByLayerId(layerId: JId, bbox: JBoundaryBox): Promise<GeoJSON.Feature[]>
     /**
      * **JMap.Feature.getByIds**
      *
@@ -6474,9 +6500,7 @@ declare namespace JMap {
      * /*
      * ```
      */
-    function getPasswordPolicyCompliance(
-      password: string
-    ): JJMapPasswordPolicyCompliance
+    function getPasswordPolicyCompliance(password: string): JJMapPasswordPolicyCompliance
 
     /**
      * ***JMap.User.isPseudoUser***
