@@ -709,14 +709,10 @@ export interface JMapService {
   setMapInfoControlVisibility(isVisible: boolean): void
   isMapInfoControlExpanded(): boolean
   setMapInfoControlExpansion(isExpanded: boolean): void
-  isLayerRendered(layerId: JId): boolean
-  getLayersVisibilityStatus(): JMapLayersVisibilityStatus
-  getLayersVisibilityStatusAsArray(): JMapLayerVisibilityStatus[]
   getMaplibreSupportedJMapLayerIds(): JId[]
   getMaplibreSupportedJMapLayerIdBefore(layerId: JId): JId | undefined
   getMaplibreSupportedJMapLayerIdAfter(layerId: JId): JId | undefined
   refreshLayerById(layerId: JId): void
-  getRenderedJMapLayerIds(): JId[]
   getRenderedFeatures(layerId: JId, params?: JLocation | JBoundaryBox | JCircle | JGetRenderedFeaturesParams): Feature[]
   getSourceFeatures(layerId: JId, params?: JGetSourceFeaturesParams): Feature[]
   getRenderedFeaturesAttributeValues(
@@ -826,8 +822,8 @@ export interface JMapFilterService {
 }
 
 export interface JProjectionService {
-  reprojectLocation(location: JLocation, toProjection: string, fromProjection?: string): JLocation
-  reprojectBoundaryBox(boundaryBox: JBoundaryBox, toProjection: string, fromProjection?: string): JBoundaryBox
+  reprojectLocation(location: JLocation, toProjection: string, fromProjection?: string): Promise<JLocation>
+  reprojectBoundaryBox(boundaryBox: JBoundaryBox, toProjection: string, fromProjection?: string): Promise<JBoundaryBox>
 }
 
 export interface JProjectService {

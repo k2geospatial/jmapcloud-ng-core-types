@@ -1860,20 +1860,16 @@ declare namespace JMap {
      *
      * Returns the extent of the layer in ESPG:4326 coordinates
      *
-     * With a JMap Cloud server, a call is made to the server.
-     *
-     * With a JMap 7 server, no call to server is made, returns the cached extent.
-     *
      * @example ```ts
      *
-     * // returns the bounding box (JBoundaryBox) of the layer ID 3 in decimal degrees
+     * // returns the bounding box (JBoundaryBox) of the layer ID "5d86a209-3a09-49d9-92f0-dce3c46bb23d" in decimal degrees
      * JMap.Layer
-     *  .getEPSG4326Extent(3)
-     *  .then(extent => console.info("Extent of layer id=3", extent))
+     *  .getEPSG4326Extent("5d86a209-3a09-49d9-92f0-dce3c46bb23d")
+     *  .then(extent => console.info("Extent of layer id=\"5d86a209-3a09-49d9-92f0-dce3c46bb23d\"", extent))
      *  .catch(error => console.error(error))
      * ```
      *
-     * @throws Error if no layer found for the id
+     * @throws Error if no layer found for the id or if layer is a group
      * @param layerId The JMap layer id
      */
     function getEPSG4326Extent(layerId: JId): Promise<JBoundaryBox | null>
@@ -3178,96 +3174,6 @@ declare namespace JMap {
     function getScaleControlPosition(): JMAP_POSITIONS
 
     /**
-     * **JMap.Map.isLayerRendered**
-     *
-     * Returns true if layer is visible on the map.
-     *
-     * To be true the layer visibility property has to be true,
-     * and the current map scale between the layer min and max scale.
-     *
-     * @example ```ts
-     *
-     * // returns true if layer is visible on the map
-     * JMap.Map.isLayerRendered(4)
-     * ```
-     */
-    function isLayerRendered(layerId: JId): boolean
-
-    /**
-     * **JMap.Map.getLayersVisibilityStatus**
-     *
-     * Returns layers visibility status.
-     *
-     * The result is a map (= javascript object) where :
-     *  - the key is the JMap layer id
-     *  - the value is a JMapLayersVisibilityStatus object
-     *
-     * A JMapLayersVisibilityStatus object has the following properties :
-     *  - layerId: the layer id
-     *  - layerName: the layer name
-     *  - isRendered: true if 'visibilityProperty', 'parentVisibility',
-     *                'scaleVisibility' and 'extentVisibility' are all true
-     *  - visibilityProperty: user can show or hide a layer
-     *  - parentVisibility: returns false if one of its group parent(s) has
-     *                      its visibility property equals to false
-     *  - scaleVisibility: returns false if at the current scale the layer
-     *                     cannot be displayed
-     *  - extentVisibility: returns false if the extent of the layer is not
-     *                      contains by the current view of the map
-     *
-     * @example ```ts
-     *
-     * // returns the visibility status
-     * JMap.Map.getLayersVisibilityStatus()
-     *
-     * // Example of result :
-     * {
-     *  1: { layerId: 1, layerName: "layer 1", isRendered: true, visibilityProperty: true, parentVisibility: true, scaleVisibility: true, extentVisibility: true }
-     *  2: { layerId: 2, layerName: "layer 2", isRendered: false, visibilityProperty: true, parentVisibility: true, scaleVisibility: false, extentVisibility: true }
-     *  3: { layerId: 3, layerName: "layer 3", isRendered: false, visibilityProperty: false, parentVisibility: true, scaleVisibility: false, extentVisibility: true }
-     *  4: { layerId: 4, layerName: "layer 4", isRendered: false, visibilityProperty: false, parentVisibility: false, scaleVisibility: false, extentVisibility: true }
-     *  5: { layerId: 5, layerName: "layer 5", isRendered: false, visibilityProperty: true, parentVisibility: true, scaleVisibility: true, extentVisibility: false }
-     * }
-     * ```
-     */
-    function getLayersVisibilityStatus(): JMapLayersVisibilityStatus
-
-    /**
-     * **JMap.Map.getLayersVisibilityStatusAsArray**
-     *
-     * Returns layers visibility status as an array of JMapLayersVisibilityStatus object.
-     *
-     * A JMapLayersVisibilityStatus object has the following properties :
-     *  - layerId: the layer id
-     *  - layerName: the layer name
-     *  - isRendered: true if 'visibilityProperty', 'parentVisibility',
-     *                'scaleVisibility' and 'extentVisibility' are all true
-     *  - visibilityProperty: user can show or hide a layer
-     *  - parentVisibility: returns false if one of its group parent(s) has
-     *                      its visibility property equals to false
-     *  - scaleVisibility: returns false if at the current scale the layer
-     *                     cannot be displayed
-     *  - extentVisibility: returns false if the extent of the layer is not
-     *                      contains by the current view of the map
-     *
-     * @example ```ts
-     *
-     * // returns the visibility status as an object array
-     * JMap.Map.getLayersVisibilityStatusAsArray()
-     *
-     * // Example of result :
-     * [
-     *  { layerId: 1, layerName: "layer 1", isRendered: true, visibilityProperty: true, parentVisibility: true, scaleVisibility: true, extentVisibility: true }
-     *  { layerId: 2, layerName: "layer 2", isRendered: false, visibilityProperty: true, parentVisibility: true, scaleVisibility: false, extentVisibility: true }
-     *  { layerId: 3, layerName: "layer 3", isRendered: false, visibilityProperty: false, parentVisibility: true, scaleVisibility: false, extentVisibility: true }
-     *  { layerId: 4, layerName: "layer 4", isRendered: false, visibilityProperty: false, parentVisibility: false, scaleVisibility: false, extentVisibility: true }
-     *  { layerId: 5, layerName: "layer 5", isRendered: false, visibilityProperty: true, parentVisibility: true, scaleVisibility: true, extentVisibility: false }
-     * ]
-     * ```
-     */
-    function getLayersVisibilityStatusAsArray(): JMapLayerVisibilityStatus[]
-
-    /**
      * **JMap.Map.getMaplibreSupportedJMapLayerIds**
      *
      * Returns all layer ids that are displayed by the map.
@@ -3333,23 +3239,6 @@ declare namespace JMap {
      * ```
      */
     function refreshLayerById(layerId: JId): void
-
-    /**
-     * **JMap.Map.getRenderedJMapLayerIds**
-     *
-     * Returns the ids of the layers that are displayed on the map.
-     *
-     * The Map JS library doesn't support all layer types defined on JMap Server.
-     *
-     * This function returns all layers ids that are managed by the map.
-     *
-     * @example ```ts
-     *
-     * // returns all layer ids that are managed by the map
-     * JMap.Map.getRenderedJMapLayerIds()
-     * ```
-     */
-    function getRenderedJMapLayerIds(): JId[]
 
     /**
      * **JMap.Map.getRenderedFeatures**
@@ -5975,7 +5864,7 @@ declare namespace JMap {
      * console.log("Long/lat location", longLatLocation)
      * ```
      */
-    function reprojectLocation(location: JLocation, toProjection: string, fromProjection?: string): JLocation
+    function reprojectLocation(location: JLocation, toProjection: string, fromProjection?: string): Promise<JLocation>
 
     /**
      * ***JMap.Projection.reprojectBoundaryBox***
@@ -6003,7 +5892,7 @@ declare namespace JMap {
       boundaryBox: JBoundaryBox,
       toProjection: string,
       fromProjection?: string
-    ): JBoundaryBox
+    ): Promise<JBoundaryBox>
   }
 
   /**
