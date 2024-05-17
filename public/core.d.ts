@@ -17,8 +17,8 @@ declare namespace JMap {
    *
    * Returns the JMap Cloud NG Core library build version.
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // returns the build version, for example "1.0.1"
    * JMap.getVersion()
    * ```
@@ -32,8 +32,8 @@ declare namespace JMap {
    *
    * For the same API version, multiple implementation versions can exist.
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // returns the API version, for example "1.0.1"
    * JMap.getApiVersion()
    * ```
@@ -45,8 +45,8 @@ declare namespace JMap {
    *
    * Returns the JMap library redux data store, an instance of Redux (https://redux.js.org/).
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // returns the JMap Cloud NG Core library Redux store
    * const reduxStore = JMap.getDataStore()
    * reduxStore.dispatch(...)
@@ -61,8 +61,8 @@ declare namespace JMap {
    *
    * This is the url on which the JMap Cloud NG Core library makes all of its ajax calls.
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // returns the JMap server rest URL in use
    * JMap.getRestUrl()
    * ```
@@ -74,8 +74,8 @@ declare namespace JMap {
    *
    * Open JMap Cloud NG Core library interface online documentation, in a new tab.
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // open JMap Cloud NG Core library online JS API documentation, in a new tab
    * JMap.openDocumentation()
    * ```
@@ -89,8 +89,8 @@ declare namespace JMap {
    *
    * Possible values returned are defined here {@link JOPERATING_SYSTEMS}.
    *
-   * @example ```ts
-   *
+   * @example
+   * ```ts
    * // returns "mac" if the OS is Mac OS
    * JMap.getOS()
    * ```
@@ -107,8 +107,8 @@ declare namespace JMap {
      *
      * Returns a string identifying the full version of the JMap Server to which JMap Cloud NG is currently connected to. Returns an empty string if the server is not yet connected.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // display in the console if the server is ready or not
      * console.log(JMap.Server.isReady() ? "Server is ready" : "Server is not ready")
      * ```
@@ -121,8 +121,8 @@ declare namespace JMap {
      * Returns the server version.
      *
      * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // display the server version
      * console.log("Server version:", JMap.Server.getVersion())
      * ```
@@ -135,8 +135,8 @@ declare namespace JMap {
      * Returns true if the current version of the server is lower than the minimum server version required by NG.
      *
      * @param serverInfo if not passed will use the current one
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Returns true if current server version is greater or equals than minimum server version
      * JMap.Server.isMinimumVersionRespected()
      * ```
@@ -149,8 +149,8 @@ declare namespace JMap {
      * Returns a normalized string identifying the major version of the JMap Server to which JMap Cloud NG is currently connected to. Returns an empty string if the server is not yet connected.
      *
      * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * console.log(JMap.Server.getShortVersion())
      * // "7_jakarta"
      * ```
@@ -163,8 +163,8 @@ declare namespace JMap {
      * Returns true is the standard JMap User Manager is available for authentication, false otherwise.
      *
      * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * console.log(JMap.Server.isStandardLoginAvailable())
      * // true
      * ```
@@ -178,8 +178,8 @@ declare namespace JMap {
      *
      * @throws if specified provider id is not valid or not found, or if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
      * @param providerId the provider identity id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * console.log(JMap.Server.getIdentityProviderById("idp-1"))
      * // {id: "idp-0", loginUrl: "https:// ....", ......}
      * ```
@@ -192,8 +192,8 @@ declare namespace JMap {
      * Returns all the Identity Provider supported by the system, in an object keyed by provider Id
      *
      * @throws if the server is not ready (info from server has not been fetched). Call JMap.Server.isReady() to know this information.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * console.log(JMap.Server.getAllIdentityProvidersById())
      * // {idp-0: {id: "idp-0", loginUrl: "https://[...]", ...}, ... }
      * ```
@@ -213,8 +213,8 @@ declare namespace JMap {
      *
      * @param layerId the JMap layer id
      * @param featureId the JMap feature id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Display the photos of feature id="345" in layer id="4"
      * JMap.Photo.displayFeaturePhotosPopup(4, 345)
      * ```
@@ -228,8 +228,8 @@ declare namespace JMap {
      *
      * @param photos your custom photos
      * @param params optional parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Display the photos of feature id="345" in layer id="4"
      * JMap.Photo.displayPhotosPopup(4, 345)
      * ```
@@ -241,8 +241,8 @@ declare namespace JMap {
      *
      * If displayed, close the photo popup
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Close the photo popup
      * JMap.Photo.closePhotoPopup()
      * ```
@@ -254,8 +254,8 @@ declare namespace JMap {
      *
      * Triggers a file download for a given photo id.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // download photo id="3"
      * JMap.Photo.downloadById(3)
      * ```
@@ -274,8 +274,8 @@ declare namespace JMap {
      *
      * Returns false if geocoding is not available. Geocoding may be unavailable based on your configuration in regards with the available API keys configured in your account
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns false if geocoding is unavailable
      * JMap.Geocoding.isAvailable()
      * ```
@@ -287,8 +287,8 @@ declare namespace JMap {
      *
      * Returns the search string length required to trigger a geocoding search
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the minimum search string length
      * JMap.Geocoding.getMinimumSearchStringLength()
      * // 3
@@ -301,8 +301,8 @@ declare namespace JMap {
      *
      * Returns a string composed of all forbiden characters in geocoding search strings
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the invalid characters
      * JMap.Geocoding.getInvalidSearchStringCharacters()
      * // ";"
@@ -321,8 +321,8 @@ declare namespace JMap {
      * @param options an optional JGeocodingOptions object
      * @throws If geocoding is not enabled, if the search string is too short or invalid, or if an unexpected error occurs
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // log a message in the console once the geocoding search has been completed
      * JMap.Event.Geocoding.on.success(
      *   "custom-geocoding-success",
@@ -344,8 +344,8 @@ declare namespace JMap {
      * @param forwardSearchResult A JGeocodingResult object
      * @throws If geocoding is not enabled, or if an unexpected error occurs
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Display on the map the first match received
      * JMap.Event.Geocoding.on.success(
      *   "custom-geocoding-success",
@@ -373,8 +373,8 @@ declare namespace JMap {
      *
      * Returns true if the browser support the geolocation
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the browser supports the geolocation
      * JMap.Geolocation.isSupportedByBrowser()
      * ```
@@ -388,8 +388,8 @@ declare namespace JMap {
      *
      * See startup parameter {@link JCoreOptions.geolocationEnabled}.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns false if geolocation is disabled
      * JMap.Geolocation.isEnabled()
      * ```
@@ -402,8 +402,8 @@ declare namespace JMap {
      * Returns the user current location if promise succeed.
      *
      * @throws if browser doesn't support geolocation, if geolocation is disabled, if an unexpected error occurs while getting location from browser
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns a promise that return the user current location if succeed
      * JMap.Geolocation.getMyLocation()
      *    .then(location => console.info("My location is ", location))
@@ -419,8 +419,8 @@ declare namespace JMap {
      *
      * @throws if browser doesn't support geolocation, if geolocation is disabled, if an unexpected error occurs while getting location from browser
      * @param options pan and zoom options
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // pan and zoom to the user location
      * JMap.Geolocation.goToMyLocation()
      *    .then(location => console.info("Paned and zommed to user location ", location))
@@ -444,8 +444,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param featureId the JMap feature id
      * @throws if layer or feature not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the feature of layer id="3" and feature id="4"
      * JMap.Feature
      *  .getById(3, 4)
@@ -463,8 +463,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param bbox the bounding box
      * @throws if layer not found or bbox is invalid
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the feature of layer id="36885146-7eed-4071-9f86-8e29c505af91" and bbox
      * JMap.Feature.getByLayer("36885146-7eed-4071-9f86-8e29c505af91", {
      *   ne: {
@@ -490,8 +490,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param featureIds the array of JMap feature ids
      * @throws if layer or any of the features  not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the features of layer id="3" and feature id="4", "5" and "6"
      * JMap.Feature
      *  .getByIds(3, [4, 5, 6])
@@ -508,8 +508,8 @@ declare namespace JMap {
      *
      * @param params contains the JMap layer id, the JMap feature id, and the geojson geometry
      * @throws if layer or feature not found, or if feature is invalid (undefined, wrong geometry type, etc ...)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const newGeometry = { ... }
      * // change the geometry of feature id="4" on layer id="3"
      * JMap.Feature
@@ -532,8 +532,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param featureId the JMap feature id
      * @throws if layer or feature not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // deletes the feature id="4" on layer id="3"
      * JMap.Feature
      *  .deleteById(3, 4)
@@ -551,8 +551,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param featureIds the JMap feature ids to delete
      * @throws if layer or feature not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // deletes 3 features on layer id="3"
      * JMap.Feature
      *  .deleteByIds(3, [4, 5, 16])
@@ -580,8 +580,8 @@ declare namespace JMap {
      * without refreshing the page.
      *
      * @param paramNames list of params to transform.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Ex. url is = ***http://localhost:8080/services/ng?foreign=true&ngProjectId=0&myvar=test***
      *
      * JMap.History.transformSearchParamsIntoHashParams(["ngProjectId", "myvar"])
@@ -596,8 +596,8 @@ declare namespace JMap {
      *
      * The same as clicking the back button of the browser
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // go to previous page
      * JMap.History.goBack()
      * ```
@@ -609,8 +609,8 @@ declare namespace JMap {
      *
      * The same as clicking the forward button of the browser
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // go to the next page if exist
      * JMap.History.goForward()
      * ```
@@ -627,8 +627,8 @@ declare namespace JMap {
      *
      * @throws Error if parameterName is not a valid string
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Ex. url = ***http://localhost:8080/services/ng#ngProjectId=0&myvar=test***
      *
      * JMap.History.getHashParameter("myvar")
@@ -646,8 +646,8 @@ declare namespace JMap {
      * Returns a JS object that contains all key / value entries present
      * in the hash of the url.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // get all parameters in the url hash
      * JMap.History.getHashParameters()
      *
@@ -666,13 +666,13 @@ declare namespace JMap {
      *
      * You can add or update a parameter in the url hash.
      *
-     * @param parameterName: the name of the parameter
-     * @param parameterValue: the string value of the parameter, only string are accepted.
+     * @param parameterName the name of the parameter
+     * @param parameterValue the string value of the parameter, only string are accepted.
      *
      * @throws Error if parameterName is not a valid string
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Ex. url is = ***http://localhost:8080/services/ng#ngProjectId=0***
      *
      * JMap.History.pushHashParameters("myvar", "test")
@@ -689,12 +689,12 @@ declare namespace JMap {
      *
      * Don't throw an error if the parameter doesn't exist.
      *
-     * @param parameterName: the name of the parameter
+     * @param parameterName the name of the parameter
      *
      * @throws Error if parameterName is not a valid string
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Ex. url is = ***http://localhost:8080/services/ng#ngProjectId=0&myvar=test***
      *
      * JMap.History.popHashParameters("myvar")
@@ -711,15 +711,15 @@ declare namespace JMap {
      *
      * The function returns the listener id that can be used after to remove the listener.
      *
-     * @param parameterName: the name of the parameter
-     * @param fn: the function that will be processed when the property changed
+     * @param parameterName the name of the parameter
+     * @param fn the function that will be processed when the property changed
      *
      * @returns the listener id, can be used to remove the listener with {@link JMap.History.removePropertyChangeListener}
      *
      * @throws Error if parameterName is not a valid string or fn is not a function
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const listenerId = JMap.History.onParameterChange("ngProjectId", (oldValue, newValue) => {
      *    console.log(`In the url hash the parameter "ngProjectId" has changed from "${oldValue}" to "${newValue}"`)
      * })
@@ -738,12 +738,12 @@ declare namespace JMap {
      *
      * After that the listener will be destroyed.
      *
-     * @param listenerId: the listener id
+     * @param listenerId the listener id
      *
      * @throws Error if parameterName is not a valid string or fn is not a function
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const listenerId = JMap.History.onParameterChange(...)
      * // the listener is working
      *
@@ -777,8 +777,8 @@ declare namespace JMap {
        * @returns a promise that will return all the features of the Layer corresponding to the search criteria
        * @throws Error if promise fails
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns all features that have the attribute "E"
        * JMap.Layer.Search
        *   .byAttribute({
@@ -806,8 +806,8 @@ declare namespace JMap {
        *
        * @throws Error if no layer found for the id, or if the layer is a layer group.
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns all thematics of layer id=4
        * JMap.Layer.Thematic.getAllByLayerId(4)
        * ```
@@ -822,8 +822,8 @@ declare namespace JMap {
        * @throws Error if no layer found for the id, if the layer is a layer group, or if the thematic doesn't exist.
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns thematic id=3 of layer id=4
        * JMap.Layer.Thematic.getById(4, 3)
        * ```
@@ -837,8 +837,8 @@ declare namespace JMap {
        *
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // test for thematic existence
        * JMap.Layer.Thematic.existsById(4, 3)
        * // false
@@ -853,8 +853,8 @@ declare namespace JMap {
        *
        * @throws Error if no layer found for the id, or if the layer is a layer group.
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns false if no thematic is displayed for layer id=4
        * JMap.Layer.Thematic.hasAnyVisibleByLayerId(4)
        * ```
@@ -868,8 +868,8 @@ declare namespace JMap {
        *
        * @throws Error if no layer found for the id, or if the layer is a layer group.
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the thematic(s) that are displayed on he map for layer id=4
        * JMap.Layer.Thematic.getAllVisibleByLayerId(4)
        * ```
@@ -885,8 +885,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
        * @param visibility true to show, false to hide
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Display the thematic id=3 of layer id=7
        * JMap.Layer.Thematic.setVisibilityById(7, 3, true)
        *
@@ -903,8 +903,8 @@ declare namespace JMap {
        *
        * @throws Error if any layer or thematic are not found
        * @param params An array of JLayerThematicSetVisibilityParams
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Display the thematic id=3 of layer id=7, and hide the thematic id=1 of layer id=14
        * JMap.Layer.Thematic.setThematicsVisibility([
        *    {layerId: 7, thematicId: 3, visibility: true},
@@ -921,8 +921,8 @@ declare namespace JMap {
        *
        * @throws Error if layer or thematic is not found, or if an invalid param is provided
        * @param params a {@link JLayerThematicSetCategoryVisibilityParams} object
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Hide the first category of thematic id=3 of layer id=7
        * JMap.Layer.Thematic.setCategoryVisibility({
        *    layerId: 7,
@@ -943,8 +943,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
        * @param visibility true to show, false to hide
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Hide all categories of thematic id=3 of layer id=7
        * JMap.Layer.Thematic.setAllCategoriesVisibility(
        *    layerId: 7,
@@ -964,8 +964,8 @@ declare namespace JMap {
        *
        * @throws Error if layer or thematic is not found, or thematic is not a style rule thematic, or if an invalid param is provided
        * @param params a {@link JLayerThematicSetConditionVisibilityParams} object
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Hide condition of thematic id="ac7b197c-ca14-4295-b349-8cba6a4dc631" of layer id="53ff7632-0d5e-497a-a1b0-25ce3f941023"
        * JMap.Layer.Thematic.setConditionVisibility({
        *    layerId: "53ff7632-0d5e-497a-a1b0-25ce3f941023",
@@ -988,8 +988,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
        * @param visibility true to show, false to hide
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Hide all conditions of thematic id="ac7b197c-ca14-4295-b349-8cba6a4dc631" of layer id="53ff7632-0d5e-497a-a1b0-25ce3f941023"
        * JMap.Layer.Thematic.setAllConditionsVisibility(
        *    layerId: "53ff7632-0d5e-497a-a1b0-25ce3f941023",
@@ -1008,8 +1008,8 @@ declare namespace JMap {
        * @throws Error if layer or thematic is not found, or if an invalid param is provided
        * @param layerId The JMap layer id
        * @param thematicId The thematic id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the family of thematic id=3 of layer id=7
        * let family = JMap.Layer.Thematic.getFamilyTypeById(
        *    layerId: 7,
@@ -1036,8 +1036,8 @@ declare namespace JMap {
        * For example raster layers don't support dynamic filter.
        *
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true if layer id=5 support dynamic filter, else false
        * JMap.Layer.DynamicFilter.isAvailable(5)
        * ```
@@ -1052,8 +1052,8 @@ declare namespace JMap {
        * Doesn't throw if the given layer doesn't support dynamic filter.
        *
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true if layer has dynamic filter, and filter is active
        * JMap.Layer.DynamicFilter.isActive(5)
        * ```
@@ -1068,8 +1068,8 @@ declare namespace JMap {
        * @throws Error if layer is not found
        * @param layerId The JMap layer id
        * @param isActive The new status of the filter
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the dynamic filter for layer id=5
        * JMap.Layer.DynamicFilter.setIsActive(5, true)
        *
@@ -1086,8 +1086,8 @@ declare namespace JMap {
        *
        * @throws Error if layer is not found
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the filter of layer id=3
        * const filter = JMap.Layer.DynamicFilter.getByLayerId(3)
        * console.log(filter)
@@ -1100,8 +1100,8 @@ declare namespace JMap {
        *
        * Returns the list of all availables operators
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the list of all available operators
        * const allOperators = JMap.Layer.DynamicFilter.getAllOperators()
        * console.log(allOperators)
@@ -1116,8 +1116,8 @@ declare namespace JMap {
        *
        * Warning: EQUALS, NOT_EQUALS are operators that takes an array of values, they act like "IN" or "NOT IN".
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the list of all operators that require two values
        * const allMultipleValuesOperators = JMap.Layer.DynamicFilter.getAllMultipleValuesOperators()
        * console.log(allMultipleValuesOperators)
@@ -1130,8 +1130,8 @@ declare namespace JMap {
        *
        * Returns the list of all operators that require two values (ex: IS_IN_RANGE, IS_NOT_IN_RANGE)
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the list of all operators that require two values
        * const allTwoValuesOperators = JMap.Layer.DynamicFilter.getAllTwoValuesOperators()
        * console.log(allTwoValuesOperators)
@@ -1144,8 +1144,8 @@ declare namespace JMap {
        *
        * Returns list of all operators available for a given attribute type.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the list of all operators that require two values
        * const operators = JMap.Layer.DynamicFilter.getOperatorsForAttributeType("number")
        * console.log("Available operators for attribute type:", operators)
@@ -1163,8 +1163,8 @@ declare namespace JMap {
        * It doesn't check the id of the condition.
        *
        * @param condition The condition to verify
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns a string error if the condition is not correct
        * const error = JMap.Layer.DynamicFilter.getConditionError({
        *  layerId: 3,
@@ -1187,8 +1187,8 @@ declare namespace JMap {
        * @throws if condition is not correct
        * @param condition The condition to verify
        * @param isUpdate tell if the check is for a creation or an update
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // log in console a message if this condition already exist
        * if (!JMap.Layer.DynamicFilter.existSimilarCondition(myCondition)) {
        *  console.log("Same condition values already exist")
@@ -1207,8 +1207,8 @@ declare namespace JMap {
        * It doesn't check the id of the condition.
        *
        * @param condition The condition to verify
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // log in console a message if the condition is not valid
        * if (!JMap.Layer.DynamicFilter.isConditionValid(myCondition)) {
        *  console.log("Condition is not valid")
@@ -1226,8 +1226,8 @@ declare namespace JMap {
        *
        * @param params the parameters
        * @throws if invalid params
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // set layer's id=3 dynamic filter
        * JMap.Layer.DynamicFilter.set([{
        *   layerId: 3,
@@ -1251,8 +1251,8 @@ declare namespace JMap {
        *
        * @throws Error if invalid condition
        * @param condition The dynamic filter condition to create
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const newCondition = {
        *  layerId: 3,
        *  attributeName: "city"
@@ -1272,8 +1272,8 @@ declare namespace JMap {
        *
        * @throws Error if invalid or not found condition
        * @param condition The dynamic filter condition to update
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const condition = getCondition()
        * condition.value = 3
        * JMap.Layer.DynamicFilter.updateCondition(condition)
@@ -1288,9 +1288,10 @@ declare namespace JMap {
        * Remove conditions for a given layer id and condition ids.
        *
        * @throws Error if JMap layer not found, if invalid array of id
-       * @param condition The dynaic filter condition
-       * @example ```ts
-       *
+       * @param layerId The JMap layer id
+       * @param conditionsIds The dynamic filter condition ids
+       * @example
+       * ```ts
        * // for layer id=3, remove 2 conditions (id 2 and 12)
        * JMap.Layer.DynamicFilter.removeConditions(3, [2, 12])
        * ```
@@ -1305,8 +1306,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param operator The operator to check
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns false
        * JMap.Layer.DynamicFilter.isNoValueOperator("IS_IN_RANGE")
        *
@@ -1330,8 +1331,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param operator The operator to check
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true
        * JMap.Layer.DynamicFilter.isMultipleValuesOperator("EQUALS")
        *
@@ -1355,8 +1356,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param operator The operator to check
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true
        * JMap.Layer.DynamicFilter.isTwoValuesOperator("IS_IN_RANGE")
        *
@@ -1376,8 +1377,8 @@ declare namespace JMap {
        * @param operator The operator to check
        * @param attributeType The attribute type
        * @param value the value, an array of value for IS_IN_RANGE operator
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns an error
        * const error = JMap.Layer.DynamicFilter.getConditionValueError("IS_IN_RANGE", "date", date1)
        *
@@ -1422,8 +1423,8 @@ declare namespace JMap {
        * @param operator The operator to check
        * @param attributeType The attribute type
        * @param value the value, an array of value for IS_IN_RANGE operator
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // if date1 is Date object, returns false
        * JMap.Layer.DynamicFilter.isConditionValueValid("IS_IN_RANGE", "date", date1)
        *
@@ -1452,8 +1453,7 @@ declare namespace JMap {
       function isConditionValueValid(
         operator: JLAYER_DYNAMIC_FILTER_OPERATORS,
         attributeType: JLAYER_ATTRIBUTE_TYPES,
-        value1?: any,
-        value2?: any
+        value?: any
       ): boolean
 
       /**
@@ -1464,8 +1464,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param attributeType The attribute type
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true
        * JMap.Layer.DynamicFilter.canAttributeTypeAcceptMultipleValuesOperators("string")
        *
@@ -1492,8 +1492,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param attributeType The attribute type
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns false
        * JMap.Layer.DynamicFilter.canAttributeTypeAcceptTwoValuesOperators("string")
        *
@@ -1520,8 +1520,8 @@ declare namespace JMap {
        * This function is safe, it throws nothing.
        *
        * @param attributeType The attribute type
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns an error
        * const error = JMap.Layer.DynamicFilter.getIsBetweenValuesError("number", 4, 2)
        *
@@ -1540,8 +1540,8 @@ declare namespace JMap {
        *
        * Returns the now value, used for date.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const nowValue = JMap.Layer.DynamicFilter.getNowValue()
        * console.log(`Now value is '${nowValue}'`) // display "Now value is 'Now'"
        * ```
@@ -1559,8 +1559,8 @@ declare namespace JMap {
        *  - "mo": months
        *  - "y": years
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const allUnits = JMap.Layer.DynamicFilter.getAllLastOperatorUnits()
        * console.log(`All unit for 'LAST' operator are: ${allUnits.join(", ")}`)
        * ```
@@ -1583,8 +1583,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns an empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the entire layer tree of the project
      * JMap.Layer.getLayerTree()
      * ```
@@ -1600,8 +1600,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns an empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the metadata schema
      * JMap.Layer.getMetadataSchema()
      * ```
@@ -1623,8 +1623,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns en empty object.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns a map of layer elements defined by layer id
      * JMap.Layer.getLayerTreeElementsById()
      * ```
@@ -1640,8 +1640,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns en empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all JMap layers
      * JMap.Layer.getLayers()
      * ```
@@ -1662,8 +1662,8 @@ declare namespace JMap {
      * JMap.Layer.getLayers().map(layer => layer.id)
      * ```
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all JMap layer ids
      * JMap.Layer.getLayerIds()
      * ```
@@ -1682,8 +1682,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns en empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all vector JMap layers
      * JMap.Layer.getVectorLayers()
      * ```
@@ -1707,8 +1707,8 @@ declare namespace JMap {
      * JMap.Layer.getVectorLayers().map(layer => layer.id)
      * ```
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all vector JMap layer ids
      * JMap.Layer.getVectorLayerIds()
      * ```
@@ -1722,8 +1722,8 @@ declare namespace JMap {
      *
      * @param layerId the JMap layer Id
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if layer id 5 is a vector layer
      * JMap.Layer.isVectorLayerById(5)
      * ```
@@ -1739,8 +1739,8 @@ declare namespace JMap {
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
      * @param attributeName The JMap attribute name
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns true if the attribute named "SPECIES" exist on layer id=4
      *  JMap.Layer.attributeExists(4, "SPECIES")
      * ```
@@ -1755,8 +1755,8 @@ declare namespace JMap {
      * @throws Error if layer or attribute not found
      * @param layerId The JMap layer id
      * @param attributeName The JMap attribute name
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns the layer attribute descriptor
      *  JMap.Layer.getLayerAttribute(4, "SPECIES")
      * ```
@@ -1770,8 +1770,8 @@ declare namespace JMap {
      *
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  JMap.Layer.getLayerAttributes(4)
      * ```
      */
@@ -1783,8 +1783,8 @@ declare namespace JMap {
      * Returns true if a layer having the id exists.
      *
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if layer id=3 exists
      * JMap.Layer.exists(3)
      * ```
@@ -1798,8 +1798,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the JMap layer id=3
      * JMap.Layer.getById(3)
      * ```
@@ -1817,8 +1817,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns an array with only JMap layers (no layer group)
      * JMap.Layer.getSelfOrChildren(3)
      * ```
@@ -1832,8 +1832,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the name of layer id=3
      * JMap.Layer.getName(3)
      * ```
@@ -1847,8 +1847,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the description of layer id=3
      * JMap.Layer.getDescription(3)
      * ```
@@ -1860,8 +1860,8 @@ declare namespace JMap {
      *
      * Returns the extent of the layer in ESPG:4326 coordinates
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the bounding box (JBoundaryBox) of the layer ID "5d86a209-3a09-49d9-92f0-dce3c46bb23d" in decimal degrees
      * JMap.Layer
      *  .getEPSG4326Extent("5d86a209-3a09-49d9-92f0-dce3c46bb23d")
@@ -1890,8 +1890,8 @@ declare namespace JMap {
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
      * @param checkParentVisibility If true will check if all parent elements have the property visible equals to true
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns false if layer id=3 is not set as visible
      * JMap.Layer.isVisible(3)
      * ```
@@ -1912,8 +1912,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id or of layer is not a vector layer
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns false if layer id=3 is not selectable
      * JMap.Layer.isSelectableById(3)
      * ```
@@ -1931,8 +1931,8 @@ declare namespace JMap {
      * @param layerId The JMap layer id
      * @param selectability The new selectability property value for the layer
      * @param ignoreVisibility If false or unspecified will make sure that the layer is visible
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // make layer id=5 selectable
      * JMap.Layer.setSelectabilityById(5, true)
      *
@@ -1958,8 +1958,8 @@ declare namespace JMap {
      *
      * @throws Error if any layer is not found for any of the ids, or if any of the layers is not a vector layer
      * @param params an array of JLayerSetLayersSelectabilityParams
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // show layers id=5 and 6, hide layer 3
      * JMap.Layer.setLayersSelectability([
      *    {layerId: 5, selectability: true},
@@ -1980,8 +1980,8 @@ declare namespace JMap {
      *
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if all parents of layer id=3 have the property visible set to true
      * JMap.Layer.isAllLayerParentsVisible(3)
      * ```
@@ -2006,8 +2006,8 @@ declare namespace JMap {
      * @throws Error if no layer found for the id
      * @param layerId The JMap layer id
      * @param isVisible The new visibility property value for the layer
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // show layer id=5
      * JMap.Layer.setVisible(5, true)
      *
@@ -2036,8 +2036,8 @@ declare namespace JMap {
      *
      * @throws Error if any layer is not found for any of the ids
      * @param params an array of JLayerSetLayersVisibilityParams
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // show layers id=5 and 6, hide layer 3
      * JMap.Layer.setLayersVisibility([
      *    {layerId: 5, visibility: true},
@@ -2056,8 +2056,8 @@ declare namespace JMap {
      *
      * @param layerId The JMap layer id
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // show layer id=5 (and all parent layers)
      * JMap.Layer.ensureLayerIsVisible(5)
      *
@@ -2073,8 +2073,8 @@ declare namespace JMap {
      *
      * @param layerIds An array of JMap layer ids
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // show layer ids 5, 6 and 7 (and all parent layers)
      * JMap.Layer.ensureLayersAreVisible([5, 6, 7])
      *
@@ -2090,8 +2090,8 @@ declare namespace JMap {
      * @throws Error if layer group is not found, or is not a layer group but a layer
      * @param layerGroupId The JMap layer group id
      * @param isExpanded if true will expand, if false will collapse the layer group
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Expand the layer group id -4
      * JMap.Layer.setLayerGroupExpansion(-4, true)
      * ```
@@ -2105,8 +2105,8 @@ declare namespace JMap {
      *
      * @throws Error if any layer group is not found for any group id, or if any group found is not a layer group but a layer
      * @param params An array of JLayerSetLayerGroupsExpansionParams
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Expand the layer group id -4, collapse group id -5
      * JMap.Layer.setLayerGroupsExpansion([{layerGroupId: -4, open: true}, {layerGroupId: -5, open: false}])
      * ```
@@ -2124,8 +2124,8 @@ declare namespace JMap {
      *
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Removes layer 4 (only client side)
      * JMap.Layer.deleteLayer(4)
      * ```
@@ -2139,8 +2139,8 @@ declare namespace JMap {
      *
      * @param layerId the JMap layer id
      * @throws if layerId not valid or layer not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if JMap layer id="3" has an information report set in JMap admin
      * JMap.Layer.hasInformationReport(3)
      * ```
@@ -2155,8 +2155,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param featureIds the JMap feature ids
      * @throws if layerId not valid or layer not found, or layer has no information report set, or featureIds is not an array or empty
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // open a new tab that display the information report of features ids=33 and 44, for layer id=3
      * JMap.Layer
      *  .openInformationReportInNewTab(3, [33, 44])
@@ -2181,8 +2181,8 @@ declare namespace JMap {
      * Throw an error if the provided parameter is not a valid location.
      *
      * @param location The location object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let location = { x: 10, y: 10 }
      * // The following instruction will not throw an error
      * JMap.Geometry.checkLocation(location)
@@ -2200,8 +2200,8 @@ declare namespace JMap {
      * Returns false if the provided parameter is not a valid location.
      *
      * @param location The location object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let location = { x: 10, y: 10 }
      * // The following instruction will return true
      * JMap.Geometry.isValidLocation(location)
@@ -2219,8 +2219,8 @@ declare namespace JMap {
      * Returns false if the provided parameter is not a valid boundary box.
      *
      * @param bbox The bbox object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let bbox = { sw: { x: 10, y: 10 }, ne: { x: 12, y: 12 } }
      * // The following instruction will return true
      * JMap.Geometry.isValidBbox(bbox)
@@ -2247,8 +2247,8 @@ declare namespace JMap {
      *
      * The ogcCompliant parameter ensures that the returned bbox will be expressed in the good form.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let bbox = { sw: { x: -190, y: 10 }, ne: { x: -170, y: 12 } }
      * // Normalize using OGC syntax
      * let normalizedBbox = JMap.Geometry.getNormalizedBbox(bbox, true)
@@ -2266,8 +2266,8 @@ declare namespace JMap {
      * Returns true if the provided geometry is valid.
      *
      * @param geometry The given geometry object to test
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true
      * JMap.Geometry.isValidGeometry({
      *   "type": "Point",
@@ -2288,8 +2288,8 @@ declare namespace JMap {
      * Throw an error if the provided parameter is not a valid circle.
      *
      * @param circle The circle object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let circle = { center: { x: 10, y: 10 }, radius: 10 }
      * // The following instruction will not throw an error
      * JMap.Geometry.checkCircle(circle)
@@ -2307,8 +2307,8 @@ declare namespace JMap {
      * Throw an error if the provided parameter is not a valid polygon.
      *
      * @param polygon The polygon array to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let polygon = [[ 10, 10 ], [ 11, 11 ], [ 12, 12 ], [ 10, 10 ]]
      * // The following instruction will not throw an error
      * JMap.Geometry.checkPolygon(polygon)
@@ -2326,8 +2326,8 @@ declare namespace JMap {
      * Throw an error if the provided parameter is not a valid polygon.
      *
      * @param line The line object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let line = [[ 10, 10 ], [ 11, 11 ], [ 12, 12 ]]
      * // The following instruction will not throw an error
      * JMap.Geometry.checkLine(line)
@@ -2345,8 +2345,8 @@ declare namespace JMap {
      * Throw an error if the provided parameter is not a valid boundary box.
      *
      * @param bbox The bbox object to check
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let bbox = { sw: { x: 10, y: 10 }, ne: { x: 12, y: 12 } }
      * // The following instruction will not throw an error
      * JMap.Geometry.checkBbox(bbox)
@@ -2368,8 +2368,8 @@ declare namespace JMap {
      * Throw an error if the provided feature geometry is not a Polygon or a MultiPolygon.
      *
      * @param feature The Polygon or MultiPolygon feature
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const feature = ...
      * // The method will return the area in m2
      * JMap.Geometry.getArea(feature)
@@ -2388,8 +2388,8 @@ declare namespace JMap {
      *
      * @param feature The LineString or MultiLineString feature to measure.
      * @param units Can be "degrees", "radians", "miles", or "kilometers" (default)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const line = ...
      *
      * // The method will return the line length in kilometers
@@ -2410,8 +2410,8 @@ declare namespace JMap {
      * Returns a point feature representing the centroid of the provided feature or featureCollection.
      *
      * @param feature a feature or a feature collection
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const polygonFeature = ...
      * // The method will return the centroid of "polygonFeature" as a point feature
      * JMap.Geometry.getCentroid(polygonFeature)
@@ -2425,8 +2425,8 @@ declare namespace JMap {
      * Returns a line feature from a line object ({@link JLine}).
      *
      * @param line A line array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const line = [[ 10, 12], [12, 23], [34, 12]]
      * // The method will return a line feature
      * const feature = JMap.Geometry.getFeatureFromLine(line)
@@ -2442,8 +2442,8 @@ declare namespace JMap {
      * @throws if the passed WKT is invalid
      * @param wkt a Well-Known Text geometry
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const wktPolygon = "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
      * // The method will return a polygon feature
      * const polygonFeature = JMap.Geometry.getFeatureFromWkt(wkt)
@@ -2458,8 +2458,8 @@ declare namespace JMap {
      *
      * @param circle A circle object
      * @param units unit of the radius
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const circle = [[ 10, 12], [12, 23], [34, 12], [ 10, 12]]
      * // The method will return a polygon feature
      * const feature = JMap.Geometry.getPolygonFeatureFromCircle(circle)
@@ -2473,8 +2473,8 @@ declare namespace JMap {
      * Returns a polygon feature from a polygon array ({@link JPolygon}).
      *
      * @param polygon A polygon array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const polygon = [[ 10, 12], [12, 23], [34, 12], [ 10, 12]]
      * // The method will return a polygon feature
      * const feature = JMap.Geometry.getFeatureFromPolygon(line)
@@ -2488,8 +2488,8 @@ declare namespace JMap {
      * Returns the feature geometry boundary box ({@link JBoundaryBox}).
      *
      * @param feature A feature object
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const feature = ...
      * // The method will return the feature geometry boundary box
      * const bbox = JMap.Geometry.getBboxFromFeature(feature)
@@ -2503,8 +2503,8 @@ declare namespace JMap {
      * Returns the boundary box that contains all features
      *
      * @param features array of features
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const features = ...
      * // returns the features bbox
      * const distance = JMap.Geometry.getBboxFromFeatures(features)
@@ -2518,8 +2518,8 @@ declare namespace JMap {
      * Returns the polygon boundary box.
      *
      * @param polygon A polygon array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const polygon = [[ 10, 12], [12, 23], [34, 12], [ 10, 12]]
      * // The method will return the polygon boundary box
      * const bbox = JMap.Geometry.getBboxFromPolygon(feature)
@@ -2533,8 +2533,8 @@ declare namespace JMap {
      * Returns the line boundary box.
      *
      * @param line A line array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const line = [[ 10, 12], [12, 23], [34, 12]]
      * // The method will return the line boundary box
      * const bbox = JMap.Geometry.getBboxFromLine(line)
@@ -2548,8 +2548,8 @@ declare namespace JMap {
      * Returns a polygon feature corresponding to the boundary box.
      *
      * @param boundaryBox A boundary box
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const bbox = { sw: { x: 10, y: 10 }, ne: { x: 20, y: 20 }}
      * // The method will return the polygon corresponding to the bbox
      * const polygonFeature = JMap.Geometry.getPolygonFeatureFromBbox(bbox)
@@ -2564,8 +2564,8 @@ declare namespace JMap {
      *
      * @param bbox1 The first boundary box
      * @param bbox2 The second boundary box
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const bbox1 = { sw: { x: 10, 10 }, sw: { x: 20, 20 }}
      * const bbox2 = { sw: { x: 12, 12 }, sw: { x: 14, 18 }}
      * // The method will return true
@@ -2581,8 +2581,8 @@ declare namespace JMap {
      *
      * @param polygonFeature A polygon feature
      * @param otherFeature A feature (can be not a polygon)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const polygonFeature = ...
      * const otherFeature = ...
      * // The method will return true if otherFeature intersect the polygonFeature
@@ -2598,8 +2598,8 @@ declare namespace JMap {
      *
      * @param lineFeature A line feature
      * @param otherFeature A feature (can be not a line)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const lineFeature = ...
      * const otherFeature = ...
      * // The method will return true if otherFeature intersect the lineFeature
@@ -2615,8 +2615,8 @@ declare namespace JMap {
      *
      * @param p1 the first point
      * @param p2 The second point
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the distance between the 2 points
      * const distance = JMap.Geometry.getDistance([ 10, 20 ], [ 30, 30 ])
      *
@@ -2632,8 +2632,8 @@ declare namespace JMap {
      * Returns a feature collection.
      *
      * @param features could be a collection of turf features, JMap locations, or JMap points
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the feature collection for the 2 points
      * const distance = JMap.Geometry.getFeatureCollection([ { x: 10, y: 20 }, { x: 30, y: 30 } ])
      * ```
@@ -2647,8 +2647,8 @@ declare namespace JMap {
      *
      * @param center Location of circle's center
      * @param radius The radius in KM
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the circle feature
      * const circle = JMap.Geometry.getCircleFeature([ 10, 20 ], 1.4)
      *
@@ -2667,8 +2667,8 @@ declare namespace JMap {
      *
      * @param coordinates the polygon coordinates (closed or not closed)
      * @param closeCoordinates if true will close the coordinates (if needed)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // will close the coordinates of the polygon and returns the feature
      * const distance = JMap.Geometry.getPolygonFeature([
      *    [ 10, 20 ],
@@ -2685,10 +2685,10 @@ declare namespace JMap {
      * Returns true if the geometry type match the Layer geometry type, else false.
      *
      * @param layerId the JMap layer id
-     * @param closeCoordinates the geometry type
+     * @param geometryType the geometry type
      * @throws if layer not found or layer is a layer group
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the layer id=3 has "Polygon" features, else false
      * const distance = JMap.Geometry.isGeometryTypeValidForLayer(3, "Polygon")
      * ```
@@ -2703,8 +2703,8 @@ declare namespace JMap {
      * @param feature the feature
      * @param angleInDegrees from -360 to 360 degrees
      * @throws if layer not found or layer is a layer group
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // 37 degrees rotation of the polygon
      * const polygon = ...
      * const rotatedPolygon = JMap.Geometry.getRotatedFeature(polygon, 37)
@@ -2721,8 +2721,8 @@ declare namespace JMap {
      * @param toUnit the output unit
      * @param fromUnit the input unit
      * @throws if invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns 2 kilometers in miles
      * JMap.Geometry.convertLength(2, "miles")
      *
@@ -2737,12 +2737,12 @@ declare namespace JMap {
      *
      * Converts the distance from a unit to another.
      *
-     * @param length the distance to convert
+     * @param area the area to convert
      * @param toUnit the output unit
      * @param fromUnit the input unit
      * @throws if invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns 2 square kilometers in square miles
      * JMap.Geometry.convertArea(2, "miles")
      *
@@ -2764,8 +2764,8 @@ declare namespace JMap {
      *
      * Returns the Maplibre map instance, a Maplibre map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the Maplibre map instance
      * JMap.Map.getMap()
      * ```
@@ -2779,8 +2779,8 @@ declare namespace JMap {
      *
      * Useful to be able to create a map library object, for instance a popup.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Create a Map popup
      * const myCustomPopup = JMap.Map.getMapJSLib().Popup({
      *   closeButton: false,
@@ -2795,8 +2795,8 @@ declare namespace JMap {
      *
      * Returns the map div container id, where the map is or will be created.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map div container id
      * JMap.Map.getDomContainerId()
      * ```
@@ -2808,8 +2808,8 @@ declare namespace JMap {
      *
      * Returns a list of all available distance units.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns list of all distance units
      * // ["millimeters", "centimeters", "meters", "kilometers", "inches", "feet", "yards", "miles", "nauticalmiles" ]
      * JMap.Map.getAllDistanceUnits()
@@ -2826,8 +2826,8 @@ declare namespace JMap {
      * if no distance unit is set on the project, it returns "meters" by default.
      *
      * @throws if no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns undefined if no distance unit, else the value
      * JMap.Map.getDistanceUnit()
      * ```
@@ -2843,8 +2843,8 @@ declare namespace JMap {
      *
      * @throws if bad distance unit is provided, or no project is loaded
      * @param distanceUnit the distance unit
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Set the distance unit to "miles"
      * JMap.Map.setDistanceUnit("miles")
      * ```
@@ -2856,8 +2856,8 @@ declare namespace JMap {
      *
      * Returns true if the map has been created.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true or false
      * JMap.Map.isMapCreated()
      * ```
@@ -2869,8 +2869,8 @@ declare namespace JMap {
      *
      * Returns true if the map has been loaded and is ready.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true or false
      * JMap.Map.isMapLoaded()
      * ```
@@ -2882,8 +2882,8 @@ declare namespace JMap {
      *
      * Returns the current map extent.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map extent
      * JMap.Map.getExtent()
      * ```
@@ -2895,8 +2895,8 @@ declare namespace JMap {
      *
      * Returns the location that is the current center of the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current center of the map
      * JMap.Map.getCenter()
      * ```
@@ -2908,8 +2908,8 @@ declare namespace JMap {
      *
      * Returns the current map zoom.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map zoom
      * JMap.Map.getZoom()
      * ```
@@ -2923,8 +2923,8 @@ declare namespace JMap {
      *
      * @throws if invalid JMap layer id or if JMap layer doesn't exist
      * @param layerId the JMap layer id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the source id of the JMap layer with id 4
      * JMap.Map.getMaplibreSourceIdByJMapLayerId(4)
      * ```
@@ -2936,8 +2936,8 @@ declare namespace JMap {
      *
      * Returns true if the Navigation History control is visible on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if control is displayed on the map
      * JMap.Map.isNavigationHistoryControlVisible()
      * ```
@@ -2950,8 +2950,8 @@ declare namespace JMap {
      * Changes the Navigation History control visibility on the map.
      *
      * @param isVisible true to display the Navigation History control, false to hide
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // displays the Navigation History control on the map
      * JMap.Map.setNavigationHistoryControlVisibility(true)
      *
@@ -2966,8 +2966,8 @@ declare namespace JMap {
      *
      * Returns true if the Map Rotation control is visible on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if control is displayed on the map
      * JMap.Map.isMapRotationControlVisible()
      * ```
@@ -2982,8 +2982,8 @@ declare namespace JMap {
      *
      * @param isVisible true to display the Map Rotation control, false to hide
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // displays the Map Rotation control on the map
      * JMap.Map.setMapRotationControlVisibility(true)
      *
@@ -2998,8 +2998,8 @@ declare namespace JMap {
      *
      * Returns true if the Map Info control is visible on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if control is displayed on the map
      * JMap.Map.isMapInfoControlVisible()
      * ```
@@ -3013,8 +3013,8 @@ declare namespace JMap {
      *
      * @param isVisible true to display the Map Info control, false to hide
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // displays the Map Info control on the map
      * JMap.Map.setMapInfoControlVisibility(true)
      *
@@ -3029,8 +3029,8 @@ declare namespace JMap {
      *
      * Returns true if the Map Info control is expanded.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if control is expanded
      * JMap.Map.isMapInfoControlExpanded()
      * ```
@@ -3044,8 +3044,8 @@ declare namespace JMap {
      *
      * @param isExpanded true to expand the control, false to minimise
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // expands the Map Info control
      * JMap.Map.setMapInfoControlExpansion(true)
      *
@@ -3060,8 +3060,8 @@ declare namespace JMap {
      *
      * Returns true if the scale control panel is visible on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if control is displayed on the map
      * JMap.Map.isScaleControlVisible()
      * ```
@@ -3073,8 +3073,8 @@ declare namespace JMap {
      *
      * Returns true if the map is associated with a terrain.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map is associated with a terrain
      * JMap.Map.isTerrainAvailable()
      * ```
@@ -3086,8 +3086,8 @@ declare namespace JMap {
      *
      * Returns true if the map is associated with an active terrain, false otherwise.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map is associated with an active terrain, false otherwise
      * JMap.Map.isTerrainActive()
      * ```
@@ -3102,8 +3102,8 @@ declare namespace JMap {
      * @param active whether to activate or deactivate the terrain
      * @throws Error is no terrain is available
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map is associated with a terrain
      * if(JMap.Map.isTerrainAvailable()){
      *    JMap.Map.setTerrainActive(true)
@@ -3121,8 +3121,8 @@ declare namespace JMap {
      *
      * @param isVisible true to display the scale control, false to hide
      * @param position the position on the map where to display the scale control.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Displays the scale control on the map
      * JMap.Map.setScaleControlVisibility(true)
      *
@@ -3138,8 +3138,8 @@ declare namespace JMap {
      * Changes the scale control units.
      *
      * @param units possible values : "imperial", "metric", or "nautical"
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Changes the scale control for imperial units
      * JMap.Map.setScaleControlUnits("imperial")
      * ```
@@ -3152,8 +3152,8 @@ declare namespace JMap {
      * Changes the scale control position on the map.
      *
      * @param position the position on the map where to display the scale control.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Moves the scale control on the top-left corner of the map
      * JMap.Map.setScaleControlPosition("top-left")
      * ```
@@ -3165,8 +3165,8 @@ declare namespace JMap {
      *
      * Returns the current scale control position on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Returns the current scale control position
      * JMap.Map.getScaleControlPosition()
      * ```
@@ -3182,8 +3182,8 @@ declare namespace JMap {
      *
      * This function returns all layers ids that are managed by the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns layer ids supported by the Map JS library
      * JMap.Map.getMaplibreSupportedJMapLayerIds()
      * ```
@@ -3198,8 +3198,8 @@ declare namespace JMap {
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
      * @returns the JMap layer id, or undefined if no layer before
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Returns the layer id that is located before layer id=4
      * JMap.Map.getMaplibreSupportedJMapLayerIdBefore(4)
      * ```
@@ -3214,8 +3214,8 @@ declare namespace JMap {
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
      * @returns the JMap layer id, or undefined if no layer after
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Returns the layer id that is located after layer id=3
      * JMap.Map.getMaplibreSupportedJMapLayerIdAfter(3)
      * ```
@@ -3232,8 +3232,8 @@ declare namespace JMap {
      * @throws Error if layer is not found
      * @param layerId The JMap layer id
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Refreshes layer id 4 on the map
      * JMap.Map.refreshLayerById(4)
      * ```
@@ -3256,8 +3256,8 @@ declare namespace JMap {
      * @param layerId The JMap layer id
      * @param params You can pass a location, a boundary box, or a circle (radius in km) or a JGetRenderedFeaturesParams. Will returns only features that intersect.
      * @return A features array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Returns all rendered geojson features for layer 4
      * JMap.Map.getRenderedFeatures(4)
      *
@@ -3301,8 +3301,8 @@ declare namespace JMap {
      * @param layerId The JMap layer id
      * @param params an optional JGetSourceFeaturesParams object
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const viewPort = JMap.Geometry.getPolygonFeature({
      *    type: "Polygon",
      *    coordinates: [
@@ -3336,8 +3336,8 @@ declare namespace JMap {
      * @param layerId The JMap layer id
      * @param filter You can pass a location, a boundary box, or a circle (radius in km). Will returns only features that intersect.
      * @return An object array
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all features attributes for layer 4
      * JMap.Map.getRenderedFeaturesAttributeValues(4)
      *
@@ -3369,8 +3369,8 @@ declare namespace JMap {
      *
      * @returns an array of JMapNavigationStep
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // get the navigation stack
      * const navStack: JMapNavigationStep[] = JMap.Map.getNavigationHistoryStack()
      * ```
@@ -3387,8 +3387,8 @@ declare namespace JMap {
      *
      * @returns The last JMapNavigationStep, or undefined if the stack is not rewindable anymore
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // navigate to the previous recorded map view
      * const lastStep: JMapNavigationStep | undefined = JMap.Map.undoLastNavigationStep()
      * ```
@@ -3400,8 +3400,8 @@ declare namespace JMap {
      *
      * Returns the current map pitch.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map pitch
      * JMap.Map.getPitch()
      * ```
@@ -3414,8 +3414,8 @@ declare namespace JMap {
      *
      * Returns the current map rotation angle.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map rotation
      * JMap.Map.getRotation()
      * ```
@@ -3429,8 +3429,8 @@ declare namespace JMap {
      *
      * @throws Error if the rotation angle is not between -360 to 360 degree
      * @param rotation the new degree of the rotation between -360 to 360
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Set 30 degrees rotation
      * JMap.Map.setRotation(30)
      * ```
@@ -3442,8 +3442,8 @@ declare namespace JMap {
      *
      * Returns the current map bearing angle.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map bearing
      * JMap.Map.getBearing()
      * ```
@@ -3457,8 +3457,8 @@ declare namespace JMap {
      *
      * @throws Error if the bearing angle is not between -360 to 360 degree
      * @param bearing the new degree of the bearing between -360 to 360
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Set 30 degrees bearing
      * JMap.Map.setBearing(30)
      * ```
@@ -3472,8 +3472,8 @@ declare namespace JMap {
      *
      * @throws Error if the pitch is not between 0 to 60 degree
      * @param pitch te new value of the pitch between 0 to 60
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Set 30 degrees pitch
      * JMap.Map.setPitch(30)
      * ```
@@ -3488,8 +3488,8 @@ declare namespace JMap {
      * @throws Error if no or incorrect center is passed
      * @param center The location where the map will be centered
      * @param stopJMapEventPropagation if true will prevent JMap events to be fired
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Move the map to the desired location
      * JMap.Map.panTo({ x: 45.34, y: 65.87 })
      * ```
@@ -3504,8 +3504,8 @@ declare namespace JMap {
      * @throws Error if no zoom is passed
      * @param zoom The zoom level to apply
      * @param options animation, zoom padding, stop event, etc ...
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Zoom or unzoom the map to reach the desired zoom level
      * JMap.Map.zoomTo(4.45)
      * ```
@@ -3520,8 +3520,8 @@ declare namespace JMap {
      * @throws Error if an invalid bbox is passed
      * @param bbox The boundary box to fit
      * @param options animation, zoom padding, stop event, etc ...
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Zoom or unzoom to fit exactly the boundary box
      * JMap.Map.zoomToRect({ sw: { x: 12, y: 34 }, ne: { x: 23, y: 32 }})
      * ```
@@ -3537,8 +3537,8 @@ declare namespace JMap {
      * @param center The location where the map will be centered
      * @param zoom The zoom level to apply
      * @param options animation, zoom padding, stop event, etc ...
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Move and zoom the map
      * JMap.Map.panAndZoomTo({ x: 45.34, y: 65.87 }, 5)
      * ```
@@ -3557,8 +3557,8 @@ declare namespace JMap {
      * If no object is passed, default values are reset with JMap Cloud NG Core default values.
      *
      * @param options animation, paddings, and maxZoom
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Set default values used by JMap Cloud NG Core
      * JMap.Map.setDefaultZoomOptions({
      *  animate: false,
@@ -3580,8 +3580,8 @@ declare namespace JMap {
      *
      * Navigate to a location on the map (animated)
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Navigate to a location on the map
      * JMap.Map.navigateTo({center: { x: 45.34, y: 65.87 }, zoom: 5, bearing: 170, pitch: 30, maplibreEventData: { stopJMapEventPropagation: true }})
      * ```
@@ -3596,8 +3596,8 @@ declare namespace JMap {
      * @throws Error if bad parameters are passed
      * @param features The features where the map will be centered
      * @param options parameter to customize the animation, padding, and/or maxZoomLevel
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // first select some features on layer id=3
      * const features = JMap.Map.Selection.getSelectedFeaturesForLayer(3) // returns layer id=3 selected features
      * // Move and zoom to display the features
@@ -3625,8 +3625,8 @@ declare namespace JMap {
      *
      * @param location a JLocation
      * @param options (see example)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // define a location in lat-lon coordinates
      * const locationToFlash = {x:-74.178, y:46.0455}
      * // define options
@@ -3670,8 +3670,8 @@ declare namespace JMap {
      *
      * @param locations an array of JLocations
      * @param options (see example)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // define locations in lat-lon coordinates
      * const locationsToFlash = [{x:-74.178, y:46.0455}, {x:-74.3, y:46.2}, {x:-74, y:46.2}]
      * // define options
@@ -3711,8 +3711,8 @@ declare namespace JMap {
      *
      * Immediatly remove all flashed locations on the map that have been displayed using {@link JMap.Map.flashLocation} or {@link JMap.Map.flashLocations}
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // flash a location indefinetly
      * JMap.Map.flashLocation({x:-74.178, y:46.0455})
      *
@@ -3732,8 +3732,8 @@ declare namespace JMap {
      * @param layerId a layer Id
      * @param params (see example)
      * @returns A promise boolean that is true if the layer has an extent or false otherwise.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Move to layer 4 extent and display it for a few second
      * JMap.Map.displayLayerExtent(4, {moveToExtent: true})
      * ```
@@ -3749,8 +3749,8 @@ declare namespace JMap {
      *
      * @param extent a boundary box
      * @param params (see example)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Move to the extent of my boundary box and display it for a few second
      * const myExtent = {sw: {x: -77,y: -37},ne: {x: 178,y: 58}}
      * JMap.Map.displayExtent(myExtent, {moveToExtent: true})
@@ -3768,8 +3768,8 @@ declare namespace JMap {
      * Note: screen DPI is fixed.
      *
      * @param params if passed will use the given values for latitude and zoom, else use map current values
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current resolution for current map latitude (center of the map) and zoom level
      * JMap.Map.getResolution()
      *
@@ -3792,8 +3792,8 @@ declare namespace JMap {
      * Note: screen DPI is fixed.
      *
      * @param params if passed will use the given values for latitude and zoom, else use map current values
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map scale
      * // for instance : "1 : 12959346"
      * JMap.Map.getScale()
@@ -3820,8 +3820,8 @@ declare namespace JMap {
      * Note: screen DPI is fixed.
      *
      * @param params if passed will use the given values for latitude and zoom, else use map current values
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map scale
      * JMap.Map.getScaleDenominator()
      *
@@ -3841,8 +3841,8 @@ declare namespace JMap {
      *
      * @param scaleDenominator must be greater than 0
      * @param options animation, zoom padding, stop event, etc ...
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // zooms or unzooms the map to reach the given map scale
      * JMap.Map.setScale(2344, { animate: true })
      * ```
@@ -3856,8 +3856,8 @@ declare namespace JMap {
      *
      * @param scaleDenominator must be greater than 0
      * @param latitude must be greater than 0
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the corresponding zoom level for the given scale 2344
      * JMap.Map.getZoomFromScale(2344)
      * ```
@@ -3870,8 +3870,8 @@ declare namespace JMap {
      * Returns the current map mouse cursor.
      *
      * @throws if the map is not ready
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current map mouse cursor
      * JMap.Map.getMouseCursor()
      * ```
@@ -3887,8 +3887,8 @@ declare namespace JMap {
      *
      * @throws if the map is not ready
      * @param cursor the mouse cursor
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // set the map mouse cursor as "move"
      * JMap.Map.setMouseCursor("move")
      *
@@ -3906,8 +3906,8 @@ declare namespace JMap {
      *
      * Opens a popup in order to change the current map center.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // opens a popup in order to change the current map center.
      * JMap.Map.openModificationPopupForCenter()
      * ```
@@ -3919,8 +3919,8 @@ declare namespace JMap {
      *
      * Opens a popup in order to change the current map scale.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // opens a popup in order to change the current map scale.
      * JMap.Map.openModificationPopupForScale()
      * ```
@@ -3932,8 +3932,8 @@ declare namespace JMap {
      *
      * If opened, close the map change popup (for center/scale), else do nothing.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // if opened, closes the map change popup (for center/scale), else does nothing
      * JMap.Map.closeModificationPopup()
      * ```
@@ -3948,8 +3948,8 @@ declare namespace JMap {
      * @throws Error if layer not found or not a raster layer
      * @param layerId The JMap layer id
      * @returns the current transparency value
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns the transparency of raster layer id=4
      *  JMap.Map.getRasterLayerTransparency(4)
      * ```
@@ -3964,8 +3964,8 @@ declare namespace JMap {
      * @throws Error if layer not found or not a raster layer
      * @param layerId The JMap layer id
      * @returns the initial transparency value
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns the initial transparency of raster layer id=4
      *  JMap.Map.getRasterLayerInitialTransparency(4)
      * ```
@@ -3980,8 +3980,8 @@ declare namespace JMap {
      * @throws Error if layer is not found, not a raster layer or transparency is invalid
      * @param layerId The JMap layer id
      * @param transparency the new layer transparency between 0 and 1
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Make raster layer id=10 transparent
      * JMap.Map.setRasterLayerTransparency(10, 1)
      * ```
@@ -4023,8 +4023,8 @@ declare namespace JMap {
      * @throws Error if layer is not found or not a raster layer
      * @param layerId The JMap layer id
      * @returns the initial transparency value
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Make raster layer id=3 transparent
      * JMap.Map.setRasterLayerTransparency(10, 1)
      * // Reset to its initial opacity
@@ -4089,8 +4089,8 @@ declare namespace JMap {
        * @param id The new interactor id.
        * @param interactor The map interactor object
        * @param active If true will activate the new interactor after being added
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // add a new interactor
        * JMap.Map.Interaction.addInteractor("my-custom-pin", { ...mapInteractor }, false)
        *
@@ -4111,8 +4111,8 @@ declare namespace JMap {
        *
        * @throws Error if interactor is not found
        * @param interactorId The interactor id to terminate
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // terminate interactor id="custom-selection"
        * JMap.Map.Interaction.terminateInteractorById("custom-selection")
        * ```
@@ -4124,8 +4124,8 @@ declare namespace JMap {
        *
        * Returns all existing interactor ids.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns all existing interactor ids
        * JMap.Map.Interaction.getAllInteractorIds()
        * ```
@@ -4137,8 +4137,8 @@ declare namespace JMap {
        *
        * Returns the active interactor id.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Returns the active interactor descriptor
        * JMap.Map.Interaction.getActiveInteractorId()
        * ```
@@ -4154,8 +4154,8 @@ declare namespace JMap {
        *
        * @throws Error if interactor is not found
        * @param interactorId The interactor id to activate
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Activate the JMAP defined interactor "draw"
        * JMap.Map.Interaction.activateInteractorById("draw")
        * ```
@@ -4183,8 +4183,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param attributeId The JMap attribute id
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render only features having attribute "name" for layer 4
        * JMap.Map.Filter.applyHasAttribute(4, "name")
        * ```
@@ -4203,8 +4203,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param attributeId The JMap attribute id
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will hide features having attribute "name" for layer 4
        * JMap.Map.Filter.applyHasNotAttribute(4, "name")
        * ```
@@ -4223,8 +4223,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "name" equals to "Aquarius" for layer 4
        * JMap.Map.Filter.applyAttributeValueEqualTo(4, "name", "Aquarius")
        * ```
@@ -4245,8 +4245,8 @@ declare namespace JMap {
        * @param start The min value
        * @param start The max value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render only features having "level" greater or equals to 2 and lower or equals to 10 for layer 4
        * JMap.Map.Filter.applyAttributeValueBetween(4, "level", 2, 10)
        * ```
@@ -4265,8 +4265,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will hide features having "name" equals "Aquarius" for layer 4
        * JMap.Map.Filter.applyAttributeValueNotEqualTo(4, "name", "Aquarius")
        * ```
@@ -4285,8 +4285,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" strictly greater than 2 for layer 4
        * JMap.Map.Filter.applyAttributeValueGreaterThan(4, "level", 2)
        * ```
@@ -4305,8 +4305,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" greater or equals to 2 for layer 4
        * JMap.Map.Filter.applyAttributeValueGreaterOrEqualsTo(4, "level", 2)
        * ```
@@ -4325,8 +4325,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" strictly lower to 5 for layer 4
        * JMap.Map.Filter.applyAttributeValueLowerThan(4, "level", 5)
        * ```
@@ -4345,8 +4345,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValue The attribute value
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" lower or equals to 5 for layer 4
        * JMap.Map.Filter.applyAttributeValueLowerOrEqualsTo(4, "level", 5)
        * ```
@@ -4365,8 +4365,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValues The attribute values to match
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" equals to 4 or 5, for layer 4
        * JMap.Map.Filter.applyAttributeValueIn(4, "level", [ 4, 5 ])
        * ```
@@ -4385,8 +4385,8 @@ declare namespace JMap {
        * @param attributeId The JMap attribute id
        * @param attributeValues The attribute values to match
        * @returns The filter id. By example for layer 4 and attribute 'on_off' => "attribute-4-on_off"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features having "level" not equals to 4 or 5, for layer 4
        * JMap.Map.Filter.applyAttributeValueNotIn(4, "level", [ 4, 5 ])
        * ```
@@ -4404,8 +4404,8 @@ declare namespace JMap {
        * @param layerId The JMap layer id
        * @param filterGeometry The geometry that is the area to search. Can be a circle or a polygon.
        * @returns The filter id. By example for layer 4 => "spatial-4"
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Will render features that intersect the circle of radius 500 (in km) centered at location x=20 and y=10.
        * JMap.Map.Filter.applySpatial(4, { radius: 500, center: { x: 20, y: 10 }})
        *
@@ -4421,8 +4421,8 @@ declare namespace JMap {
        * Remove the filter on the map following the filter id passed in parameter.
        *
        * @param filterId The filter id. The one you get when you call a filter method that starts with apply.
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Remove spatial filter on layer 3
        * JMap.Map.Filter.removeByFilterId("spatial-3")
        *
@@ -4438,8 +4438,8 @@ declare namespace JMap {
        * Remove all spatial and attributes filters for layer.
        *
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Remove all filters (spatial + attribute) for layer 3
        * JMap.Map.Filter.removeAllFilters(3)
        * ```
@@ -4464,8 +4464,8 @@ declare namespace JMap {
        *
        * If at least one feature is selected on one layer, returns false.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Returns true if no selection is made for all layers.
        * JMap.Map.Selection.isEmpty()
        * ```
@@ -4479,8 +4479,8 @@ declare namespace JMap {
        *
        * If at least one feature is selected on the layer, returns false.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Returns true if no selection is made for layer id 5.
        * JMap.Map.Selection.isEmptyByLayerId(5)
        * ```
@@ -4494,8 +4494,8 @@ declare namespace JMap {
        * @param selection a JMapSelection object
        * @returns a JLocation representing the centroid of the selection
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // get the current selected features by layer id
        * const selection = JMap.Map.Selection.getSelectedFeatures()
        *
@@ -4514,8 +4514,8 @@ declare namespace JMap {
        *  - the key is the layer element id
        *  - the value is an array of feature (an empty array if layer doesn't have features selected)
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the current selected features by layer id
        * JMap.Map.Selection.getSelectedFeatures()
        * ```
@@ -4528,8 +4528,8 @@ declare namespace JMap {
        * Returns the current selected features for a specific JMap layer.
        *
        * @returns an array of GeoJSON features
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the current selected features for layer 3
        * JMap.Map.Selection.getSelectedFeaturesForLayer(3)
        * ```
@@ -4549,8 +4549,8 @@ declare namespace JMap {
        *    .map(feature => feature.id)
        * ```
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the current selected feature ids for layer 3
        * JMap.Map.Selection.getSelectedFeatureIdsForLayer(3)
        * ```
@@ -4569,8 +4569,8 @@ declare namespace JMap {
        * @param location The location where you want feature selection
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The features array
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for layer id=4, at the location in params
        * JMap.Map.Selection.selectOnOneLayerAtLocation(4, { x: 34.23, y: 55.5 })
        * ```
@@ -4591,8 +4591,8 @@ declare namespace JMap {
        * @param circle The circle
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The features array
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for layer id=4,
        * // selecting features intersecting the circle
        * JMap.Map.Selection.selectOnOneLayerFromCircle(
@@ -4620,8 +4620,8 @@ declare namespace JMap {
        * @param line The line
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The features array
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for layer id=4,
        * // selecting features that intersect the line
        * JMap.Map.Selection.selectOnOneLayerFromLine(
@@ -4646,8 +4646,8 @@ declare namespace JMap {
        * @param polygon The line
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The features array
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for layer id=4, selecting features intersecting the line
        * JMap.Map.Selection.selectOnOneLayerFromPolygon(
        *   4, // The layer id
@@ -4677,8 +4677,8 @@ declare namespace JMap {
        * @param location The location where you want feature selection
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The new feature selection
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for all layers, at the location in params
        * JMap.Map.Selection.selectOnAllLayersAtLocation({ x: 34.23, y: 55.5 })
        * ```
@@ -4694,8 +4694,8 @@ declare namespace JMap {
        * @param circle The circle
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The new feature selection
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for all layers,
        * // select all features that intersect the circle
        * JMap.Map.Selection.selectOnAllLayersFromCircle({
@@ -4715,8 +4715,8 @@ declare namespace JMap {
        * @param line The line
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The new feature selection
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for all layers,
        * // select all features that intersect the line
        * JMap.Map.Selection.selectOnAllLayersFromLine([
@@ -4737,8 +4737,8 @@ declare namespace JMap {
        * @param polygon The polygon
        * @param params selection parameters, see {@link JMapSelectionParams}
        * @returns The new feature selection
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Process a selection on the map for all layers,
        * // select all features that intersect the polygon
        * JMap.Map.Selection.selectOnAllLayersFromPolygon([
@@ -4761,8 +4761,8 @@ declare namespace JMap {
        * @throws Error if layer is not found or features format is not good
        * @param layerId The JMap layer id
        * @param features The new selection. This is what will be selected on the map
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // will select feature (id = 234) of layer 4 on the map
        * JMap.Map.Selection.setLayerSelection(4, {
        *  id: 234,
@@ -4801,8 +4801,8 @@ declare namespace JMap {
        *
        * @throws Error if any layer is not found for any of the ids, or if any of the layers is not a vector layer or if the params array is either not an array or an empty array
        * @param params an array of JSelectionSetLayersSelectionParams
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // set selection on layers id=5 and 6. Layer 6 selection will be emptied (empty array passed)
        * JMap.Map.Selection.setLayersSelection([
        *    {layerId: 5, selectability: [...features...]},
@@ -4823,8 +4823,8 @@ declare namespace JMap {
        * @throws Error if layer is not found or features format is not good
        * @param layerId The JMap layer id
        * @param features The feature(s) that will be selected on the map
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Add one feature (id = 234) to layer 4 selection
        * JMap.Map.Selection.addFeaturesToLayerSelection(4, {
        *  id: 234,
@@ -4862,8 +4862,8 @@ declare namespace JMap {
        * @throws Error if layer is not found or feature id(s) format is not good
        * @param layerId The JMap layer id
        * @param featureIds The feature id(s) that will be remove from the layer selection
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Remove one feature (id = "234") from layer 4 selection
        * JMap.Map.Selection.removeFeaturesFromLayerSelection(4, "234")
        *
@@ -4882,8 +4882,8 @@ declare namespace JMap {
        *
        * @throws Error if a layer id is provided but not found
        * @param layerId The JMap layer id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Clear selection of layer 4
        * JMap.Map.Selection.clearSelection(4)
        *
@@ -4900,8 +4900,8 @@ declare namespace JMap {
        *
        * @throws Error if a layer id is provided but not found
        * @param layerIds The JMap layer ids passed as an array
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Clear selection of layer 4, 5 and 6
        * JMap.Map.Selection.clearLayersSelection([4, 5, 6])
        * ```
@@ -4920,8 +4920,8 @@ declare namespace JMap {
        * OSM value is : "osm-standard"
        *
        * @returns an array of string, the available basemap ids
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns an array of string containing all available basemap ids
        * JMap.Map.Basemap.getAllIds()
        * ```
@@ -4935,8 +4935,8 @@ declare namespace JMap {
        *
        * Can be disabled with option disableBasemaps {@link JCoreOptions} in JS options, or with url param "ngDisableBasemaps=true".
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Map.Basemap.isDisabled()
        * ```
        */
@@ -4947,8 +4947,8 @@ declare namespace JMap {
        *
        * Returns true if a basemap is active on the map.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Map.Basemap.activateById("streets")
        *
        * // returns true
@@ -4967,8 +4967,8 @@ declare namespace JMap {
        *
        * Returns true if the basemap id is a mapbox basemap.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true
        * JMap.Map.Basemap.isMapboxId("mapbox-streets")
        *
@@ -4983,8 +4983,8 @@ declare namespace JMap {
        *
        * Returns true if the basemap id is an Open Street Map basemap.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true
        * JMap.Map.Basemap.isOSMId("osm-standard")
        *
@@ -4999,8 +4999,8 @@ declare namespace JMap {
        *
        * Returns the active basemap id, undefined is no basemap is activated.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the active basemap id, undefined is no basemap is activated
        * JMap.Map.Basemap.getActiveId()
        * ```
@@ -5014,8 +5014,8 @@ declare namespace JMap {
        *
        * @throws Error if basemap not found for the given id
        * @param basemapId The basemap id, use JMap.Map.Basemap.getAllId() to get available basemap ids
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Activate the basemap "streets"
        * JMap.Map.Basemap.activateById("streets")
        *
@@ -5031,8 +5031,8 @@ declare namespace JMap {
        * Returs true if basemap exist for the given id.
        *
        * @param basemapId The basemap id, use JMap.Map.Basemap.getAllId() to get available basemap ids
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true if "streets" basemap exist
        * JMap.Map.Basemap.existsById("streets")
        * ```
@@ -5046,8 +5046,8 @@ declare namespace JMap {
        *
        * @throws Error if basemap not found for the given id
        * @param basemapId The basemap id, use JMap.Map.Basemap.getAllId() to get available basemap ids
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the "streets" basemap
        * JMap.Map.Basemap.getById("streets")
        * ```
@@ -5061,8 +5061,8 @@ declare namespace JMap {
        *
        * Do nothing if no map is active.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Deactivate current basemap
        * JMap.Map.Basemap.deactivate()
        * ```
@@ -5080,8 +5080,8 @@ declare namespace JMap {
        * @param basemap The basemap descriptor
        * @param activate if true create the basemap and activate it
        * @param beforeId if provided, add the basemap before the given id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // add an osm basemap
        * JMap.Map.Basemap.add({
        *   id: "osm",
@@ -5119,8 +5119,8 @@ declare namespace JMap {
        *
        * @throws if missing basemap parameter
        * @param basemapId the basemap id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Remove the "streets" basemap
        * JMap.Map.Basemap.removeById("streets")
        * ```
@@ -5136,9 +5136,9 @@ declare namespace JMap {
        *
        * If the active basemap is removed, no basemap will be displayed anymore.
        *
-       * @param basemapId the basemap id
-       * @example ```ts
-       *
+       * @param basemapIds the basemap ids
+       * @example
+       * ```ts
        * // Remove two basemaps
        * JMap.Map.Basemap.removeByIds([ "streets", "lights" ])
        * ```
@@ -5152,8 +5152,8 @@ declare namespace JMap {
        *
        * Returns all attributions displayed on the map.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Get all attributions currently displayed.
        * const attributions = JMap.Map.Attribution.getAll()
        *
@@ -5168,8 +5168,8 @@ declare namespace JMap {
        *
        * @throws Errors if some parameters are invalid, or if an attribution having the same id already exists
        * @param attribution the attribution to add to the map
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Add a link attribution on the map.
        * JMap.Map.Attribution.addSingle({ id: "link-test", text: "© HelloWorld", href:"https://k2geospatial.com/jmap-en/"})
        *
@@ -5191,8 +5191,8 @@ declare namespace JMap {
        *
        * @throws Errors if invalid parameters, or if an attribution having the same id already exists
        * @param attributions an array of attributions
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Add two custom attributions on the map.
        * JMap.Map.Attribution.addMultiple([{ id: "custom-attribution-0",
        *  text: "© K2Geospatial",
@@ -5211,8 +5211,8 @@ declare namespace JMap {
        *
        * @throws Error if attributionsIds is not an array
        * @param attributionsIds array of attribution ids to remove
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Remove a custom attribution from the map.
        * JMap.Map.Attribution.removeByIds(["my-attribution"])
        *
@@ -5226,8 +5226,8 @@ declare namespace JMap {
        * Returns an attribution for the given id
        *
        * @param attributionId The attribution id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Display a mapbox attribution.
        * console.log(JMap.Map.Attribution.getById("mapbox-satellite-1-attribution"))
        *
@@ -5241,8 +5241,8 @@ declare namespace JMap {
        * Returns true if the given id is reserved
        *
        * @param attributionId The attribution id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // Display if "custom-attribution" is a reserved id
        * console.log(JMap.Map.Attribution.isDefaultAttributionId("custom-attribution"))
        *
@@ -5272,8 +5272,8 @@ declare namespace JMap {
      *
      * Returns true if the mouseover popup is visible on the map, else false.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the mouseover popup is visible on the map
      * JMap.MouseOver.openPopup()
      * ```
@@ -5285,8 +5285,8 @@ declare namespace JMap {
      *
      * Close the mouseover popup if it's visible on the map, else do nothing.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // close the mouseover popup if it's visible on the map.
      * JMap.MouseOver.closePopup()
      */
@@ -5297,8 +5297,8 @@ declare namespace JMap {
      *
      * Displays a given html content in a popup at a given location on the map
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // open a popup at location lon=45.5 & lat=-73.5, that display the message "This is an example"
      * JMap.MouseOver.openPopup({
      *  html: "<div style='margin-top: 1rem; background-color:#ff8888'>This is an example</div>",
@@ -5316,8 +5316,8 @@ declare namespace JMap {
      *
      * @throws Error if the user-defined location is invalid or if the pan-to option is not a boolean
      * @param params A JMouseOverOpenPopupForSelectionParams object
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // display a MouseOver popup using the current selection and a custom location
      * const currentSelection = JMap.Map.Selection.getSelectedFeatures()
      * const myLocation = {x:-73, y:46}
@@ -5339,8 +5339,8 @@ declare namespace JMap {
      * @param containerId The div id where to display the mouseover content
      * @param location The location on the map where you want to select features and display mouseover for
      * @return true if we displayed content in the div, false if no mouseover found for any layer
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Display in the div id="my-custom-div" the content of mouseover
      * // if features has been found at the location x=34.44 and y=23.44
      * JMap.MouseOver.renderForFeaturesAtLocation("my-custom-div", { x: 34.44, y: 23.44 })
@@ -5358,8 +5358,8 @@ declare namespace JMap {
      * @param containerId The div id where to display the mouseover content
      * @param selection A feature selection, the mouseover will be processed only for this features
      * @return true if we displayed content in the div, false if no mouseover found for any layer
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Display in the div id="my-custom-div" the content of mouseover for the provided selection
      * JMap.MouseOver.renderForFeaturesSelection("my-custom-div", {
      *  4: [ // selection for layer 4
@@ -5382,10 +5382,10 @@ declare namespace JMap {
      *
      * Display information report for all features that are displayed in the mouseover.
      *
-     * @param projectId The JMap project id
+     * @param layerId The JMap layer id
      * @throws if mouseover doesn't display any feature for the given layer
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // open the information report related to layer id=3
      * JMap.MouseOver.openInformationReportInNewTab(2)
      * ```
@@ -5405,8 +5405,8 @@ declare namespace JMap {
      *
      * If no project is loaded, returns empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // This is asynchronous code, getAllProject returns a promise that is
      * // resolved after the server returned all project data.
      * JMap.Project
@@ -5425,8 +5425,8 @@ declare namespace JMap {
      * Returns true if project exist for the given project id.
      *
      * @param projectId The JMap project id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the project id = 2 exists, else false
      * JMap.Project.existsById(2)
      * ```
@@ -5439,8 +5439,8 @@ declare namespace JMap {
      * Returns true if project exist for the given project name.
      *
      * @param projectName The JMap project name
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the project "My Project" exists, else false
      * JMap.Project.existsByName("My Project")
      * ```
@@ -5454,8 +5454,8 @@ declare namespace JMap {
      *
      * @param projectId The JMap project id
      * @throws error if the project doesn't exists or if projectId is not a valid JMap Id.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Get Project id 2
      * const project = JMap.Project.getById(2)
      * console.log("Project '" + project.name + "' is loaded")
@@ -5470,8 +5470,8 @@ declare namespace JMap {
      *
      * @param projectName The JMap project name
      * @throws error if the project doesn't exists or if projectName is not a string.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Get project "My Project"
      * const project = JMap.Project.getByName("My Project")
      * console.log("Project id '" + project.id + "' is loaded")
@@ -5484,8 +5484,8 @@ declare namespace JMap {
      *
      * Returns true if a JMap project is active, that means a project is selected and displayed on the map.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if a project is active
      *  JMap.Project.hasProjectActivated()
      *  ```
@@ -5499,8 +5499,8 @@ declare namespace JMap {
      *
      * If no project is active, the object returned has an id equals to -1.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the active project
      * const activeProject = JMap.Project.getActiveProject()
      * if (activeProject.id === -1) {
@@ -5518,8 +5518,8 @@ declare namespace JMap {
      * Returns loaded JMap project id.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the currently loaded project id
      * JMap.Project.getId()
      * ```
@@ -5532,8 +5532,8 @@ declare namespace JMap {
      * Returns loaded JMap project name.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the currently loaded project name
      * JMap.Project.getName()
      * ```
@@ -5546,8 +5546,8 @@ declare namespace JMap {
      * Returns the project distance unit, or "meters" if no distance unit is set on the project.
      *
      * @throws if no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns "meters", or "kilometers", or "miles", or "yards"...
      * JMap.Project.getDefaultDistanceUnit()
      * ```
@@ -5560,8 +5560,8 @@ declare namespace JMap {
      * Returns the project map unit.
      *
      * @throws if no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // return "meters", or "kilometers", or "miles", or "yards"...
      * JMap.Project.getMapUnit()
      * ```
@@ -5574,8 +5574,8 @@ declare namespace JMap {
      * Returns loaded JMap project description.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the currently loaded project description
      * JMap.Project.getDescription()
      * ```
@@ -5591,8 +5591,8 @@ declare namespace JMap {
      * defined projection (so it can be different than ***ESPG:3857***).
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project projection
      * JMap.Project.getProjection()
      * ```
@@ -5606,8 +5606,8 @@ declare namespace JMap {
      * This rotation is the one applied when the project is opened.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project initial rotation
      * JMap.Project.getInitialRotation()
      * ```
@@ -5623,8 +5623,8 @@ declare namespace JMap {
      * don't have a specific selection style defined.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project selection color as a html hexa color
      * JMap.Project.getSelectionColor()
      * ```
@@ -5638,8 +5638,8 @@ declare namespace JMap {
      * This color is used as the background of the map.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project background color as a html hexa color
      * JMap.Project.getBackgroundColor()
      * ```
@@ -5653,8 +5653,8 @@ declare namespace JMap {
      * This is the extent that is automatically displayed when the project is opened.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project initial extent if exists
      * JMap.Project.getInitialExtent()
      * ```
@@ -5672,8 +5672,8 @@ declare namespace JMap {
      * If no thumbnail has been loaded it returns an empty string.
      *
      * @throws If no project is loaded
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the project initial extent if exists
      * JMap.Project.getInitialExtent()
      * ```
@@ -5690,8 +5690,8 @@ declare namespace JMap {
      * @throws Error missing project id or if project is not found
      * @param projectId The JMap project id
      * @return a promise that is resolved when the project has been loaded successfully
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * try {
      *   // activate project id=2
      *   const project = JMap.Project.activateById(2)
@@ -5711,10 +5711,10 @@ declare namespace JMap {
      * User session rigths are checked server side and an error is thrown if user doesn't have the access right for the project.
      *
      * @throws if missing project name or if project not found
-     * @param projectIdOrName The JMap project name
+     * @param projectName The JMap project name
      * @return the project
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * try {
      *   // activate project name="My city"
      *   const project = JMap.Project.activateByName("My city")
@@ -5735,8 +5735,8 @@ declare namespace JMap {
      *  - In JMap Cloud NG Core : nothing is displayed on screen.
      *  - In JMap Cloud NG : project list selection is displayed.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // deactivate the current project.
      * JMap.Project.deactivate()
      * ```
@@ -5754,8 +5754,8 @@ declare namespace JMap {
      *
      * @throws if params are not correct
      * @param params width (0 < width < 1280) and height (0 < height < 720) for the thumbnails
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Will load all projects thumbnail images
      * JMap.Project
      *    .loadAllProjectThumbnails({
@@ -5783,8 +5783,8 @@ declare namespace JMap {
      *
      * It becomes true, if option "disableProjectChange" is set to true, and a project has been activated.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // We assert that :
      * //  - the option "disableProjectChange" is true
      * //  - no project is yet activated, no map is displayed.
@@ -5808,8 +5808,8 @@ declare namespace JMap {
      *
      * Can be used in a project extention for instance, to override the behaviour of this parameter inherited from startup options for the current user session.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // enable project change
      * if (JMap.Project.isChangeDisabled()) {
      *    JMap.Project.setChangeEnabled()
@@ -5825,8 +5825,8 @@ declare namespace JMap {
      *
      * Can be used in a project extention for instance, to override the behaviour of this parameter inherited from startup options for the current user session.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // disable project change
      * if (!JMap.Project.isChangeDisabled()) {
      *    JMap.Project.setChangeDisabled()
@@ -5851,8 +5851,8 @@ declare namespace JMap {
      * @param toProjection the desired output projection (EPSG code)
      * @param fromProjection projection of the given location, by default the project projection (EPSG code)
      * @throws if invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the location in long/lat
      * const longLatLocation = await JMap.Projection.reprojectLocation({
      *    x: -8251305.053809433,
@@ -5875,8 +5875,8 @@ declare namespace JMap {
      * @param toProjection the desired output projection (EPSG code)
      * @param fromProjection projection of the given location, by default the project projection (EPSG code)
      * @throws if invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the boundary box in long/lat
      * const longLatBbox = await JMap.Projection.reprojectBoundaryBox({
      *    x: -8251305.053809433,
@@ -5908,8 +5908,8 @@ declare namespace JMap {
      *
      * Else returns "-1" if user has no active session.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the user session token
      * JMap.User.getToken()
      * ```
@@ -5921,8 +5921,8 @@ declare namespace JMap {
      *
      * Returns user full name.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the user full name, ex : "John Do"
      * JMap.User.getFullName()
      * ```
@@ -5934,8 +5934,8 @@ declare namespace JMap {
      *
      * Returns the username (the one used to login).
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the username
      * JMap.User.getUsername()
      * ```
@@ -5950,8 +5950,8 @@ declare namespace JMap {
      *
      * @param name the name of the preference
      * @returns a Promise that resolves with the value from the user storage (or null if the preference is not set).
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let prefName = "jmapcloud-ng-core-basemap"
      * JMap.User
      *  .getPreference(prefName)
@@ -5970,8 +5970,8 @@ declare namespace JMap {
      *
      * @returns a Promise that resolves with true if a value has been set for the user preference, else false
      * @param name the name of the preference
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let prefName = "jmapcloud-ng-core-basemap"
      * JMap.User
      *  .hasPreference(prefName)
@@ -6015,8 +6015,8 @@ declare namespace JMap {
      * @param name the name of the preference
      * @param value the value that will be associated to the name
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * let prefName = "jmapcloud-ng-core-basemap"
      *
      * // Set the value "light" for user preference "jmapcloud-ng-core-basemap"
@@ -6046,9 +6046,10 @@ declare namespace JMap {
      *   - ***"user.login.error.unexpected"*** => Unexpected error client side
      *
      * @throws Error if bad credentials or server error.
-     * @param session The user session data
-     * @example ```ts
-     *
+     * @param login The user's username
+     * @param password The user's password
+     * @example
+     * ```ts
      * const userLogin = "jdo@mycompany.com"
      * const userPassword = "xxx"
      *
@@ -6075,8 +6076,8 @@ declare namespace JMap {
      *
      * @throws Error if user is not authenticated
      * @param organizationId
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const userLogin = "jdo@mycompany.com"
      * const userPassword = "xxx"
      *
@@ -6108,8 +6109,8 @@ declare namespace JMap {
      *
      * Logs in the user using the specified Identity Provider. See {@link JMap.Server.getAllIdentityProvidersById} for info about Identity providers
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // fetch all Identity Providers
      * const allProviders = JMap.Server.getAllIdentityProvidersById()
      * // { idp-1: { id: "idp-1", type: "sso", ..... } }
@@ -6131,8 +6132,8 @@ declare namespace JMap {
      *   - ***"user.logout.error.server"*** => Unexpected error while requesting the server
      *   - ***"user.logout.error.unexpected"*** => Unexpected error client side
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Close the user session client and server side
      * JMap.User
      *    .logout()
@@ -6148,8 +6149,8 @@ declare namespace JMap {
      *
      * Returns true if a user is logged in.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if a user is logged in
      * JMap.User.isLoggedIn()
      * ```
@@ -6220,10 +6221,10 @@ declare namespace JMap {
      *  }
      *}
      * ```
-     * @param session The user session token (legacy) or a refresh token (JMap Cloud)
+     * @param token The user session token (legacy) or a refresh token (JMap Cloud)
+     * @param organizationId The JMap Cloud organization id
      * @example
      * ```ts
-     *
      * // Set the user session token for JMap server
      * JMap.User.setToken("23558109")
      *  .then(userData => {
@@ -6262,8 +6263,8 @@ declare namespace JMap {
      *
      * This function returns all custom informations.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all user infos
      * JMap.User.getAllInfos()
      * ```
@@ -6277,8 +6278,8 @@ declare namespace JMap {
      *
      * @param info The user info
      * @throws if info is not an object, if an attribute is missing or invalid type, if "id" already exists
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // add a user information
      * JMap.User.addInfo({
      *  id: "role",
@@ -6295,8 +6296,8 @@ declare namespace JMap {
      * Remove a user info, from the redux store (JMap Cloud NG Core) and in the user panel (JMap Cloud NG).
      *
      * @param infoId The user info id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // remove the user information "role"
      * JMap.User.removeInfo("role")
      * ```
@@ -6312,8 +6313,8 @@ declare namespace JMap {
      *
      * @throws Error if full name is not a string or is empty.
      * @param newFullName The user's new full name.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // change the user's full name
      * JMap.User.changeFullName("John Doe")
      *   .then(() => console.info("Full name changed successfully"))
@@ -6332,8 +6333,8 @@ declare namespace JMap {
      *  - strength is not high enough (JMap Cloud - at least 8 characters, at least one lowercase letter, one uppercase letter, one number, and one special character)
      * @param newPassword The user new password
      * @param currentPassword The user current password
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // change the password to warl3pE with a current password, grl83n5
      * JMap.User.changePassword("warl3pE", "grl83n5")
      * .then(() => console.info("Password changed successfully"))
@@ -6347,8 +6348,8 @@ declare namespace JMap {
      *
      * Returns the minumum password length defined in JMap Cloud NG Core
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the minimum password length
      * const MINIMUM_PASSWORD_LENGTH = JMap.User.getMinimumPasswordLength()
      * ```
@@ -6360,8 +6361,8 @@ declare namespace JMap {
      *
      * Returns true if the password complies with the platform's password policy (JMap Server or JMap Cloud), false otherwise.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // test a password
      * JMap.User.isPasswordCompliant("password")
      * // false
@@ -6374,8 +6375,8 @@ declare namespace JMap {
      *
      * Returns an object describing the password compliance with the platform's password policy ( JMap Cloud)
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // evaluate a password
      * JMap.User.getPasswordPolicyCompliance("password")
      * /*
@@ -6396,8 +6397,8 @@ declare namespace JMap {
      *
      * Returns true if the currently logged in user is a JMap pseudo user (ex: system, anonymous, etc...).
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if current user is a pseudo user
      * JMap.User.isPseudoUser()
      * ```
@@ -6413,8 +6414,8 @@ declare namespace JMap {
      *
      * Organizations are only defined when connected to a JMap Cloud server instance.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns user's organization id
      * JMap.User.getOrganizationId()
      * ```
@@ -6428,8 +6429,8 @@ declare namespace JMap {
      *
      * Organizations are only defined when connected to a JMap Cloud server instance.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the user's organization
      * JMap.User.getOrganization()
      * ```
@@ -6448,8 +6449,8 @@ declare namespace JMap {
      *
      * Get the list of all available locales as an array of string.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Language.getLocales()
      * // ["fr", "en", ......]
      * ```
@@ -6461,8 +6462,8 @@ declare namespace JMap {
      *
      * Get the current locale.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current locale
      * JMap.Language.getLocale()
      * // ex: "fr"
@@ -6476,8 +6477,8 @@ declare namespace JMap {
      * Returns the format for date-fns library.
      *
      * @param displayTime true to return the format including the time
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the format for date-fns library without datetime
      * JMap.Language.getDateFnsLocale()
      *
@@ -6492,8 +6493,8 @@ declare namespace JMap {
      *
      * Get the default locale used by JMap Cloud NG. This locale can be used when a translation is not available in the current locale, for instance.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the default locale
      * JMap.Language.getDefaultLocale()
      * // "en"
@@ -6509,8 +6510,8 @@ declare namespace JMap {
      * @throws if locale is invalid
      * @param locale the new locale to use
      * 
-     * @example ```ts
-     * 
+     * @example
+     * ```ts
      * // Supported locales can be retrieved by calling JMap.Language.getLocales()
      * const locale = "fr"
      * JMap.Language.setLocale(locale)
@@ -6530,8 +6531,8 @@ declare namespace JMap {
      * @throws if bundle is invalid or already defined
      * @param bundle a {@link JTranslationBundle} object
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Supported locales can be retrieved by calling JMap.Language.getLocales()
      *
      * const bundle = {
@@ -6572,8 +6573,8 @@ declare namespace JMap {
      * @throws if bundle id is not correct or if bundle not found
      * @param bundleId the id of the bundle to retrieve
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Language.getBundleById("my-custom-bundle")
      * // {id: "my-custom-bundle", defaultLocale: "fr",   ...}
      * ```
@@ -6585,8 +6586,8 @@ declare namespace JMap {
      *
      * Returns the list of bundle ids used by the JMap Cloud NG translation engine
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Language.getAllBundleIds()
      * // ["jmapcloud-ng-core", "jmapcloud-ng", "my-custom-bundle", ...]
      * ```
@@ -6598,8 +6599,8 @@ declare namespace JMap {
      *
      * Returns an bbject of all the translation bundles loaded in JMap Cloud NG at the moment of the call, indexed by id
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Language.getBundles()
      * // { "my-custom-bundle": {id: "my-custom-bundle", defaultLocale: "fr",   ...}, ....}
      * ```
@@ -6617,8 +6618,8 @@ declare namespace JMap {
      *
      * @param params a JTranslateParams object
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Supported locales can be retrieved by calling JMap.Language.getLocales()
      *
      * const bundle = {
@@ -6651,8 +6652,8 @@ declare namespace JMap {
      *
      * Returns true if the current locale has a AM/PM setting for time format (08:00 PM), as opposed to a 24 hours format (20:00)
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the default locale
      * JMap.Language.setLocale("fr")
      * console.log(JMap.Language.is12HoursTimeFormat())
@@ -6668,8 +6669,8 @@ declare namespace JMap {
      *
      * @param locale the locale to be tested
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * console.log(JMap.Language.isValidLocale("fr"))
      * // true
      * console.log(JMap.Language.isValidLocale("ch"))
@@ -6683,8 +6684,8 @@ declare namespace JMap {
      *
      * Returns the date format associated with the current locale (specific to the date-fns JS library)
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the default locale
      * JMap.Language.setLocale("fr")
      * console.log(JMap.Language.getDateFnsDateFormat())
@@ -6720,8 +6721,8 @@ declare namespace JMap {
      *
      * @throws if no project is loaded, if the passed search string is not a string or if it contains invalid characters.
      * @param queryString the search string to be used
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * ```
      */
     function setQueryString(queryString: string): void
@@ -6731,8 +6732,8 @@ declare namespace JMap {
      *
      * Returns the query string length required to trigger a simple search
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the minimum search string length
      * JMap.SimpleSearch.getMinimumQueryStringLength()
      * // 1
@@ -6745,8 +6746,8 @@ declare namespace JMap {
      *
      * Returns a string composed of all forbidden characters in simple search strings.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the invalid characters
      * JMap.SimpleSearch.getInvalidQueryStringCharacters()
      * // "<>"
@@ -6779,8 +6780,8 @@ declare namespace JMap {
      *
      * @param layerId the JMap layer id
      * @param queryId the query id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // initializes query id="layers/2/attribute-queries/3" form of layer id=2, then returns the filled query
      * JMap.Query.initializeQueryFormById(2, "layers/2/attribute-queries/3")
      *  .then(query => console.log("Query form has been loaded", query))
@@ -6794,8 +6795,8 @@ declare namespace JMap {
      *
      * Returns all query groups defined by JMap administrator.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all query groups defined by JMap administrator
      * JMap.Query.getAllGroups()
      * ```
@@ -6809,8 +6810,8 @@ declare namespace JMap {
      *
      * @throws if group id is not correct (invalid format or no resource exists)
      * @param groupId The JMap query group id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if group exists
      * JMap.Query.groupExist(21)
      * ```
@@ -6824,8 +6825,8 @@ declare namespace JMap {
      *
      * @param groupId The JMap query group id
      * @param queryId The JMap query id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if query id=5 of group id=10 exists
      * JMap.Query.queryExist(10, 5)
      * ```
@@ -6839,8 +6840,8 @@ declare namespace JMap {
      *
      * @param layerId The JMap layer id
      * @throws if layer id is not correct (invalid format or no resource exists)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all queries of layer id=12
      * JMap.Query.getQueriesByLayerId(12)
      * ```
@@ -6855,8 +6856,8 @@ declare namespace JMap {
      * @throws if layer or query ids are not correct (invalid format or no resource exists)
      * @param layerId The JMap layer id
      * @param queryId The JMap query id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns query id=3 of layer id=12
      * JMap.Query.getQueryByLayerId(12, 3)
      * ```
@@ -6870,8 +6871,8 @@ declare namespace JMap {
      *
      * @throws if group id is not correct (invalid format or no resource exists)
      * @param groupId The JMap query group id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all queries of group id=10
      * JMap.Query.getQueriesByGroupId(10)
      * ```
@@ -6886,8 +6887,8 @@ declare namespace JMap {
      * @throws if group or query ids are not correct (invalid format or no resource exists)
      * @param groupId The JMap query group id
      * @param queryId The JMap query id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the query id=5 of group id=10
      * JMap.Query.getQueryByGroupId(10, 5)
      * ```
@@ -6903,8 +6904,8 @@ declare namespace JMap {
      * @param layerId The JMap layer id
      * @param queryId The JMap query id
      * @param data The form data (values mapping the query form definition)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns a promise that when resolved returns the result of the search,
      * // an array of features, for layer id=3 and query id=5.
      * JMap.Query
@@ -6966,8 +6967,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the core library is loaded
          * JMap.Event.Main.on.coreReady(
          *   "custom-core-ready",
@@ -6990,8 +6991,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console when a fatal error occurs
          * JMap.Event.Main.on.fatalError(
          *   "custom-core-fatal-error",
@@ -7019,8 +7020,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-main-listener"
        * JMap.Event.Main.activate("my-main-listener")
        * ```
@@ -7037,8 +7038,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-main-listener"
        * JMap.Event.Main.deactivate("my-main-listener")
        * ```
@@ -7055,8 +7056,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-main-listener"
        * JMap.Event.Main.remove("my-main-listener")
        * ```
@@ -7085,8 +7086,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a query form has been fetched from server.
          * JMap.Event.Query.on.queryFormLoad(
          *   "custom-query-form-load",
@@ -7103,8 +7104,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the button submit is clicked.
          * JMap.Event.Query.on.beforeSubmit(
          *   "custom-query-before-submit",
@@ -7121,8 +7122,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the server has responded
          * JMap.Event.Query.on.success(
          *   "custom-query-success",
@@ -7141,8 +7142,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console if a query error occured
          * JMap.Event.Query.on.error(
          *   "custom-query-error",
@@ -7163,8 +7164,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-query-listener"
        * JMap.Event.Query.activate("my-query-listener")
        * ```
@@ -7181,8 +7182,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-query-listener"
        * JMap.Event.Query.deactivate("my-query-listener")
        * ```
@@ -7199,8 +7200,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-query-listener"
        * JMap.Event.Query.remove("my-query-listener")
        * ```
@@ -7229,8 +7230,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the geocoding search has been completed
          * JMap.Event.Geocoding.on.success(
          *   "custom-geocoding-success",
@@ -7247,8 +7248,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console if a geocoding search error occured
          * JMap.Event.Geocoding.on.error(
          *   "custom-geocoding-error",
@@ -7269,8 +7270,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-geocoding-listener"
        * JMap.Event.Geocoding.activate("my-geocoding-listener")
        * ```
@@ -7287,8 +7288,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-geocoding-listener"
        * JMap.Event.Geocoding.deactivate("my-geocoding-listener")
        * ```
@@ -7305,8 +7306,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-geocoding-listener"
        * JMap.Event.Geocoding.remove("my-geocoding-listener")
        * ```
@@ -7335,8 +7336,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the simple search has been completed
          * JMap.Event.SimpleSearch.on.success(
          *   "custom-simple-search-success",
@@ -7353,8 +7354,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console if a simple search error occured
          * JMap.Event.SimpleSearch.on.error(
          *   "custom-simple-search-error",
@@ -7375,8 +7376,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-simple-search-listener"
        * JMap.Event.SimpleSearch.activate("my-simple-search-listener")
        * ```
@@ -7393,8 +7394,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-simple-search-listener"
        * JMap.Event.SimpleSearch.deactivate("my-simple-search-listener")
        * ```
@@ -7411,8 +7412,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-simple-search-listener"
        * JMap.Event.SimpleSearch.remove("my-simple-search-listener")
        * ```
@@ -7438,8 +7439,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log server info in the console, once the server has responded
          * JMap.Event.Server.on.infoReady(
          *   "custom-server-info-ready",
@@ -7460,8 +7461,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-server-listener"
        * JMap.Event.Server.activate("my-server-listener")
        * ```
@@ -7478,8 +7479,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-server-listener"
        * JMap.Event.Server.deactivate("my-server-listener")
        * ```
@@ -7496,8 +7497,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-server-listener"
        * JMap.Event.Server.remove("my-server-listener")
        * ```
@@ -7530,8 +7531,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered before a map-context is created or updated
          * JMap.Event.MapContext.on.beforeMapDataChange("my-before-map-data-changed-listener", params => {
          *   console.info(`Before map data changed for context id="${params.context.title}"`, params.context)
@@ -7564,8 +7565,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered after a map-context is created or updated
          * JMap.Event.MapContext.on.afterMapDataChange("my-after-map-data-change-listener", params => {
          *   console.info(`After map data change for context id="${params.context.title}"`, params.context)
@@ -7593,8 +7594,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered before a map-context is applied
          * JMap.Event.MapContext.on.beforeApply("my-before-apply-listener", params => {
          *   console.info(`Before apply map context id="${params.context.title}"`, params.context)
@@ -7618,8 +7619,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered after a map-context is applied
          * JMap.Event.MapContext.on.afterApply("my-after-apply-listener", params => {
          *   console.info(`After apply map context id="${params.context.title}"`, params.context)
@@ -7641,8 +7642,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered after a map-context error occurs
          * JMap.Event.MapContext.on.applyError("my-apply-error-listener", params => {
          *   console.info(`An error occured while applying map context id="${params.context.title}"`, params.context)
@@ -7658,8 +7659,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Triggered when map context is initialized
          * JMap.Event.MapContext.on.initialized("custom-initialized-listener", params =>
          *   console.info("Map context service initialized", params)
@@ -7679,8 +7680,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-mapcontext-listener"
        * JMap.Event.MapContext.activate("my-mapcontext-listener")
        * ```
@@ -7697,8 +7698,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-mapcontext-listener"
        * JMap.Event.MapContext.deactivate("my-mapcontext-listener")
        * ```
@@ -7715,8 +7716,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-mapcontext-listener"
        * JMap.Event.MapContext.remove("my-mapcontext-listener")
        * ```
@@ -7745,8 +7746,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console each time an extension has been registered
          * JMap.Event.Extension.on.registration(
          *   "custom-core-extension-registration",
@@ -7763,8 +7764,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console each time an extension will be unregistered
          * JMap.Event.Extension.on.beforeUnregistration(
          *   "custom-core-extension-beforeUnregistration",
@@ -7781,8 +7782,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console each time an extension has been unregistered
          * JMap.Event.Extension.on.unregistration(
          *   "custom-core-extension-unregistration",
@@ -7803,8 +7804,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-extension-listener"
        * JMap.Event.Extension.activate("my-extension-listener")
        * ```
@@ -7821,8 +7822,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-extension-listener"
        * JMap.Event.Extension.deactivate("my-extension-listener")
        * ```
@@ -7839,8 +7840,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-extension-listener"
        * JMap.Event.Extension.remove("my-extension-listener")
        * ```
@@ -7869,8 +7870,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a form layer dialog has been opened
          * JMap.Event.Form.on.layerDialogOpened(
          *   "custom-form-layer-dialog-opened",
@@ -7891,8 +7892,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a form layer dialog has been closed
          * JMap.Event.Form.on.layerDialogClosed(
          *   "custom-form-layer-dialog-closed",
@@ -7909,8 +7910,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a sub form dialog has been opened
          * JMap.Event.Form.on.subFormDialogOpened(
          *   "custom-sub-form-dialog-opened",
@@ -7927,8 +7928,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a sub form dialog has been closed
          * JMap.Event.Form.on.subFormDialogClosed(
          *   "custom-sub-form-dialog-closed",
@@ -7945,8 +7946,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * JMap.Event.Form.on.beforeSubmit(
          *   "custom-form-before-submit",
          *   params => {
@@ -7992,8 +7993,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once a form has been submitted
          * JMap.Event.Form.on.submit(
          *   "custom-form-submit",
@@ -8015,8 +8016,8 @@ declare namespace JMap {
        * when en event is emitted.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-form-listener"
        * JMap.Event.Form.activate("my-form-listener")
        * ```
@@ -8034,8 +8035,8 @@ declare namespace JMap {
        * when en event is emitted.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-form-listener"
        * JMap.Event.Form.deactivate("my-form-listener")
        * ```
@@ -8052,8 +8053,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-form-listener"
        * JMap.Event.Form.remove("my-form-listener")
        * ```
@@ -8082,8 +8083,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all project events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a new project is loaded will display the new project id in the console
          * JMap.Event.Project.on.projectChange(
          *    "custom-project-change",
@@ -8102,8 +8103,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all project events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a new project is loaded will display the new project id in the console
          * JMap.Event.Project.on.projectsChange(
          *    "custom-projects-change",
@@ -8124,8 +8125,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all project events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the current active project will be deactivated it will display the project id in the console
          * JMap.Event.Project.on.preDeactivation(
          *    "custom-project-pre-deactivation",
@@ -8146,8 +8147,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all project events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the current active project will be deactivated it will display the project id in the console
          * JMap.Event.Project.on.postDeactivation(
          *    "custom-project-post-deactivation",
@@ -8168,8 +8169,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-project-listener"
        * JMap.Event.Project.activate("my-project-listener")
        * ```
@@ -8186,8 +8187,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-project-listener"
        * JMap.Event.Project.deactivate("my-project-listener")
        * ```
@@ -8204,8 +8205,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-project-listener"
        * JMap.Event.Project.remove("my-project-listener")
        * ```
@@ -8238,8 +8239,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a new project is loaded and its layer have also been loaded,
          * // this method is processed.
          * JMap.Event.Layer.on.layersChange(
@@ -8259,8 +8260,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a tree element visibility is changed, will display the new visibility
          * // in the console
          * JMap.Event.Layer.on.visibilityChange(
@@ -8280,8 +8281,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer's source has changed, it will display a message
          * // in the console
          * JMap.Event.Layer.on.sourceChange(
@@ -8302,8 +8303,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a vector layer selectability will change, it will display the next selectability
          * // in the console
          * JMap.Event.Layer.on.selectabilityWillChange(
@@ -8323,8 +8324,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer thematic visibility is changed this method is processed
          * JMap.Event.Layer.on.thematicVisibilityChange(
          *    "custom-thematic-visibility-change",
@@ -8350,8 +8351,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer thematic category visibility state is changed this method is processed
          * JMap.Event.Layer.on.thematicCategoriesVisibilityChange(
          *    "custom-thematic-categories-visibility-change",
@@ -8379,8 +8380,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer thematic condition visibility state is changed this method is processed
          * JMap.Event.Layer.on.thematicConditionsVisibilityChange(
          *    "custom-thematic-conditions-visibility-change",
@@ -8406,8 +8407,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer is deleted, will display a message in the console
          * JMap.Event.Layer.on.layerDeletion(
          *    "custom-layer-deletion",
@@ -8426,8 +8427,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the initial search is applied, will display a message in the console
          * JMap.Event.Layer.on.initialSearchApplied(
          *    "custom-layer-initial-search-applied",
@@ -8448,8 +8449,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time some layer dynamic filters have been set
          * JMap.Event.Layer.on.dynamicFilterSet(
          *    "custom-layer-dynamic-filter-set",
@@ -8466,8 +8467,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer dynamic filter is activated or deactivated, will display a message in the console
          * JMap.Event.Layer.on.dynamicFilterActivationChange(
          *    "custom-layer-dynamic-filter-activation-changed",
@@ -8489,8 +8490,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a condition is created on a layer dynamic filter, will display a message in the console
          * JMap.Event.Layer.on.dynamicFilterConditionCreated(
          *    "custom-layer-dynamic-filter-condition-created",
@@ -8512,8 +8513,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a condition is updated on a layer dynamic filter, will display a message in the console
          * JMap.Event.Layer.on.dynamicFilterConditionUpdated(
          *    "custom-layer-dynamic-filter-condition-updated",
@@ -8535,8 +8536,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all layer events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time one or more conditions are removed for a layer dynamic filter, will display a message in the console
          * JMap.Event.Layer.on.dynamicFilterConditionsRemoved(
          *    "custom-layer-dynamic-filter-conditions-removed",
@@ -8563,8 +8564,8 @@ declare namespace JMap {
        * when en event is emitted.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-layer-listener"
        * JMap.Event.Layer.activate("my-layer-listener")
        * ```
@@ -8581,8 +8582,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-layer-listener"
        * JMap.Event.Layer.deactivate("my-layer-listener")
        * ```
@@ -8599,8 +8600,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-layer-listener"
        * JMap.Event.Layer.remove("my-layer-listener")
        * ```
@@ -8629,8 +8630,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a map is created and ready, will display a message in the console
          * JMap.Event.Map.on.mapLoad(
          *    "custom-map-load",
@@ -8649,8 +8650,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the map is destroyed, will display a message in the console
          * JMap.Event.Map.on.mapDestroy(
          *    "custom-map-destroyed",
@@ -8667,8 +8668,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the map start moving, will display a message in the console
          * JMap.Event.Map.on.moveStart(
          *    "custom-map-move-start",
@@ -8688,8 +8689,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Will map is moving, will display a message in the console
          * JMap.Event.Map.on.move(
          *    "custom-map-move",
@@ -8709,8 +8710,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the map stop moving, will display a message in the console
          * JMap.Event.Map.on.moveEnd(
          *    "custom-map-move-end",
@@ -8730,8 +8731,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When mouse is moving over the map, will display a message in the console
          * JMap.Event.Map.on.mouseMove(
          *    "custom-map-mouse-move",
@@ -8757,8 +8758,8 @@ declare namespace JMap {
          * @param listenerId Your listener id (must be unique for all map events)
          * @param layerId The JMap Layer Id
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When mouse is moving on the map over JMap layer id=2, will display messages in the console
          * JMap.Event.Map.on.mouseMoveOnLayer(
          *    "custom-map-mouse-move-on-layer",
@@ -8792,8 +8793,8 @@ declare namespace JMap {
          * @param listenerId Your listener id (must be unique for all map events)
          * @param layerId The JMap Layer Id
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When mouse is entering over layer id=2 feature(s), will display 2 messages
          * // in the console
          * JMap.Event.Map.on.mouseEnterOnLayer(
@@ -8829,8 +8830,8 @@ declare namespace JMap {
          * @param listenerId Your listener id (must be unique for all map events)
          * @param layerId The JMap Layer Id
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When mouse is leaving layer id=2, will display a message in the console
          * JMap.Event.Map.on.mouseLeaveOnLayer(
          *    "custom-map-mouse-leave",
@@ -8853,8 +8854,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When mouse clicked on the map, will display a message in the console
          * JMap.Event.Map.on.click(
          *    "custom-map-mouse-click",
@@ -8877,8 +8878,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map zoom start, it will display a message in the console
          * JMap.Event.Map.on.zoomStart(
          *    "custom-map-zoom-start",
@@ -8895,8 +8896,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map zoom change, it will display a message in the console
          * JMap.Event.Map.on.zoom(
          *    "custom-map-zoom",
@@ -8913,8 +8914,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map zoom end, it will display a message in the console
          * JMap.Event.Map.on.zoomEnd(
          *    "custom-map-zoom-end",
@@ -8931,8 +8932,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the rotation of the map start, it will display a message in the console
          * JMap.Event.Map.on.rotateStart(
          *    "custom-map-rotate-start",
@@ -8949,8 +8950,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the rotation of the map change, it will display a message in the console
          * JMap.Event.Map.on.rotate(
          *    "custom-map-rotate",
@@ -8967,8 +8968,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the rotation of the map stop, it will display a message in the console
          * JMap.Event.Map.on.rotateStop(
          *    "custom-map-rotate-stop",
@@ -8985,8 +8986,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the pitch of the map start, it will display a message in the console
          * JMap.Event.Map.on.pitchStart(
          *    "custom-map-pitch-start",
@@ -9003,8 +9004,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map is pitching, it will display a message in the console
          * JMap.Event.Map.on.pitch(
          *    "custom-map-pitch",
@@ -9021,8 +9022,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the pitch on the map end, it will display a message in the console
          * JMap.Event.Map.on.pitch(
          *    "custom-map-pitch-end",
@@ -9042,8 +9043,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map container is ready, will display a message in the console
          * JMap.Event.Map.on.containerReady(
          *    "custom-map-container-ready",
@@ -9060,8 +9061,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the map container is resized, it will display a message in the console
          * JMap.Event.Map.on.containerResized(
          *    "custom-map-container-resized",
@@ -9078,8 +9079,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the selection changed, will display old and new selections in the console
          * JMap.Event.Map.on.selectionChanged(
          *    "custom-selection-changed",
@@ -9099,8 +9100,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all map events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // When the basemap is changed, display the new basemap id in the console
          * JMap.Event.Map.on.basemapChanged(
          *    "custom-basemap-changed",
@@ -9123,8 +9124,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-map-listener"
        * JMap.Event.Map.activate("my-map-listener")
        * ```
@@ -9141,8 +9142,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-map-listener"
        * JMap.Event.Map.deactivate("my-map-listener")
        * ```
@@ -9159,8 +9160,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-map-listener"
        * JMap.Event.Map.remove("my-map-listener")
        * ```
@@ -9191,8 +9192,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // log a message in the console once the photo container is created
          * JMap.Event.Main.on.containerCreated(
          *   "custom-photo-div-created",
@@ -9213,8 +9214,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-photo-listener"
        * JMap.Event.Photo.activate("my-photo-listener")
        * ```
@@ -9231,8 +9232,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-photo-listener"
        * JMap.Event.Photo.deactivate("my-photo-listener")
        * ```
@@ -9249,8 +9250,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-photo-listener"
        * JMap.Event.Photo.remove("my-photo-listener")
        * ```
@@ -9279,8 +9280,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all user events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time layer features are deleted, this method is processed
          * JMap.Event.Feature.on.deletion(
          *    "custom-feature-deletion",
@@ -9297,8 +9298,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all user events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a layer feature geometry has been changed, this method is processed
          * JMap.Event.Feature.on.geometryChanged(
          *    "custom-feature-geometry-changed",
@@ -9318,8 +9319,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all user events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time a feature is created, this method is processed
          * JMap.Event.Feature.on.creation(
          *    "custom-feature-creation",
@@ -9340,8 +9341,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-feature-listener"
        * JMap.Event.Feature.activate("my-feature-listener")
        * ```
@@ -9358,8 +9359,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-feature-listener"
        * JMap.Event.Feature.deactivate("my-feature-listener")
        * ```
@@ -9376,8 +9377,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-feature-listener"
        * JMap.Event.Feature.remove("my-feature-listener")
        * ```
@@ -9406,8 +9407,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all user events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the current locale is changed, this method is processed
          * JMap.Event.Language.on.localeChange(
          *    "custom-language-locale-change",
@@ -9428,8 +9429,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-language-listener"
        * JMap.Event.Language.activate("my-language-listener")
        * ```
@@ -9446,8 +9447,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-language-listener"
        * JMap.Event.Language.deactivate("my-language-listener")
        * ```
@@ -9464,8 +9465,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-language-listener"
        * JMap.Event.Language.remove("my-language-listener")
        * ```
@@ -9496,8 +9497,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all user events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          *
          * // Each time the session has changed this method is processed
          * JMap.Event.User.on.sessionChanged(
@@ -9525,8 +9526,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-user-listener"
        * JMap.Event.User.activate("my-user-listener")
        * ```
@@ -9543,8 +9544,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-user-listener"
        * JMap.Event.User.deactivate("my-user-listener")
        * ```
@@ -9561,8 +9562,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-user-listener"
        * JMap.Event.User.remove("my-user-listener")
        * ```
@@ -9641,8 +9642,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all mouseover events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the map is clicked and "layer" interactor is active
          * JMap.Event.MouseOver.on.beforeContentProcessed("my-listener", params => {
          *   // mouseover "clicked" features for layer id="3"
@@ -9667,8 +9668,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all mouseover events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time map is clicked, and the mousover content has been calculated
          * JMap.Event.MouseOver.on.afterContentProcessed("my-listener", params => {
          *   console.log("Mouseover content has been processed", params.content)
@@ -9684,8 +9685,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all mouseover events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the mouseover popup is displayed
          * JMap.Event.MouseOver.on.popupOpened("my-listener", params => {
          *   console.log("Mouseover popup has been opened", params.content)
@@ -9701,8 +9702,8 @@ declare namespace JMap {
          *
          * @param listenerId Your listener id (must be unique for all mouseover events)
          * @param fn Your listener function
-         * @example ```ts
-         *
+         * @example
+         * ```ts
          * // Each time the mouseover popup is hidden
          * JMap.Event.MouseOver.on.popupClosed("my-listener", () => {
          *   console.log("Mouseover popup has been closed")
@@ -9722,8 +9723,8 @@ declare namespace JMap {
        * If the listener is inactive, it will be reactivated and will be called again ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // activate the listener "my-mouseover-listener"
        * JMap.Event.MouseOver.activate("my-mouseover-listener")
        * ```
@@ -9740,8 +9741,8 @@ declare namespace JMap {
        * If the listener is active, it will be deactivated and will be ignored ...
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // deactivate the listener "my-mouseover-listener"
        * JMap.Event.MouseOver.deactivate("my-mouseover-listener")
        * ```
@@ -9758,8 +9759,8 @@ declare namespace JMap {
        * Remove the listener from JMap Cloud NG Core library. The listener is deleted and never called again after that.
        *
        * @param listenerId The listener id
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // remove the listener "my-mouseover-listener"
        * JMap.Event.MouseOver.remove("my-mouseover-listener")
        * ```
@@ -9798,9 +9799,9 @@ declare namespace JMap {
      * Register your own extension.
      *
      * @throws Error if a parameter is not correct
-     * @param extensionModel The extension model
-     * @example ```ts
-     *
+     * @param extension The extension
+     * @example
+     * ```ts
      * JMap.Extension.register({
      *  id: "MyExtension", // Unique id
      *  initFn: () => {
@@ -9821,8 +9822,8 @@ declare namespace JMap {
      *
      * @throws Error if extensionId format is not correct
      * @param extensionId The extension id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the JMap Document extension is in use or not
      * JMap.Extension.isRegistered("Document")
      * ```
@@ -9834,8 +9835,8 @@ declare namespace JMap {
      *
      * Returns all registered extension ids.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Could returns [ "Document", "MyCustomExtension" ]
      * JMap.Extension.getAllRegisteredIds()
      * ```
@@ -9847,8 +9848,8 @@ declare namespace JMap {
      *
      * Returns true if any of the currently registered extension has defined a "renderMouseOver" method.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const hasMouseOver = JMap.Extension.hasMouseOver()
      * if (hasMouseOver) {
      *    console.log("some extensions have defined mouseOvers")
@@ -9867,8 +9868,8 @@ declare namespace JMap {
      * @param layer The JMap layer
      * @param feature A geoJSON feature
      * @returns an empty array if no extension is registered
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const feature = ...
      * // returns all extension mouseover data for the feature
      * JMap.Extension.renderMouseOver(2, feature)
@@ -9892,8 +9893,8 @@ declare namespace JMap {
      *
      * @param layerId the JMap layer id
      * @throws if layer not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all forms metadata for layer id=3
      * JMap.Form
      *  .getFormsMetaDataByLayerId(3)
@@ -9912,8 +9913,8 @@ declare namespace JMap {
      *
      * @param params params which identify the element
      * @throws if layer not found, if form not found, or form is not an attribute form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns element form data for layer id=3, form id=2, and element id=245
      * JMap.Form
      *  .getElement({
@@ -9936,8 +9937,8 @@ declare namespace JMap {
      *
      * @param params params which identify the elements
      * @throws if layer not found, if form not found, or form is not an attribute form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns elements form data for layer id=3, form id=2, and elements id=245,236
      * JMap.Form
      *  .getElements({
@@ -9960,8 +9961,8 @@ declare namespace JMap {
      *
      * @param params params which identify the entries
      * @throws if layer not found, if form not found, or form is not an external or sub form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns entries form data for layer id=3, form id=4, and elements id=5
      * JMap.Form
      *  .getEntries({
@@ -9986,8 +9987,8 @@ declare namespace JMap {
      *
      * @param params params needed to create a new feature
      * @throws if layer not found, if form not found, or form is not an attribute form, or invalid parameter
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the new created feature
      * JMap.Form
      *  .createAttributeFormElement({
@@ -10017,8 +10018,8 @@ declare namespace JMap {
      *
      * @param params params needed to create a new entry
      * @throws if layer not found, if form not found, or form is not an external or sub form, or invalid parameter
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the new created entries
      * JMap.Form
      *  .createDatabaseFormEntry({
@@ -10051,8 +10052,8 @@ declare namespace JMap {
      *
      * @param params params needed to update an element
      * @throws if layer not found, if form not found, or form is not an attribute form, or invalid parameter
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns update result
      * JMap.Form
      *  .updateAttributeFormElements({
@@ -10082,8 +10083,8 @@ declare namespace JMap {
      *
      * @param params params needed to update an entry
      * @throws if layer not found, if form not found, or form is not an external or sub form, or invalid parameter
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns update result
      * JMap.Form
      *  .updateDatabaseFormEntries({
@@ -10119,8 +10120,8 @@ declare namespace JMap {
      *
      * @param params params needed to delete entries
      * @throws if layer not found, if form not found, or form is not an attribute form, or invalid parameter
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns delete result
      * JMap.Form
      *  .deleteDatabaseFormEntries({
@@ -10152,8 +10153,8 @@ declare namespace JMap {
      *
      * Returns true if a form is currently displayed.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if a form is currently displayed, else false
      * JMap.Form.hasDisplayedForm()
      * ```
@@ -10168,8 +10169,8 @@ declare namespace JMap {
      * Use {@link JMap.Form.hasDisplayedForm} to know if a form is currently displayed.
      *
      * @throws if no layer is displayed
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm()) {
      *  // returns the currently displayed form
      *  const form = JMap.Form.getDisplayedForm()
@@ -10187,8 +10188,8 @@ declare namespace JMap {
      * Use {@link JMap.Form.hasDisplayedForm} to know if a form is currently displayed.
      *
      * @throws if no layer is displayed
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm()) {
      *  // reset currently displayed form values
      *  JMap.Form.resetDisplayedForm()
@@ -10211,8 +10212,8 @@ declare namespace JMap {
      *
      * @param tabIndex the tab index
      * @throws if no layer is displayed, if index is invalid.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm()) {
      *  // reset currently displayed form values
      *  JMap.Form.setActiveTabIndex(1)
@@ -10229,8 +10230,8 @@ declare namespace JMap {
      *
      * If no form, or sub form is displayed, returns 0.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm()) {
      *  // reset currently displayed form values
      *  const currentTabIndex = JMap.Form.getActiveTabIndex()
@@ -10247,8 +10248,8 @@ declare namespace JMap {
      *
      * If no layer form displayed, returns an empty array.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns the current layer forms metadata
      *  const formsMetadata = JMap.Form.getAllFormsMetaDataForCurrentLayer()
      * }
@@ -10263,8 +10264,8 @@ declare namespace JMap {
      *
      * @param formId the JMap form id
      * @throws if form not found
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns the form metadata of currently displayed layer and form id=2
      *  const formMetadata = JMap.Form.getAllFormsMetaDataForCurrentLayer(2)
      * }
@@ -10278,8 +10279,8 @@ declare namespace JMap {
      * Returns true if the currently displayed layer has an attribute form.
      *
      * @returns If no form is displayed, return false.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns true if the currently displayed layer has an attribute form
      *  JMap.Form.hasAttributeForm()
      * }
@@ -10293,8 +10294,8 @@ declare namespace JMap {
      * Returns attribute form of currently displayed layer.
      *
      * @throws if layer has no attribute form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns attribute form of currently displayed layer
      *  const attributeForm = JMap.Form.getAttributeForm()
      * }
@@ -10308,8 +10309,8 @@ declare namespace JMap {
      * Returns external forms of currently displayed layer.
      *
      * @return an empty array if layer has no external forms
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns external forms of currently displayed layer
      *  const externalForms = JMap.Form.getExternalForms()
      * }
@@ -10323,8 +10324,8 @@ declare namespace JMap {
      * Returns sub forms of currently displayed layer.
      *
      * @return an empty array if layer has no sub forms
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // returns sub forms of currently displayed layer
      *  const subForms = JMap.Form.getSubForms()
      * }
@@ -10340,8 +10341,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param geometry the feature geometry
      * @throws if layer not found, or invalid geometry, or layer has no form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // opens the form creation dialog for layer id=3
      *  JMap.Form
      *    .openCreationDialogForLayer(
@@ -10365,8 +10366,8 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @param elements the elements to update
      * @throws if layer not found, or layer has no form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  const layerId = 3
      *  const featureId = 4
      *  // in this exemple we fetch the feature from the server, but we could get from the map
@@ -10392,11 +10393,11 @@ declare namespace JMap {
      *
      * Opens the sub form creation dialog.
      *
-     * @param layerId the JMap layer id
-     * @param geometry the feature geometry
+     * @param subFormId the subform id
+     * @param selectedParentElements the parent form elements
      * @throws if no form dialog currently opened, or sub form not found, or no sub form table field in currently displayed form, or invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // opens the form creation dialog for layer id=3
      *  JMap.Form
      *    .openCreationDialogForSubForm(
@@ -10417,18 +10418,18 @@ declare namespace JMap {
     function openCreationDialogForSubForm(subFormId: JId, selectedParentElements: JFormElement[]): JFormMetaData
 
     /**
-     * ***JMap.Form.openCreationDialogForSubForm***
+     * ***JMap.Form.openUpdateDialogForSubForm***
      *
      * Opens the sub form creation dialog.
      *
-     * @param layerId the JMap layer id
-     * @param geometry the feature geometry
+     * @param subFormId the subform id
+     * @param subFormElements the subform's elements
      * @throws if no form dialog currently opened, or sub form not found, or no sub form table field in currently displayed form, or invalid parameters
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // opens the form creation dialog for layer id=3
      *  JMap.Form
-     *    .openCreationDialogForSubForm(
+     *    .openUpdateDialogForSubForm(
      *      4,
      *      [
      *        id: 4,
@@ -10459,8 +10460,8 @@ declare namespace JMap {
      *
      * Do nothing if no form displayed.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  // closes currently displayed form
      *  JMap.Form.closeCurrentDisplayedDialog()
      * ```
@@ -10474,8 +10475,8 @@ declare namespace JMap {
      *
      * This is a technical method used by JMap Cloud NG, you should never have to use this function
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  const form = ...
      *  // returns the form values
      *  JMap.Form.getFormValues(form)
@@ -10488,8 +10489,8 @@ declare namespace JMap {
      *
      * Set form values of the given form.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  const form = JMap.Form.getAttributeForm()
      *  // set values of the attribute form
      *  JMap.Form.setFormValues(form, {
@@ -10507,8 +10508,8 @@ declare namespace JMap {
      *
      * @throws if no form displayed
      * @param params optional params
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      *  const layerId = 3
      *  const featureId = 4
      *  const feature = await JMap.Feature.getById(layerId, featureId)
@@ -10541,8 +10542,8 @@ declare namespace JMap {
      *
      * This is a technical method that you should never have to use.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the next view id
      * JMap.Form.getNextViewId()
      * ```
@@ -10556,8 +10557,8 @@ declare namespace JMap {
      *
      * This is a technical method that you should never have to use.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // increments the next view id
      * JMap.Form.incrementNextViewId()
      * ```
@@ -10573,8 +10574,8 @@ declare namespace JMap {
      *
      * @param rule the json logic rule
      * @param data the data
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns "banana"
      * JMap.Form.processRule({"var" : 1 }, [ "apple", "banana", "carrot" ])
      * ```
@@ -10587,8 +10588,8 @@ declare namespace JMap {
      * Returns true if current user can create element on the given form.
      *
      * @param params parameters needed to identify the form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if current user can create element on form id=1 of layer id=3.
      * JMap.Form.canCreateElementOnForm({
      *  layerId: 3,
@@ -10604,8 +10605,8 @@ declare namespace JMap {
      * Returns true if current user can update element on the given form.
      *
      * @param params parameters needed to identify the form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if current user can udpate element on form id=1 of layer id=3.
      * JMap.Form.canUpdateElementOnForm({
      *  layerId: 3,
@@ -10621,8 +10622,8 @@ declare namespace JMap {
      * Returns true if current user can delete element on the given form.
      *
      * @param params parameters needed to identify the form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if current user can delete element on form id=1 of layer id=3.
      * JMap.Form.canDeleteElementOnForm({
      *  layerId: 3,
@@ -10638,8 +10639,8 @@ declare namespace JMap {
      * Returns true if current user has the right to edit all given elements.
      *
      * @param params parameters needed to identify the form
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if current user has the right to edit all given elements
      * JMap.Form.hasEditOwnRightsForAllElements({
      *  layerId: 3,
@@ -10673,8 +10674,8 @@ declare namespace JMap {
      *
      * Works only for attribute form elements, edit own permission are not supported for external or sub forms.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const formElements = ... // get attribute form elements
      * // returns true if all elements respect edit own permission
      * JMap.Form.isOwnPermissionRespectedForAllElements(3, elements)
@@ -10687,8 +10688,8 @@ declare namespace JMap {
      *
      * Returns true if currently displayed form has a photo field.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if currently displayed form has a photo field
      * JMap.Form.hasDisplayedFormAPhotoField()
      * ```
@@ -10700,8 +10701,8 @@ declare namespace JMap {
      *
      * Returns the photo of the currently displayed form.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm() && JMap.Form.hasDisplayedFormAPhotoField()) {
      *  // returns the photos of the currently displayed form
      *  const photos = JMap.Form.getDisplayedFormPhotos()
@@ -10718,8 +10719,8 @@ declare namespace JMap {
      *
      * @param photo the photo to add
      * @returns the new photo id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm() && JMap.Form.hasDisplayedFormAPhotoField()) {
      *  // returns the photos of the currently displayed form
      *  const newPhoto = JMap.Form.addDisplayedFormPhoto({
@@ -10745,8 +10746,8 @@ declare namespace JMap {
      *
      * @throws if invalid params passed, or if title AND comments are not or empty string
      * @param params the needed params
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm() && JMap.Form.hasDisplayedFormAPhotoField()) {
      *  const photos = getDisplayedFormPhotos()
      *  if (photos.length > 0) {
@@ -10769,8 +10770,8 @@ declare namespace JMap {
      *
      * @throws if invalid id passed, or photo not found
      * @param photoId the photo to delete
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * if (JMap.Form.hasDisplayedForm() && JMap.Form.hasDisplayedFormAPhotoField()) {
      *  const photos = getDisplayedFormPhotos()
      *  if (photos.length > 0) {
@@ -10788,8 +10789,8 @@ declare namespace JMap {
      *
      * @param schema form data schema
      * @param uiSchema form ui schema
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const schema = ...
      * const uiSchema = ...
      * // checks the schemas, corrects them when possible, throws for non-repairable errors
@@ -10807,11 +10808,11 @@ declare namespace JMap {
      *  - key is the attribute id
      *  - value the default value
      *
-     * @param form A JMap form
+     * @param formMetaData A JMap form metadata
      * @param initialData Initial data. If provided, it will set the default data then overwrite with initial values.
      * @returns a key/value object
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const form = ...
      * const defaultValues = JMap.Form.getDefaultValues(form)
      * ```
@@ -10831,11 +10832,11 @@ declare namespace JMap {
      *
      * Use to set the correct type (number if a string number is passed), and many other things.
      *
-     * @param form A JMap form
+     * @param formMetaData A JMap form metadata
      * @param data The form data
      * @returns the prepared data
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const data = ...
      * const form = ...
      * const preparedData = JMap.Form.getPreparedData(form, data)
@@ -10855,11 +10856,11 @@ declare namespace JMap {
      *  - key is the attribute id
      *  - value is the validation error message, translated in the user locale
      *
-     * @param form A JMap form
+     * @param formMetaData A JMap form metadata
      * @param data The form data
      * @returns an empty object if no validation error, else an object containing error messages grouped by attribute id.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * const form = ...
      *  const data = {
      *   name: "Jack"
@@ -10889,8 +10890,8 @@ declare namespace JMap {
        * Returns the date for the given input.
        *
        * @param date the date as a string, number, or Date
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns a date object for the given timestamp
        * JMap.Util.Date.getDate(1631879544000)
        *
@@ -10906,8 +10907,8 @@ declare namespace JMap {
        * Returns the format for date-fns library.
        *
        * @param displayTime true to return the format including the time
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the format for date-fns library without datetime
        * JMap.Util.Date.getDateFnsLocale()
        *
@@ -10922,8 +10923,8 @@ declare namespace JMap {
        *
        * Returns true if the current user locale use AM-PM format, else false.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true if the current user locale use AM-PM format, else false
        * JMap.Util.Date.is12HoursTimeFormat()
        * ```
@@ -10937,8 +10938,8 @@ declare namespace JMap {
        *
        * @param isoDate IS-8601 string date
        * @throws
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns a date corresponding to the given ISO-8601 date string.
        * JMap.Util.Date.getDateFromISOString()
        * ```
@@ -10956,10 +10957,10 @@ declare namespace JMap {
        *
        * @param date the date from
        * @param amount amount of unit
-       * @param unit time unit
+       * @param timeUnit time unit
        * @throws
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the date 2 days in the future
        * JMap.Util.Date.add(new Date(), 2, "days")
        *
@@ -10980,10 +10981,10 @@ declare namespace JMap {
        *
        * @param date the date from
        * @param amount amount of unit
-       * @param unit time unit
+       * @param timeUnit time unit
        * @throws
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the date 2 days in the past
        * JMap.Util.Date.substract(new Date(), 2, "days")
        *
@@ -11001,8 +11002,8 @@ declare namespace JMap {
        * @param date Date object, or ISO string, or timestamp number
        * @param params optional params
        * @throws if date is not a Date object, or ISO string, or timestamp number
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the current date as a string, according to the current user locale
        * JMap.Util.Date.format(new Date())
        *
@@ -11022,8 +11023,8 @@ declare namespace JMap {
        * @param date Date object, or ISO string, or timestamp number
        * @param params optional params
        * @throws if date is not a Date object, or ISO string, or timestamp number
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns in the user's locale language, the time that will pass, or passed from now for the given date
        * JMap.Util.Date.formatDistanceToNow(new Date())
        * ```
@@ -11039,8 +11040,8 @@ declare namespace JMap {
        * @param date2 Date object, or ISO string, or timestamp number
        * @param checkTime if true will also check the date time, else check only the date
        * @throws if dates are not Date object, or ISO string, or timestamp number
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns in the user's locale language, the time that will pass, or passed from now for the given date
        * const firstDate = new Date()
        * setTimeout(() => {
@@ -11064,8 +11065,8 @@ declare namespace JMap {
        * @param date2 Date object, or ISO string, or timestamp number
        * @param checkTime if true will also check the date time, else check only the date
        * @throws if dates are not Date object, or ISO string, or timestamp number
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns in the user's locale language, the time that will pass, or passed from now for the given date
        * const firstDate = new Date()
        * setTimeout(() => {
@@ -11092,8 +11093,8 @@ declare namespace JMap {
        *
        * Returns true if browser support local storage.
        *
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns true if browser support local storage
        * JMap.Util.LocalStorage.isAvailable()
        * ```
@@ -11108,8 +11109,8 @@ declare namespace JMap {
        * Returns null if localStorage is not available.
        *
        * @param key the item key
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // returns the value if exists for the given key
        * JMap.Util.LocalStorage.get("my-key")
        * ```
@@ -11125,8 +11126,8 @@ declare namespace JMap {
        *
        * @param key the item key
        * @param value the new item value
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // set the value "my value" for the key "my-key"
        * JMap.Util.LocalStorage.set("my-key", "my value")
        * ```
@@ -11141,8 +11142,8 @@ declare namespace JMap {
        * Do nothing if local storage is not available.
        *
        * @param key the item key
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * // removes the key/value item "my-key" if exist
        * JMap.Util.LocalStorage.remove("my-key")
        * ```
@@ -11163,8 +11164,8 @@ declare namespace JMap {
        *
        * @param array the array
        * @returns the given array (and not a copy)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myNumbers = [3, 5, 6, 7]
        * // remove all items
        * JMap.Util.Array.clear(myNumbers)
@@ -11182,8 +11183,8 @@ declare namespace JMap {
        * @param array the array
        * @param element the element to remove
        * @returns the given array (and not a copy)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myNumbers = [3, 5, 6, 7]
        * // remove element 6 in array
        * JMap.Util.Array.remove(myNumbers, 6)
@@ -11202,8 +11203,8 @@ declare namespace JMap {
        * @param propertyName the object property name
        * @param value object's value for the given property name
        * @returns the found object, undefined if not found
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myObjects = [{
        *  id: 1,
        *  name: "Green"
@@ -11232,8 +11233,8 @@ declare namespace JMap {
        * @param value object's value for the given property name
        * @param nonStrict by default test the value like "===", if nonStrict is true, will test like "=="
        * @returns the found index, -1 if not found
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myObjects = [{
        *  id: 1,
        *  name: "Green"
@@ -11267,8 +11268,8 @@ declare namespace JMap {
        * @param value object's value for the given property name
        * @param nonStrict by default test the value like "===", if nonStrict is true, will test like "=="
        * @returns the given array (and not a copy)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myObjects = [{
        *  id: 1,
        *  name: "Green"
@@ -11299,8 +11300,8 @@ declare namespace JMap {
        *
        * @param array the array
        * @returns given array copy, without duplicate
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * const myNumbers = [1, 4, 2, 6, 1, 2, 8]
        * // returns array copy containing no duplicate
        * const copy = JMap.Util.Array.getCopyWithoutDuplicate(myObjects, "name", "Red")
@@ -11323,8 +11324,8 @@ declare namespace JMap {
        * Retreives data from the server at the specified resource.
        *
        * @param config the request configuration (url, params, accessToken, includeHeadersInResponse)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Util.Ajax
        *  .get({ url: "https://your-url.com" })
        *  .then(response => console.log(response))
@@ -11339,8 +11340,8 @@ declare namespace JMap {
        * Inserts or updates data on the server at the specified resource.
        *
        * @param config the request configuration (url, params, accessToken, includeHeadersInResponse)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Util.Ajax
        *  .post({ url: "https://your-url.com", params: { title: "My title", count: 3 }})
        *  .then(response => console.log(response))
@@ -11355,8 +11356,8 @@ declare namespace JMap {
        * Inserts or replaces data on the server at the specified resource.
        *
        * @param config the request configuration (url, params, accessToken, includeHeadersInResponse)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Util.Ajax
        *  .put({ url: "https://your-url.com", params: { title: "My title", count: 3 }})
        *  .then(response => console.log(response))
@@ -11371,8 +11372,8 @@ declare namespace JMap {
        * Deletes data on the server at the specified resource.
        *
        * @param config the request configuration(url, params, accessToken, includeHeadersInResponse)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Util.Ajax
        *  .del({ url: "https://your-url.com" , params: { id: 3 }})
        *  .then(response => console.log(response))
@@ -11387,8 +11388,8 @@ declare namespace JMap {
        * Updates data on the server at the specified resource.
        *
        * @param config the request configuration (url, params, accessToken, includeHeadersInResponse)
-       * @example ```ts
-       *
+       * @example
+       * ```ts
        * JMap.Util.Ajax
        *  .patch({ url: "https://your-url.com" })
        *  .then(response => console.log(response))
@@ -11404,8 +11405,8 @@ declare namespace JMap {
      * Load an external JS File then resolve when file has been loaded.
      *
      * @param fileUrl the JS URL to load
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // load your custom JS file dynamically
      * JMap.Util.loadJSFile("https://mysever/toLoadFile.js")
      * ```
@@ -11420,8 +11421,8 @@ declare namespace JMap {
      *
      * @param id The JMap Id to validate
      * @param allowStringNumber Optional parameter. false by default.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Util.isJMapId(1)
      * // true
      *
@@ -11448,8 +11449,8 @@ declare namespace JMap {
      * @param id The JMap Id to validate
      * @param message Optional message that will be used in the thrown error if the passed value doesn't pass the check.
      * @throws Error if the passed value is not a valid JMap Id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Util.checkJmapId("")
      * // Error thrown "Invalid JMap Id"
      *
@@ -11473,8 +11474,8 @@ declare namespace JMap {
      *
      * @param id The JMap Id to convert
      * @throws Error if the passed Id is not a valid JMap Id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * JMap.Util.getJmapIdAsIntegerIfPossible("1")
      * // 1
      *
@@ -11498,8 +11499,8 @@ declare namespace JMap {
      * @param timeoutsInMilliseconds An array of delay in milliseconds
      * @returns a function that will cancel the process if called
      * @throws if callback is not a function, if timeoutsInMilliseconds is not a non-empty array of number
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Print "Hello World" 4 times then cancel it before printing the last repetition
      * const myHelloWorldFunction = () => console.log("Hello World")
      * const stopProcessing = JMap.Util.asyncProcess(myHelloWorldFunction, [1000, 1000, 1000, 1000, 1000])
@@ -11524,8 +11525,8 @@ declare namespace JMap {
      *
      * If map context service is not avalable, user cannot access, create, update or delete context from the service.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // true if user can use map contexts
      * JMap.MapContext.isActive()
      * ```
@@ -11541,8 +11542,8 @@ declare namespace JMap {
      *
      * @throws if user cannot use the mapcontext (anonymous or system user for example), or if state initialization failed
      * @param isActive true to activate, else false
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // activate the mapcontext functionality
      * JMap.MapContext.setActive(true)
      *  .then(result => console.info(result))
@@ -11561,8 +11562,8 @@ declare namespace JMap {
      *
      * Displays the new map-context tab on screen.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // display the new map-context tab on screen
      * JMap.MapContext.startCreation()
      * ```
@@ -11574,8 +11575,8 @@ declare namespace JMap {
      *
      * Hides the creation tab, input are cleared, and list of map-context are displayed.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // hide the new map-context tab
      * JMap.MapContext.cancelCreation()
      * ```
@@ -11586,8 +11587,8 @@ declare namespace JMap {
      * **JMap.MapContext.getAll**
      *
      * Returns all map contexts fetched from server, for the given project.
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all map contexts for the current project
      * JMap.MapContext.getAll()
      * ```
@@ -11601,8 +11602,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map-context id=3
      * JMap.MapContext.getById(3)
      * ```
@@ -11615,8 +11616,8 @@ declare namespace JMap {
      * Returns true if map context exists for a given id, else false.
      *
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map context id=3 exist, else false
      * JMap.MapContext.existsById(3)
      * ```
@@ -11629,8 +11630,8 @@ declare namespace JMap {
      * Returns the map context url, accessible if the map context is shared.
      *
      * @param contextUUID the JMap map context UUID (not the id but the UUID)
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map context url, accessible if the map context is shared
      * JMap.MapContext.getUrlByUUID("qsdqsd-wsdwqd-wdwde-wedwdwd")
      * ```
@@ -11644,8 +11645,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // load the map-context id=3 on screen
      * JMap.MapContext.applyContextById(3)
      *  .then(() => console.info("Map context applied"))
@@ -11665,8 +11666,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found, or server request error
      * @param contextId the JMap map context id or an array of map context ids
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // deletes the map-context id=5
      * JMap.MapContext
      *    .deleteContextById(5)
@@ -11694,8 +11695,8 @@ declare namespace JMap {
      * @throws if invalid map context data provided, or server request error
      * @param params the complete map context meta-data
      * @returns the created map context, with it's id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // create a new map-context
      * JMap.MapContext
      *    .create({
@@ -11723,8 +11724,8 @@ declare namespace JMap {
      * @param contextId the JMap map context id
      * @param params partial map context meta-data, only data provided will be updated
      * @returns the updated map context
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // update the map-context id=3
      * JMap.MapContext
      *    .update(3, { title: "My new title" }) // only "title" meta-data will be changed, "description" and "shareLink" keep the same
@@ -11747,10 +11748,10 @@ declare namespace JMap {
      *
      * @throws if context not found, or empty or invalid meta-data, or server request error
      * @param contextId the JMap map context id
-     * @param params partial map context meta-data, only data provided will be updated
+     * @param data partial map context meta-data, only data provided will be updated
      * @returns the updated map context
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // update the map-context id=3 meta-data
      * JMap.MapContext
      *    .updateMetaData(3, { // only "title" and "description" meta-data will be changed, "shareLink" keep the same
@@ -11770,8 +11771,8 @@ declare namespace JMap {
      *
      * @throws if newTitle is not a string
      * @param newTitle the new title to display
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // set the title in the redux store, used for new map context creation
      * JMap.MapContext.setCreateTitle("New title")
      * ```
@@ -11785,8 +11786,8 @@ declare namespace JMap {
      *
      * @throws if newDescription is not a string
      * @param newDescription the new description to display
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // set the description in the redux store, used for new map context creation
      * JMap.MapContext.setCreateDescription("New description")
      * ```
@@ -11799,8 +11800,8 @@ declare namespace JMap {
      * Set the title creation in error or not for the creation panel (visible in NG only).
      *
      * @param hasError true or false
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // set the title creation in error in the redux store, used for new map context creation
      * JMap.MapContext.setCreateTitleError("New description")
      * ```
@@ -11814,8 +11815,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map-context id=3 title
      * JMap.MapContext.getContextTitle(3)
      * ```
@@ -11832,8 +11833,8 @@ declare namespace JMap {
      * @throws if context not found, or empty title, or server request error
      * @param contextId the JMap map context id
      * @param title the new title
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // update the map-context id=3 title
      * JMap.MapContext
      *    .setContextTitle(3, "My new title")
@@ -11850,8 +11851,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map-context id=3 description
      * JMap.MapContext.getContextDescription(3)
      * ```
@@ -11868,8 +11869,8 @@ declare namespace JMap {
      * @throws if context not found, or empty title, or server request error
      * @param contextId the JMap map context id
      * @param description the new description
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // update the map-context id=3 description
      * JMap.MapContext
      *    .setContextDescription(3, "My new description")
@@ -11886,8 +11887,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map-context id=3 is shared
      * JMap.MapContext.isLinkShared(3)
      * ```
@@ -11904,8 +11905,8 @@ declare namespace JMap {
      * @throws if context not found, or empty title, or server request error
      * @param contextId the JMap map context id
      * @param isShared true if the link is shared, else false
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // update the map-context id=3 link share state to true
      * JMap.MapContext
      *    .setLinkShare(3, true)
@@ -11922,8 +11923,8 @@ declare namespace JMap {
      *
      * The default map context is loaded automatically at startup.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the default map context if one has been set
      * JMap.MapContext.getDefaultContext()
      * ```
@@ -11939,8 +11940,8 @@ declare namespace JMap {
      *
      * @throws if map-context not found
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns true if the map context id=3 is the default one.
      * JMap.MapContext.isDefaultContext(3)
      * ```
@@ -11958,8 +11959,8 @@ declare namespace JMap {
      *
      * @throws if context provided but not found, or server request error
      * @param contextId the JMap map context id
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // set the map-context id=3 as the default one
      * JMap.MapContext
      *    .setDefaultContext(3)
@@ -11986,8 +11987,8 @@ declare namespace JMap {
      *
      * @throws if sortBy param is not correct
      * @param sortBy "alphabetic" or "lastUpdate"
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // sort the list alphabetically
      * JMap.MapContext.sortListBy("alphabetic")
      *
@@ -12002,8 +12003,8 @@ declare namespace JMap {
      *
      * Returns the map-context list sort.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the list sort
      * JMap.MapContext.getListSortBy()
      * ```
@@ -12015,8 +12016,8 @@ declare namespace JMap {
      *
      * Returns all available map context list sort : [ "alphabetic", "lastUpdate" ]
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all available list sort
      * JMap.MapContext.getAllListSortBy()
      * ```
@@ -12033,8 +12034,8 @@ declare namespace JMap {
      *
      * @throws if sortByDirection param is not correct
      * @param sortByDirection "asc" or "desc"
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // make the sort ascendant
      * JMap.MapContext.setListSortDirection("asc")
      *
@@ -12049,8 +12050,8 @@ declare namespace JMap {
      *
      * Returns the map-context list sort direction.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the list sort direction
      * JMap.MapContext.getListSortDirection()
      * ```
@@ -12062,8 +12063,8 @@ declare namespace JMap {
      *
      * Returns all available map context list sort directions : [ "asc", "desc" ]
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns all available list sort directions
      * JMap.MapContext.getAllListSortDirection()
      * ```
@@ -12078,8 +12079,8 @@ declare namespace JMap {
      * The filter is done on "title" and/or "description".
      *
      * @param filter a string
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // only map context having "ab" in title and/or description will be displayed
      * JMap.MapContext.filterList("ab")
      * ```
@@ -12091,8 +12092,8 @@ declare namespace JMap {
      *
      * Returns the currently applied filter on the map context list, or an empty string if no filter is applied.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the current filter
      * JMap.MapContext.getListFilter()
      * ```
@@ -12104,8 +12105,8 @@ declare namespace JMap {
      *
      * If a filter is applied on the map context list, this function clears it.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // clear the current filter if exists
      * JMap.MapContext.getListFilter()
      * ```
@@ -12120,9 +12121,9 @@ declare namespace JMap {
      *  - Height: 100
      *
      * @throws if given size is not an object having positive and greater than zero width and height
-     * @param size: preview image size
-     * @example ```ts
-     *
+     * @param size preview image size
+     * @example
+     * ```ts
      * // set the review image size
      * JMap.MapContext.setPreviewImageSize({
      *  width: 100,
@@ -12137,8 +12138,8 @@ declare namespace JMap {
      *
      * Returns the preview image size.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Print the preview image size in console.
      * console.info("Preview image size", JMap.MapContext.getPreviewImageSize())
      * ```
@@ -12151,9 +12152,9 @@ declare namespace JMap {
      * Add css classes in the list of css class to ignore/hide when processing the preview image.
      *
      * @throws if given classes param is not a string array
-     * @param classes: css classes
-     * @example ```ts
-     *
+     * @param classes css classes
+     * @example
+     * ```ts
      * // dom elements that having "my-class-that-is-visible-on-screen-but-want-to-hide-in-preview"
      * // css class will be hidden in the preview image
      * JMap.MapContext.addCssClassesToIgnoreForPreviewImage([
@@ -12168,10 +12169,8 @@ declare namespace JMap {
      *
      * Add css classes in the list of css class to ignore/hide when processing the preview image.
      *
-     * @throws if given classes param is not a string array
-     * @param classes: photo thumbnail size
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // print in the console all css classes that will be ignored/hidden in the preview image
      * console.info(
      *  "Css classes ignored when generating the preview image:",
@@ -12193,8 +12192,8 @@ declare namespace JMap {
      *
      * Returns the maplibre-gl library.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // get the maplibre-gl library
      * const maplibregl = JMap.Library.maplibregl()
      * ```
@@ -12206,8 +12205,8 @@ declare namespace JMap {
      *
      * Returns the html2canvas library.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // get the html2canvas library
      * const html2canvas = JMap.Library.html2canvas()
      * ```
@@ -12230,8 +12229,8 @@ declare namespace JMap {
      *
      * @throws if isVisible is not boolean value
      * @param isVisible false to hide, true to show
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // display main layout
      * JMap.UI.setMainLayoutVisibility(true)
      *
@@ -12256,8 +12255,8 @@ declare namespace JMap {
      *
      * @throws Error if invalid parameters are passed
      * @param params parameters needed to open the iframe popup
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Open an embedded popup of k2geospatial website
      * JMap.UI.openIFramePopup({
      *  src: "https://my.web.site.com/",
@@ -12277,8 +12276,8 @@ declare namespace JMap {
      *
      * Closes the iframe popup if opened.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // Open an embedded popup of k2geospatial website
      * JMap.UI.openIFramePopup({
      *  src: "https://k2geospatial.com/",
@@ -12300,8 +12299,8 @@ declare namespace JMap {
      *
      * Returns the map container width in pixels.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map container width in pixels
      * JMap.UI.getContainerWidth()
      * ```
@@ -12313,8 +12312,8 @@ declare namespace JMap {
      *
      * Returns the map container height in pixels.
      *
-     * @example ```ts
-     *
+     * @example
+     * ```ts
      * // returns the map container height in pixels
      * JMap.UI.getContainerHeight()
      * ```
