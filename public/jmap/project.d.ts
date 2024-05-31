@@ -1,3 +1,9 @@
+// ALL_TERRAIN_ILLUMINATION_ANCHOR_TYPES in all-enum.ts
+declare const enum JTERRAIN_ILLUMINATION_ANCHOR_TYPES {
+  VIEWPORT = "VIEWPORT",
+  MAP = "MAP"
+}
+
 declare interface JProjectLoadThumbnailsParams {
   width: number
   height: number
@@ -28,6 +34,8 @@ declare interface JProject {
   initialRotation: number
   colorSelection: string
   colorBackground: string
+  terrainRasterDataSourceId?: JId
+  terrain?: JTerrainSpecification
   initialExtent: JBounds | null
   minimumVisibleZoom: number
   maximumVisibleZoom: number
@@ -42,4 +50,15 @@ declare interface JProject {
   base64ImageThumbnail: string
   extensions: JProjectServerExtension[]
   usageStatisticsActive: boolean
+}
+
+declare interface JTerrainSpecification {
+  terrainExaggeration?: number
+  hillshadeExaggeration?: number
+  hillshadeIlluminationDirection?: number
+  visible?: boolean
+  hillshadeIlluminationAnchor?: JTERRAIN_ILLUMINATION_ANCHOR_TYPES
+  hillshadeAccentColor?: string
+  hillshadeHighlightColor?: string
+  hillshadeShadowColor?: string
 }
