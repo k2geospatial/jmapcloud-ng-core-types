@@ -3115,6 +3115,30 @@ declare namespace JMap {
     function setTerrainActive(active: boolean): void
 
     /**
+     * ***JMap.Map.setSelectionStyle***
+     *
+     * Sets the selection style for a specified JMap Cloud layer. SymbolData must be a base64 bitMap image
+     *
+     * @param layerId the JMap Cloud layer id
+     * @param style the selection style
+     * @example
+     * ```ts
+     * // define a style and apply it to a polygone layer
+     * const style = {
+     *
+     *
+     * }
+     * ```
+     */
+    function setSelectionStyle(
+      layerId: JId,
+      style:
+        | Pick<JLayerLineStyle, "lineColor" | "lineThickness">
+        | Pick<JLayerPolygonStyle, "fillColor" | "borderColor" | "borderThickness">
+        | Pick<JLayerPointStyle, "symbolData">
+    ): void
+
+    /**
      * ***JMap.Map.setScaleControlVisibility***
      *
      * Changes the scale control panel visibility on the map.
