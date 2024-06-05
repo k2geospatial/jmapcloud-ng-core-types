@@ -3117,7 +3117,9 @@ declare namespace JMap {
     /**
      * ***JMap.Map.setSelectionStyle***
      *
-     * Sets the selection style for a specified JMap Cloud layer. SymbolData must be a base64 bitMap image
+     * Sets the selection style for a specified JMap Cloud layer.
+     *
+     * When specified symbolData must be a data URL with a base64 encode PNG, JPEG or WEBP image. SVGs are not supported for the moment.
      *
      * @param layerId the JMap Cloud layer id
      * @param style the selection style

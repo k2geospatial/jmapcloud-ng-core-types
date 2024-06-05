@@ -491,7 +491,7 @@ declare interface JLayerPointStyle extends JLayerBaseStyle {
 declare interface JLayerLineStyle extends JLayerBaseStyle {
   type: JLAYER_STYLE_TYPES.LINE
   lineThickness: number
-  lineColor: import("color")
+  lineColor: string
   arrowType: JLAYER_STYLE_ARROW_TYPES
   arrowPosition: number
   lineCap: JLAYER_STYLE_LINE_CAP
@@ -502,8 +502,8 @@ declare interface JLayerLineStyle extends JLayerBaseStyle {
 
 declare interface JLayerPolygonStyle extends JLayerBaseStyle {
   type: JLAYER_STYLE_TYPES.POLYGON
-  fillColor: import("color")
-  borderColor: import("color")
+  fillColor: string
+  borderColor: string
   transparentFill: boolean
   borderThickness: number
   borderTransparency: number
@@ -514,11 +514,17 @@ declare interface JLayerPolygonStyle extends JLayerBaseStyle {
 
 declare interface JLayerTextStyle extends JLayerBaseStyle {
   type: JLAYER_STYLE_TYPES.TEXT
-  textColor: import("color")
-  outlineColor: import("color")
+  textColor: string
+  outlineColor: string
   bold: boolean
   italic: boolean
 }
+
+declare type JLayerSetSelectionStyleParam =
+  | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "lineColor" | "lineThickness">>)
+  | (Pick<JLayerPolygonStyle, "type"> &
+      Partial<Pick<JLayerPolygonStyle, "fillColor" | "borderColor" | "borderThickness">>)
+  | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "symbolData">>)
 
 declare interface JLayerSetLayersVisibilityParams {
   layerId: JId

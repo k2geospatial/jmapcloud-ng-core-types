@@ -696,13 +696,7 @@ export interface JMapService {
   isTerrainAvailable(): boolean
   isTerrainActive(): boolean
   setTerrainActive(active: boolean): void
-  setSelectionStyle(
-    layerId: JId,
-    style:
-      | Pick<JLayerLineStyle, "lineColor" | "lineThickness">
-      | Pick<JLayerPolygonStyle, "fillColor" | "borderColor" | "borderThickness">
-      | Pick<JLayerPointStyle, "symbolData">
-  ): void
+  setSelectionStyle(layerId: JId, style: JLayerSetSelectionStyleParam): void
   setScaleControlVisibility(isVisible: boolean, position?: JMAP_POSITIONS): void
   setScaleControlUnits(units: "imperial" | "metric" | "nautical"): void
   setScaleControlPosition(position: JMAP_POSITIONS): void
