@@ -3127,6 +3127,12 @@ declare namespace JMap {
      * ```ts
      * // define and apply a selection style to a polygone layer
      * JMap.Map.setSelectionStyle("polygon-layer-id", {type: "POLYGON", fillColor: "#ff0000", borderColor: "#0000ff", borderThickness: 8})
+     *
+     * // define and apply a selection style to a line layer
+     * JMap.Map.setSelectionStyle("line-layer-id",{type:"LINE", lineColor:"#ff0000", lineThickness:4})
+     *
+     * // define and apply a selection style to a point layer
+     * JMap.Map.setSelectionStyle("point-layer-id",{type:"POINT", symbolData:"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACCElEQVR4XmNgwAH2vHQWjy9TOs/KxvQTyP2PC7NxMP0WlWSrBrKZELoJgI41Rtl6lgK/DG2FQIb8A2J7dDVQYM/IyPAfpFZYgv0akK+MrgADVM/SnS8oyva/eILW/1N/Pf+zsTN9Z8BhAUgtDz8LWB1IPQcX8xcGHGrBoH+LaRDIcJdQyf1A7gcGLEGCC4Mcktag+p+FlfE9kC8BNhAd+MRLP/ZLkgG54i0DPpdgB/a8Aqx/3SKkngLZfeiSDLMPWmgCFfyvnat7Csg9hy5PDJBV4f7Qt9H4PxMT40cglwtFMqNJvdPARvB/aLb8ZiB3NookkcDITvhs5XSd/6JS7DeBXGcUSZ846QvJNSr/FTV5dgK5GSiSRAI7X7GpASmy/0FmAbnNKJLaZvzfp+0x/8/KxngZyDVFkSQSWLiJeqob8v2fuNX0OZB7GEUSmKH+H/nqDkoRv4CYHUWSeMAOTEUwc0AZFAX8P/PfC5bsKAE4zQFL4MtYhAAs4+G0gAYYBYBtxoZxyeESh8mhmQ9RDPImA4nFBAyDgnfWAQv8FjBADLcHYeTwRHchsjguPXCToQAsAYtk9AhDNxxZHJceFNNhikFeBCkCYTTvYsUE9KAADBeiuxQd4xKHyaGZj+k6KmAEQE4BlGKklIgC7KGC6K4gB8NSFVYAdwmIjS6JA5CkhyTFUIBTDwBPxSZtxNLgXwAAAABJRU5ErkJggg=="})
      * ```
      */
     function setSelectionStyle(
