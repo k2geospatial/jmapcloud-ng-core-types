@@ -3125,11 +3125,8 @@ declare namespace JMap {
      * @param style the selection style
      * @example
      * ```ts
-     * // define a style and apply it to a polygone layer
-     * const style = {
-     *
-     *
-     * }
+     * // define and apply a selection style to a polygone layer
+     * JMap.Map.setSelectionStyle("polygon-layer-id", {type: "POLYGON", fillColor: "#ff0000", borderColor: "#0000ff", borderThickness: 8})
      * ```
      */
     function setSelectionStyle(
