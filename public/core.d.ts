@@ -800,6 +800,190 @@ declare namespace JMap {
      */
     namespace Thematic {
       /**
+       * ***JMap.Layer.Thematic.addThematic***
+       *
+       * This method allows you to add a custom thematic on a JMap Cloud layer. This method only works with vector layers that have attributes.
+       *
+       * The {@link JLayerAddThematicParams} parameter that you must provide include those properties:
+       * * the JMap Cloud layer id
+       * * a {@link JLayerUserStyleRule} specification
+       * * an array of {@link JLayerSetStyleParams}
+       *
+       * The id of the thematic that will be created will be the same id than the {@link JLayerUserStyleRule} that you provided.
+       *
+       * All objects that you provide that require an id should have a unique uuid v4 id. Many programming languages let you generate such ids.
+       *
+       * @param params the params to provide for the thematic creation
+       *
+       * @example
+       * ```ts
+       * // this code will add a custom thematic on a project that have a layer named "Neighborhood" with a "nom_qr" attribute.
+       * const addPolygonThematic = () => {
+       *   // find layer Neighborhood
+       *   const layer = JMap.Layer.getLayers().find(
+       *     l => l.elementType === "POLYGON" && l.attributes.length > 0 && l.name === "Neighborhood"
+       *   )
+       *   if (!layer) {
+       *     return
+       *   }
+       *   const layerAttribute = layer.attributes.find(la => la.name === "nom_qr")
+       *   if (!layerAttribute) {
+       *     return
+       *   }
+       *   const layerId = layer.id
+       *   const styles = []
+       *   const condition1StyleId = "8ae59ba6-0b0b-4a5e-8f8e-5b138bd53767"
+       *   const condition2StyleId = "eeeff29c-352f-4ba6-b354-7d7f7476f1fc"
+       *   const condition3StyleId = "85014948-1071-4257-a2f7-dbf75182fbfb"
+       *   const condition4StyleId = "f111e616-c4a6-497b-aeda-57af63c312b8"
+       *   const condition1Names = ["Anjou", "Beaconsfield", "Beaurivage", "Bois-Francs"]
+       *   const condition2Names = ["Étienne Desmarteaux", "Ville-Émard", "Tétreaultville", "Saint-Sulpice"]
+       *   const condition3Names = ["Westmount", "Saint-Henri", "Pierrefonds-Est", "Sault-au-Récollet"]
+       *   styles.push(
+       *     {
+       *       id: condition1StyleId,
+       *       type: "POLYGON",
+       *       borderColor: "#ff0000",
+       *       borderThickness: 4,
+       *       fillColor: "#00ff00"
+       *     },
+       *     {
+       *       id: condition2StyleId,
+       *       type: "POLYGON",
+       *       borderColor: "#00ff00",
+       *       borderThickness: 4,
+       *       fillColor: "#0000ff"
+       *     },
+       *     {
+       *       id: condition3StyleId,
+       *       type: "POLYGON",
+       *       borderColor: "#0000ff",
+       *       borderThickness: 4,
+       *       fillColor: "#ff0000"
+       *     },
+       *     {
+       *       id: condition4StyleId,
+       *       type: "POLYGON",
+       *       borderColor: "#000000",
+       *       borderThickness: 4,
+       *       fillColor: "#ffffff"
+       *     }
+       *   )
+       *   const styleRule = {
+       *     active: true,
+       *     id: "bc23f628-0fea-4e0c-8c23-d39c33ee0be2",
+       *     layerId: String(layer.id),
+       *     name: "Demographic repartition",
+       *     conditions: [
+       *       {
+       *         id: "573bf973-b574-46b5-b852-1bd17aa94c19",
+       *         name: "Less than 50 000 people",
+       *         conditionExpressions: [
+       *           {
+       *             id: "d6b1d717-b936-4b86-9011-6ce28af35237",
+       *             operator: "IN",
+       *             attribute: layerAttribute,
+       *             value: condition1Names
+       *           }
+       *         ],
+       *         styleMapScales: [
+       *           {
+       *             id: "a9ba5215-0511-4aa3-a724-6f14f10ab315",
+       *             maximumVisibleZoom: 23,
+       *             minimumVisibleZoom: 0,
+       *             styleId: condition1StyleId
+       *           }
+       *         ]
+       *       },
+       *       {
+       *         id: "a35679fa-860d-47d4-9b1a-24006bdd78be",
+       *         name: "Between 50 000 and 100 000",
+       *         conditionExpressions: [
+       *           {
+       *             id: "66de5d3b-5041-43d2-86b2-2639326ee6f7",
+       *             operator: "IN",
+       *             attribute: layerAttribute,
+       *             value: condition2Names
+       *           }
+       *         ],
+       *         styleMapScales: [
+       *           {
+       *             id: "8fb646bb-afee-4a3c-9545-e9716049d307",
+       *             maximumVisibleZoom: 23,
+       *             minimumVisibleZoom: 0,
+       *             styleId: condition2StyleId
+       *           }
+       *         ]
+       *       },
+       *       {
+       *         id: "4bd67df3-1ea3-4f3e-ad4b-1baa75a5cd5f",
+       *         name: "More than 100 000 people",
+       *         conditionExpressions: [
+       *           {
+       *             id: "2ff931ee-fa32-43e6-a3b1-314a806734c0",
+       *             operator: "IN",
+       *             attribute: layerAttribute,
+       *             value: condition3Names
+       *           }
+       *         ],
+       *         styleMapScales: [
+       *           {
+       *             id: "d0ad4bf4-f6a7-46f1-866b-74f97a5e7775",
+       *             maximumVisibleZoom: 23,
+       *             minimumVisibleZoom: 0,
+       *             styleId: condition3StyleId
+       *           }
+       *         ]
+       *       },
+       *       {
+       *         id: "25a4e4da-fe14-470d-aac2-37cfa7e367e2",
+       *         name: "Other",
+       *         conditionExpressions: [
+       *           {
+       *             id: "45f491d3-3a7b-4975-9296-7ff6e8516a6d",
+       *             operator: "NOT_IN",
+       *             attribute: layerAttribute,
+       *             value: condition1Names.concat(condition2Names).concat(condition3Names)
+       *           }
+       *         ],
+       *         styleMapScales: [
+       *           {
+       *             id: "94331295-86b3-455c-8946-d45f79b8bd21",
+       *             maximumVisibleZoom: 23,
+       *             minimumVisibleZoom: 0,
+       *             styleId: condition4StyleId
+       *           }
+       *         ]
+       *       }
+       *     ]
+       *   }
+       *   JMap.Layer.Thematic.addThematic({ layerId, styleRule, styles })
+       *   console.log(`added thematic on layer "${layer.name}", ids = "${layer.id}","${styleRule.id}" `)
+       * }
+       *
+       * if (JMap.Map.isMapLoaded()) {
+       *   addPolygonThematic()
+       * } else {
+       *   JMap.Event.Map.on.mapLoad("my-custom-event-map-load-add-polygon-thematic", () => {
+       *     JMap.Event.Map.remove("my-custom-event-map-load-add-polygon-thematic")
+       *     addPolygonThematic()
+       *   })
+       * }
+       * ```
+       */
+      function addThematic(params: JLayerAddThematicParams): Promise<void>
+
+      /**
+       * ***JMap.Layer.Thematic.addThematic***
+       *
+       * Deletes a thematic from JMap CLoud NG. The removal is client-side only and only for the current session.
+       *
+       * @param layerId the JMap Cloud layer id
+       * @param thematicId the thematic id (Style Rule id)
+       */
+      function deleteThematic(layerId: JId, thematicId: JId): void
+
+      /**
        * ***JMap.Layer.Thematic.getAllByLayerId***
        *
        * Returns all thematics for the specified layer.
@@ -3135,7 +3319,16 @@ declare namespace JMap {
      * JMap.Map.setSelectionStyle("point-layer-id",{type:"POINT", symbolData:"data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACCElEQVR4XmNgwAH2vHQWjy9TOs/KxvQTyP2PC7NxMP0WlWSrBrKZELoJgI41Rtl6lgK/DG2FQIb8A2J7dDVQYM/IyPAfpFZYgv0akK+MrgADVM/SnS8oyva/eILW/1N/Pf+zsTN9Z8BhAUgtDz8LWB1IPQcX8xcGHGrBoH+LaRDIcJdQyf1A7gcGLEGCC4Mcktag+p+FlfE9kC8BNhAd+MRLP/ZLkgG54i0DPpdgB/a8Aqx/3SKkngLZfeiSDLMPWmgCFfyvnat7Csg9hy5PDJBV4f7Qt9H4PxMT40cglwtFMqNJvdPARvB/aLb8ZiB3NookkcDITvhs5XSd/6JS7DeBXGcUSZ846QvJNSr/FTV5dgK5GSiSRAI7X7GpASmy/0FmAbnNKJLaZvzfp+0x/8/KxngZyDVFkSQSWLiJeqob8v2fuNX0OZB7GEUSmKH+H/nqDkoRv4CYHUWSeMAOTEUwc0AZFAX8P/PfC5bsKAE4zQFL4MtYhAAs4+G0gAYYBYBtxoZxyeESh8mhmQ9RDPImA4nFBAyDgnfWAQv8FjBADLcHYeTwRHchsjguPXCToQAsAYtk9AhDNxxZHJceFNNhikFeBCkCYTTvYsUE9KAADBeiuxQd4xKHyaGZj+k6KmAEQE4BlGKklIgC7KGC6K4gB8NSFVYAdwmIjS6JA5CkhyTFUIBTDwBPxSZtxNLgXwAAAABJRU5ErkJggg=="})
      * ```
      */
-    function setSelectionStyle(layerId: JId, style: JLayerSetSelectionStyleParam): void
+    function setSelectionStyle(layerId: JId, style: JLayerSetStyleParams): void
+
+    /**
+     * ***JMap.Map.resetSelectionStyle***
+     *
+     * Set back the selection style of a layer to its original value. Use this method when the selection style has been modified by {@link JMap.Map.setSelectionStyle} and the style modification is not needed anymore.
+     *
+     * @param layerId the JMap Cloud layer id
+     */
+    function resetSelectionStyle(layerId: JId): void
 
     /**
      * ***JMap.Map.setScaleControlVisibility***
@@ -8442,6 +8635,26 @@ declare namespace JMap {
          * ```
          */
         function layerDeletion(listenerId: string, fn: (params: JLayerEventParams) => void): void
+
+        /**
+         * ***JMap.Event.Layer.on.thematicDeletion***
+         *
+         * This event is triggered when a thematic is deleted.
+         *
+         * @param listenerId Your listener id (must be unique for all layer events)
+         * @param fn Your listener function
+         * @example
+         * ```ts
+         * // Each time a thematic is deleted, will display a message in the console
+         * JMap.Event.Layer.on.thematicDeletion(
+         *    "custom-thematic-deletion",
+         *    params => {
+         *      console.log(`Thematic id="${params.thematicId}" of layer id="${params.layerId}" has been deleted client-side`)
+         *    }
+         * )
+         * ```
+         */
+        function thematicDeletion(listenerId: string, fn: (params: JLayerThematicEventParams) => void): void
 
         /**
          * ***JMap.Event.Layer.on.initialSearchApplied***
