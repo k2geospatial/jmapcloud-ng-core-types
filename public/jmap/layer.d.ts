@@ -98,7 +98,9 @@ declare const enum JLAYER_STYLE_RULE_CONDITION_EXPRESSION_OPERATORS {
   GREATER_THAN = "GREATER_THAN",
   LOWER_THAN = "LOWER_THAN",
   GREATER_OR_EQUALS_TO = "GREATER_OR_EQUALS_TO",
-  LOWER_OR_EQUALS_TO = "LOWER_OR_EQUALS_TO"
+  LOWER_OR_EQUALS_TO = "LOWER_OR_EQUALS_TO",
+  IN = "IN", // This operator does not yet exist in JMC
+  NOT_IN = "NOT_IN" // This operator does not yet exist in JMC
 }
 
 // ALL_LAYER_DYNAMIC_FILTER_OPERATORS in all-enum.ts
@@ -220,6 +222,16 @@ declare interface JLayerEventSelectabilityParams {
 
 declare interface JLayerEventParams {
   layerId: JId
+}
+
+declare interface JLayerThematicEventParams {
+  layerId: JId
+  thematicId: JId
+}
+
+declare interface JAddMapThematicEventParams {
+  layerId: JId
+  layerSpecifications: maplibregl.LayerSpecification[]
 }
 
 declare interface JLayerInitialSearchEventParams extends JLayerEventParams {
@@ -382,6 +394,7 @@ declare interface JLayerThematicClassification extends JLayerThematic {
 }
 
 declare interface JLayerThematicStyleRule extends JLayerThematic {
+  type: JLAYER_THEMATIC_TYPES.STYLE_RULE
   conditions: JLayerThematicCondition[]
   hiddenConditionIds: string[]
 }
@@ -439,6 +452,7 @@ declare interface JLayerStyleRule {
 declare interface JLayerStyleRuleCondition {
   id: string
   name: string
+  conditionExpressions: JLayerStyleRuleConditionExpression[]
   styleMapScales: JLayerStyleScaled[]
 }
 
@@ -454,8 +468,8 @@ declare interface JLayerStyleSample {
   imageSampleInBase64: string
 }
 
-// @TODO we probably don't need this interface anymore
 declare interface JLayerStyleRuleConditionExpression {
+  id: string
   operator: JLAYER_STYLE_RULE_CONDITION_EXPRESSION_OPERATORS
   value: any
   attribute: JLayerAttribute
@@ -520,11 +534,19 @@ declare interface JLayerTextStyle extends JLayerBaseStyle {
   italic: boolean
 }
 
-declare type JLayerSetSelectionStyleParam =
-  | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "lineColor" | "lineThickness">>)
+declare type JLayerUserStyleRule = Omit<JLayerStyleRule, "defaultRule">
+
+declare type JLayerAddThematicParams = {
+  layerId: JId
+  styleRule: JLayerUserStyleRule
+  styles: JLayerSetStyleParams[]
+}
+
+declare type JLayerSetStyleParams =
+  | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "id" | "lineColor" | "lineThickness">>)
   | (Pick<JLayerPolygonStyle, "type"> &
-      Partial<Pick<JLayerPolygonStyle, "fillColor" | "borderColor" | "borderThickness">>)
-  | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "symbolData">>)
+      Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
+  | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "id" | "symbolData">>)
 
 declare interface JLayerSetLayersVisibilityParams {
   layerId: JId

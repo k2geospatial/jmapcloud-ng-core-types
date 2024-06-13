@@ -329,6 +329,8 @@ export interface JLayerEventModule extends JEventModule {
     sourceChange(listenerId: string, fn: (params: JLayerEventParams) => void): void
     selectabilityWillChange(listenerId: string, fn: (params: JLayerEventSelectabilityParams) => void): void
     layerDeletion(listenerId: string, fn: (params: JLayerEventParams) => void): void
+    thematicAddition(listenerId: string, fn: (params: JAddMapThematicEventParams) => void): void
+    thematicDeletion(listenerId: string, fn: (params: JLayerThematicEventParams) => void): void
     initialSearchApplied(listenerId: string, fn: (params: JLayerInitialSearchEventParams) => void): void
     dynamicFilterSet(listenerId: string, fn: (params: JLayerDynamicFilterSetParams) => void): void
     dynamicFilterActivationChange(listenerId: string, fn: (params: JLayerDynamicFilterActivationParams) => void): void
@@ -696,7 +698,8 @@ export interface JMapService {
   isTerrainAvailable(): boolean
   isTerrainActive(): boolean
   setTerrainActive(active: boolean): void
-  setSelectionStyle(layerId: JId, style: JLayerSetSelectionStyleParam): void
+  setSelectionStyle(layerId: JId, style: JLayerSetStyleParams): void
+  resetSelectionStyle(layerId: JId): void
   setScaleControlVisibility(isVisible: boolean, position?: JMAP_POSITIONS): void
   setScaleControlUnits(units: "imperial" | "metric" | "nautical"): void
   setScaleControlPosition(position: JMAP_POSITIONS): void
@@ -896,6 +899,8 @@ export interface JLayerSearchService {
 }
 
 export interface JLayerThematicService {
+  addThematic(params: JLayerAddThematicParams): Promise<void>
+  deleteThematic(layerId: JId, thematicId: JId): void
   getAllByLayerId(layerId: JId): JLayerThematic[]
   getById(layerId: JId, thematicId: JId): JLayerThematic
   existsById(layerId: JId, thematicId: JId): boolean
