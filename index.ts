@@ -329,6 +329,7 @@ export interface JLayerEventModule extends JEventModule {
     sourceChange(listenerId: string, fn: (params: JLayerEventParams) => void): void
     selectabilityWillChange(listenerId: string, fn: (params: JLayerEventSelectabilityParams) => void): void
     layerDeletion(listenerId: string, fn: (params: JLayerEventParams) => void): void
+    thematicAddition(listenerId: string, fn: (params: JAddMapThematicEventParams) => void): void
     thematicDeletion(listenerId: string, fn: (params: JLayerThematicEventParams) => void): void
     initialSearchApplied(listenerId: string, fn: (params: JLayerInitialSearchEventParams) => void): void
     dynamicFilterSet(listenerId: string, fn: (params: JLayerDynamicFilterSetParams) => void): void

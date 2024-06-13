@@ -229,6 +229,11 @@ declare interface JLayerThematicEventParams {
   thematicId: JId
 }
 
+declare interface JAddMapThematicEventParams {
+  layerId: JId
+  layerSpecifications: maplibregl.LayerSpecification[]
+}
+
 declare interface JLayerInitialSearchEventParams extends JLayerEventParams {
   features: GeoJSON.Feature[]
 }

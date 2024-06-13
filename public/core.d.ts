@@ -3324,7 +3324,7 @@ declare namespace JMap {
     /**
      * ***JMap.Map.resetSelectionStyle***
      *
-     * Set back the selection style of a layer to its original value. Use this method when the selection style has been modified by {@link JMap.Map.setSelectionStyle} and the style modification is not needed anymore.
+     * Sets back the selection style of a layer to its original value. Use this method when the selection style has been modified by {@link JMap.Map.setSelectionStyle} and the style modification is not needed anymore.
      *
      * @param layerId the JMap Cloud layer id
      */
@@ -8655,6 +8655,26 @@ declare namespace JMap {
          * ```
          */
         function thematicDeletion(listenerId: string, fn: (params: JLayerThematicEventParams) => void): void
+
+        /**
+         * ***JMap.Event.Layer.on.thematicAddition***
+         *
+         * This event is triggered when a custom thematic is added.
+         *
+         * @param listenerId Your listener id (must be unique for all layer events)
+         * @param fn Your listener function
+         * @example
+         * ```ts
+         * // Each time a custom thematic is added, will display a message in the console
+         * JMap.Event.Layer.on.thematicAddition(
+         *    "custom-thematic-addition",
+         *    params => {
+         *      console.log(`Thematic has been added for layer id="${params.layerId}". Params: `, params)
+         *    }
+         * )
+         * ```
+         */
+        function thematicAddition(listenerId: string, fn: (params: JAddMapThematicEventParams) => void): void
 
         /**
          * ***JMap.Event.Layer.on.initialSearchApplied***
