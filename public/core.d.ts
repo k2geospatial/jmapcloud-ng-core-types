@@ -974,10 +974,15 @@ declare namespace JMap {
       function addThematic(params: JLayerAddThematicParams): Promise<void>
 
       /**
-       * ***JMap.Layer.Thematic.addThematic***
+       * ***JMap.Layer.Thematic.deleteThematic***
        *
        * Deletes a thematic from JMap CLoud NG. The removal is client-side only and only for the current session.
        *
+       * @example
+       * ```ts
+       * // delete a thematic
+       * JMap.Layer.Thematic.deleteThematic("d5185b58-4f7a-4689-bacd-656df2104da4","bc23f628-0fea-4e0c-8c23-d39c33ee0be2")
+       * ```
        * @param layerId the JMap Cloud layer id
        * @param thematicId the thematic id (Style Rule id)
        */
