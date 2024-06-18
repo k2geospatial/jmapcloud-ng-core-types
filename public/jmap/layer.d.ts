@@ -65,14 +65,13 @@ declare const enum JLAYER_THEMATIC_FAMILY_TYPES {
 declare const enum JLAYER_STYLE_TYPES {
   POINT = "POINT",
   LINE = "LINE",
-  SURFACE = "SURFACE",
-  ANNOTATION = "ANNOTATION",
-  IMAGE = "IMAGE",
-  MIXED = "MIXED"
+  POLYGON = "POLYGON",
+  TEXT = "TEXT",
+  IMAGE = "IMAGE"
 }
 
 // ALL_LAYER_STYLE_ARROWS in all-enum.ts
-declare const enum JLAYER_STYLE_ARROWS {
+declare const enum JLAYER_STYLE_ARROW_TYPES {
   NONE = "NONE",
   FORWARD = "FORWARD",
   BACKWARD = "BACKWARD"
@@ -99,7 +98,9 @@ declare const enum JLAYER_STYLE_RULE_CONDITION_EXPRESSION_OPERATORS {
   GREATER_THAN = "GREATER_THAN",
   LOWER_THAN = "LOWER_THAN",
   GREATER_OR_EQUALS_TO = "GREATER_OR_EQUALS_TO",
-  LOWER_OR_EQUALS_TO = "LOWER_OR_EQUALS_TO"
+  LOWER_OR_EQUALS_TO = "LOWER_OR_EQUALS_TO",
+  IN = "IN", // This operator does not yet exist in JMC
+  NOT_IN = "NOT_IN" // This operator does not yet exist in JMC
 }
 
 // ALL_LAYER_DYNAMIC_FILTER_OPERATORS in all-enum.ts
@@ -122,15 +123,15 @@ declare const enum JLAYER_DYNAMIC_FILTER_OPERATORS {
   INTERVAL = "INTERVAL"
 }
 
-// ALL_LAYER_STYLE_LINE_STROKE_CAP in all-enum.ts
-declare const enum JLAYER_STYLE_LINE_STROKE_CAP {
+// ALL_LAYER_STYLE_LINE_CAP in all-enum.ts
+declare const enum JLAYER_STYLE_LINE_CAP {
   BUTT = "BUTT",
   ROUND = "ROUND",
   SQUARE = "SQUARE"
 }
 
-// ALL_LAYER_STYLE_LINE_STROKE_JOIN in all-enum.ts
-declare const enum JLAYER_STYLE_LINE_STROKE_JOIN {
+// ALL_LAYER_STYLE_LINE_JOIN in all-enum.ts
+declare const enum JLAYER_STYLE_LINE_JOIN {
   MITER = "MITER",
   ROUND = "ROUND",
   BEVEL = "BEVEL"
@@ -223,6 +224,16 @@ declare interface JLayerEventParams {
   layerId: JId
 }
 
+declare interface JLayerThematicEventParams {
+  layerId: JId
+  thematicId: JId
+}
+
+declare interface JAddMapThematicEventParams {
+  layerId: JId
+  layerSpecifications: maplibregl.LayerSpecification[]
+}
+
 declare interface JLayerInitialSearchEventParams extends JLayerEventParams {
   features: GeoJSON.Feature[]
 }
@@ -301,7 +312,8 @@ declare interface JLayer extends JLayerTreeElement {
   forms: JLayerForm[]
   hasInformationReport: boolean
   informationReports: JLayerInformationReport[]
-  spatialDataSourceId: string // For JMap Cloud only
+  spatialDataSourceId: string
+  selectionStyleId: string
   dynamicFilter: JDynamicFilter
 }
 
@@ -382,6 +394,7 @@ declare interface JLayerThematicClassification extends JLayerThematic {
 }
 
 declare interface JLayerThematicStyleRule extends JLayerThematic {
+  type: JLAYER_THEMATIC_TYPES.STYLE_RULE
   conditions: JLayerThematicCondition[]
   hiddenConditionIds: string[]
 }
@@ -400,7 +413,7 @@ declare interface JLayerThematicConditionScaledStyle {
 
 declare interface JLayerThematicCategory {
   title: string
-  style: JLayerStyle
+  style: JLayerBaseStyle
   enabled: boolean
   nullValueCategory: boolean
   index: number
@@ -439,6 +452,7 @@ declare interface JLayerStyleRule {
 declare interface JLayerStyleRuleCondition {
   id: string
   name: string
+  conditionExpressions: JLayerStyleRuleConditionExpression[]
   styleMapScales: JLayerStyleScaled[]
 }
 
@@ -454,108 +468,85 @@ declare interface JLayerStyleSample {
   imageSampleInBase64: string
 }
 
-// @TODO we probably don't need this interface anymore
 declare interface JLayerStyleRuleConditionExpression {
+  id: string
   operator: JLAYER_STYLE_RULE_CONDITION_EXPRESSION_OPERATORS
   value: any
   attribute: JLayerAttribute
 }
 
-declare interface JLayerStyle {
-  styleType: JLAYER_STYLE_TYPES
+declare interface JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES
+  id: string
+  name: string
+  /**
+   * @deprecated
+   * this property will be removed once the legacy support for JMS thematics will be removed
+   */
   imageSampleInBase64: string
-  transparencyPerCent: number
+  transparency: number
 }
 
-declare interface JLayerStyleVector extends JLayerStyle {
-  antiAliasing: boolean
+declare interface JLayerImageStyle extends JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES.IMAGE
 }
 
-declare interface JLayerStylePoint extends JLayerStyleVector {
-  styleType: JLAYER_STYLE_TYPES.POINT
-  symbolScale: number
-  symbolRotationInDegree: number
-  symbolProportionalSizeEnabled: boolean
-  symbolProportionalSize: number
-  symbolRotateWithMapEnabled: boolean
-  symbolOffsetX: number
-  symbolOffsetY: number
-  symbolVector: JLayerStyleSymbolVector | null
-  symbolImage: JLayerStyleSymbolImage | null
+declare interface JLayerPointStyle extends JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES.POINT
+  size: number
+  rotation: number
+  rotationLocked: boolean
+  proportional: boolean
+  proportionalScale: number
+  symbolOffset: [number, number]
+  symbolData: string
 }
 
-declare interface JLayerStyleLineStroke {
-  width: number
-  cap: JLAYER_STYLE_LINE_STROKE_CAP
-  join: JLAYER_STYLE_LINE_STROKE_JOIN
-}
-
-declare interface JLayerStyleLineStrokeBasic extends JLayerStyleLineStroke {
-  miterLimit: number
-  dash: number[]
-  dash_phase: number
-}
-
-declare interface JLayerStyleLine extends JLayerStyleVector {
-  styleType: JLAYER_STYLE_TYPES.LINE
-  lineColor: JRGBColor
+declare interface JLayerLineStyle extends JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES.LINE
   lineThickness: number
-  arrowType: JLAYER_STYLE_ARROWS
-  arrowPositionFromLeftInPerCent: number
-  stroke: JLayerStyleLineStroke
+  lineColor: string
+  arrowType: JLAYER_STYLE_ARROW_TYPES
+  arrowPosition: number
+  lineCap: JLAYER_STYLE_LINE_CAP
+  lineJoin: JLAYER_STYLE_LINE_JOIN
+  dashPattern: number[]
+  patternData: string
 }
 
-declare interface JLayerStyleSurface extends JLayerStyleVector {
-  styleType: JLAYER_STYLE_TYPES.SURFACE
-  fillColor: JRGBColor
+declare interface JLayerPolygonStyle extends JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES.POLYGON
+  fillColor: string
+  borderColor: string
   transparentFill: boolean
-  borderColor: JRGBColor
-  borderTransparencyInPercent: number
   borderThickness: number
-  surfacePattern: string
-  patternColor: JRGBColor
-  patternTransparentFill: boolean
+  borderTransparency: number
+  borderDashPattern: number[]
+  borderPatternData: string
+  patternData: string
 }
 
-declare interface JLayerStyleAnnotation extends JLayerStyleVector {
-  styleType: JLAYER_STYLE_TYPES.ANNOTATION
-  textFont: string
-  textColor: JRGBColor
-  textBold: boolean
-  textItalic: boolean
-  textUnderlined: boolean
-  textStrikeThrough: boolean
-  textOutlined: boolean
-  textOutlineColor: JRGBColor
+declare interface JLayerTextStyle extends JLayerBaseStyle {
+  type: JLAYER_STYLE_TYPES.TEXT
+  textColor: string
+  outlineColor: string
+  bold: boolean
+  italic: boolean
 }
 
-declare interface JLayerStyleMixed extends JLayerStyleVector {
-  styleType: JLAYER_STYLE_TYPES.MIXED
-  point: JLayerStylePoint
-  line: JLayerStyleLine
-  surface: JLayerStyleSurface
-  text: JLayerStyleAnnotation
+declare type JLayerUserStyleRule = Omit<JLayerStyleRule, "defaultRule">
+
+declare type JLayerAddThematicParams = {
+  layerId: JId
+  styleRule: JLayerUserStyleRule
+  styles: JLayerSetStyleParams[]
 }
 
-declare interface JLayerStyleSymbolImage {
-  absoluteFilePath: string
-}
-
-declare interface JLayerStyleSymbolVector {
-  vectorSymbol: string
-  borderThickness: number
-  borderColor: JRGBColor
-  transparentFill: boolean
-  fillColor: JRGBColor
-}
-
-declare interface JRGBColor {
-  red: number
-  green: number
-  blue: number
-  alpha: number
-  hexa: string
-}
+declare type JLayerSetStyleParams =
+  | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "id" | "lineColor" | "lineThickness">>)
+  | (Pick<JLayerPolygonStyle, "type"> &
+      Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
+  | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "id" | "symbolData">>)
 
 declare interface JLayerSetLayersVisibilityParams {
   layerId: JId
