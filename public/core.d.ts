@@ -806,10 +806,10 @@ declare namespace JMap {
        *
        * The {@link JLayerAddThematicParams} parameter that you must provide include those properties:
        * * the JMap Cloud layer id
-       * * a {@link JLayerUserStyleRule} specification
+       * * a {@link JLayerStyleRule} specification
        * * an array of {@link JLayerSetStyleParams}
        *
-       * The id of the thematic that will be created will be the same id than the {@link JLayerUserStyleRule} that you provided.
+       * The id of the thematic that will be created will be the same id than the {@link JLayerStyleRule} that you provided.
        *
        * All objects that you provide that require an id should have a unique uuid v4 id. Many programming languages let you generate such ids.
        *

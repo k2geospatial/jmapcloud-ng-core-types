@@ -444,7 +444,6 @@ declare interface JLayerStyleRule {
   id: string
   layerId: string
   active: boolean
-  defaultRule: boolean
   name: string
   conditions: JLayerStyleRuleCondition[]
 }
@@ -534,11 +533,9 @@ declare interface JLayerTextStyle extends JLayerBaseStyle {
   italic: boolean
 }
 
-declare type JLayerUserStyleRule = Omit<JLayerStyleRule, "defaultRule">
-
 declare type JLayerAddThematicParams = {
   layerId: JId
-  styleRule: JLayerUserStyleRule
+  styleRule: JLayerStyleRule
   styles: JLayerSetStyleParams[]
 }
 
