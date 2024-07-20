@@ -34,7 +34,6 @@ declare interface JProject {
   initialRotation: number
   colorSelection: string
   colorBackground: string
-  terrainRasterDataSourceId?: JId
   terrain?: JTerrainSpecification
   initialExtent: JBounds | null
   minimumVisibleZoom: number
@@ -53,6 +52,7 @@ declare interface JProject {
 }
 
 declare interface JTerrainSpecification {
+  dataSourceId?: string
   terrainExaggeration?: number
   hillshadeExaggeration?: number
   hillshadeIlluminationDirection?: number

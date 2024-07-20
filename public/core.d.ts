@@ -6055,6 +6055,50 @@ declare namespace JMap {
      * ```
      */
     function setChangeDisabled(): void
+
+    /**
+     * **JMap.Project.getElevationAtLocation**
+     *
+     * Gets the elevation of the Terrain associated with the project for the given location.
+     *
+     * @throws if location is invalid or if there is no terrain associated with the project.
+     * @param location
+     * @return the elevation at the given location, or null if no elevation data is available at that location.
+     * @example
+     * ```ts
+     * // get the elevation
+     * if (JMap.Project.hasTerrain()) {
+     *    JMap.Project.getElevationAtLocation({x:-73.591205, y:45.505216})
+     *      .then(elevation => {
+     *          if(elevation !== null){
+     *            console.log(`Elevation at x:-73.591205, y:45.505216 is ${elevation}`)
+     *          }else{
+     *            console.log("No elevation data available for location x:-73.591205, y:45.505216")
+     *          }
+     *      })
+     * }else{
+     *    console.log("there is no terrain associated with this project.")
+     * }
+     * ```
+     */
+    function getElevationAtLocation(location: JLocation): Promise<number | null>
+
+    /**
+     * **JMap.Project.hasTerrain**
+     *
+     * Returns true if a project is loaded and if a terrain is associated with the project, false otherwise
+     *
+     * @example
+     * ```ts
+     * // get the elevation
+     * if (JMap.Project.hasTerrain()) {
+     *    console.log("A terrain is associated with this project.")
+     * }else{
+     *    console.log("there is no project loaded, or no terrain associated with this project.")
+     * }
+     * ```
+     */
+    function hasTerrain(): boolean
   }
 
   /**
