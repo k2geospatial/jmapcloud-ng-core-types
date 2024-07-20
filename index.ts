@@ -855,6 +855,8 @@ export interface JProjectService {
   isChangeDisabled(): boolean
   setChangeEnabled(): void
   setChangeDisabled(): void
+  getElevationAtLocation(location: JLocation): Promise<number | null>
+  hasTerrain(): boolean
 }
 
 export interface JLayerService {
