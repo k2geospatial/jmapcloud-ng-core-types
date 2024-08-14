@@ -13,6 +13,7 @@ export interface JCoreService extends JCoreMainService {
   Geometry: JGeometryService
   MouseOver: JMouseOverService
   Form: JFormService
+  FormJMC: JFormJMCService
   Query: JQueryService
   Event: JEventService
   History: JHistoryService
@@ -154,6 +155,7 @@ export interface JFeatureService {
   // TODO: see if the future endpoint will return detail about individual deleted features success or failure
   // https://k2geospatial.atlassian.net/browse/JMAP8-1589
   deleteByIds(layerId: JId, featureIds: JId[]): Promise<JId[]>
+  geometryCreate(params: JFeatureGeometryCreateParams): Promise<GeoJSON.Feature>
 }
 
 export interface JCoreMainService {
@@ -573,6 +575,10 @@ export interface JServerState extends JServerInfo {
 }
 
 export type JHistoryListener = (oldValue: string | undefined, newValue: string | undefined) => void
+
+export interface JFormJMCService {
+  getJsonForm(layerId: string): JJsonFormSchemas
+}
 
 export interface JFormService {
   // REPO METHODS

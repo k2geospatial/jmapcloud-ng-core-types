@@ -565,6 +565,46 @@ declare namespace JMap {
     // TODO: see if the future endpoint will return detail about individual deleted features success or failure
     // https://k2geospatial.atlassian.net/browse/JMAP8-1589
     function deleteByIds(layerId: JId, featureIds: JId[]): Promise<JId[]>
+
+    /**
+     * **JMap.Feature.geometryCreate**
+     *
+     * Creates a new Geometry
+     *
+     * @param params An object containing the parameters for geometry creation.
+     * @param params.layerId The JMap layer id (string).
+     * @param params.geometry The GeoJSON geometry object.
+     * @param params.properties The values of the feature's attributes.
+     * @param params.crs An object representing the coordinate reference system of the geometry.
+     * @throws Will throw an error if the layerId is not found.
+     * @returns A promise that resolves with the created GeoJSON feature.
+     *
+     * @example
+     * ```ts
+     * // Create a feature
+     * JMap.Feature
+     *   .geometryCreate({
+     *     layerId: "123e4567-e89b-12d3-a456-426614174000",
+     *     crs: {
+     *       type: "EPSG",
+     *       properties: {
+     *         code: 4326
+     *       }
+     *     },
+     *     geometry: {
+     *       type: "Point",
+     *       coordinates: [-73.56, 45.51]
+     *     },
+     *     properties: {
+     *       property1: "value1",
+     *       property2: "value2"
+     *     }
+     *   })
+     *   .then(() => console.info("Feature has been created"))
+     *   .catch(error => console.error("An error occurred", error));
+     * ```
+     */
+    function geometryCreate(params: JFeatureGeometryCreateParams): Promise<GeoJSON.Feature>
   }
 
   /**
@@ -10183,6 +10223,31 @@ declare namespace JMap {
     function renderMouseOver(layer: JLayer, feature: GeoJSON.Feature): Array<JExtensionMouseOver | undefined>
   }
 
+  /**
+   * **JMap.FormJMC**
+   *
+   * Here you'll find all form related methods
+   */
+  namespace FormJMC {
+    /**
+     * ***JMap.FormJMC.getJsonForm***
+     *
+     * Returns the jsonForm schema and uiSchema for a layer.
+     *
+     * fetch the attributes of a layer and then builds and returns the schema and uiSchema required for jsonForms. The schemas will be null if there is no attributes on the layer
+     *
+     * @param layerId the JMap layer id
+     * @example
+     * ```ts
+     * // returns the schema and uiSchema for layer id=3
+     * JMap.FormJMC
+     *  .getJsonForm(3)
+     *  .then(schemas => console.log("jsonForms schemas of layer 3", schemas))
+     *  .catch(error => console.error("An error occurred when getting jsonForm schema", error))
+     * ```
+     */
+    function getJsonForm(layerId: JId): JJsonFormSchemas
+  }
   /**
    * **JMap.Form**
    *
