@@ -506,7 +506,7 @@ declare namespace JMap {
      *
      * Change the feature geometry for the given layer id, feature id and geometry (projection EPSG:4326).
      *
-     * @param params contains the JMap layer id, the JMap feature id, and the geojson geometry
+     * @param params contains the JMap layer id, the JMap feature id, the geojson geometry, and optionally its attributes
      * @throws if layer or feature not found, or if feature is invalid (undefined, wrong geometry type, etc ...)
      * @example
      * ```ts
