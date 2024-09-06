@@ -271,11 +271,11 @@ declare interface JLayerGeometry {
 }
 
 declare interface JLayerPermissions {
-  ADD: boolean
-  DELETE: boolean
-  DUPLICATE: boolean
-  EDIT_ATTRIBUTE_VALUES: boolean
-  EDIT_GEOMETRY: boolean
+  ADD_FEATURE: boolean
+  DELETE_FEATURE: boolean
+  EXTRACT_FEATURE: boolean
+  EDIT_FEATURE_ATTRIBUTES: boolean
+  EDIT_FEATURE_GEOMETRY: boolean
   EDIT_ONLY_OWN: boolean
 }
 
@@ -545,7 +545,7 @@ declare type JLayerAddThematicParams = {
 declare type JLayerSetStyleParams =
   | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "id" | "lineColor" | "lineThickness">>)
   | (Pick<JLayerPolygonStyle, "type"> &
-      Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
+    Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
   | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "id" | "symbolData">>)
 
 declare interface JLayerSetLayersVisibilityParams {
