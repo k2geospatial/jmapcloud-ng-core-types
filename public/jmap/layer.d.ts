@@ -544,7 +544,7 @@ declare type JLayerAddThematicParams = {
 declare type JLayerSetStyleParams =
   | (Pick<JLayerLineStyle, "type"> & Partial<Pick<JLayerLineStyle, "id" | "lineColor" | "lineThickness">>)
   | (Pick<JLayerPolygonStyle, "type"> &
-    Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
+      Partial<Pick<JLayerPolygonStyle, "id" | "fillColor" | "borderColor" | "borderThickness">>)
   | (Pick<JLayerPointStyle, "type"> & Partial<Pick<JLayerPointStyle, "id" | "symbolData">>)
 
 declare interface JLayerSetLayersVisibilityParams {

@@ -1,9 +1,9 @@
 declare interface JJsonFormSchemas {
-  schema: JSchema | null
-  uiSchema: JUISchema | null
+  schema: JJsonFormSchema | null
+  uiSchema: JJsonFormUISchema | null
 }
 
-declare interface JSchema {
+declare interface JJsonFormSchema {
   type: "object"
   properties: {
     [key: string]: {
@@ -13,13 +13,13 @@ declare interface JSchema {
   }
   required: string[]
 }
-declare interface JControlElement {
+declare interface JJsonFormControlElement {
   type: "Control"
   scope: string
   label: string
 }
 
-declare interface JUISchema {
+declare interface JJsonFormUISchema {
   type: "VerticalLayout"
-  elements: JControlElement[]
+  elements: JJsonFormControlElement[]
 }
