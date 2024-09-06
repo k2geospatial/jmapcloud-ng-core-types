@@ -302,7 +302,6 @@ declare interface JLayer extends JLayerTreeElement {
   queries: JQuery[]
   extent: JBoundaryBox | null
   permissions: JLayerPermissions
-  canEditGeometry: boolean
   hasAttributeForm: boolean
   hasExternalForms: boolean
   selectable: boolean
