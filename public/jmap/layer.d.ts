@@ -271,11 +271,11 @@ declare interface JLayerGeometry {
 }
 
 declare interface JLayerPermissions {
-  ADD: boolean
-  DELETE: boolean
-  DUPLICATE: boolean
-  EDIT_ATTRIBUTE_VALUES: boolean
-  EDIT_GEOMETRY: boolean
+  ADD_FEATURE: boolean
+  DELETE_FEATURE: boolean
+  EXTRACT_FEATURE: boolean
+  EDIT_FEATURE_ATTRIBUTES: boolean
+  EDIT_FEATURE_GEOMETRY: boolean
   EDIT_ONLY_OWN: boolean
 }
 
@@ -302,7 +302,6 @@ declare interface JLayer extends JLayerTreeElement {
   queries: JQuery[]
   extent: JBoundaryBox | null
   permissions: JLayerPermissions
-  canEditGeometry: boolean
   hasAttributeForm: boolean
   hasExternalForms: boolean
   selectable: boolean
