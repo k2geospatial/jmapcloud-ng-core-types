@@ -10239,10 +10239,12 @@ declare namespace JMap {
      * @param layerId the JMap layer id
      * @example
      * ```ts
-     * // returns the schema and uiSchema for layer id=3
+     * // returns the schema and uiSchema for layer id=f47ac10b-58cc-4372-a567-0e02b2c3d479
+
+
      * JMap.FormJMC
-     *  .getJsonForm(3)
-     *  .then(schemas => console.log("jsonForms schemas of layer 3", schemas))
+     *  .getJsonForm("f47ac10b-58cc-4372-a567-0e02b2c3d479")
+     *  .then(schemas => console.log("jsonForms schemas of layer f47ac10b-58cc-4372-a567-0e02b2c3d479", schemas))
      *  .catch(error => console.error("An error occurred when getting jsonForm schema", error))
      * ```
      */
