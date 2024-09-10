@@ -10237,18 +10237,19 @@ declare namespace JMap {
      * fetch the attributes of a layer and then builds and returns the schema and uiSchema required for jsonForms. The schemas will be null if there is no attributes on the layer
      *
      * @param layerId the JMap layer id
+     * @param locale the locale to use for the form (default is "en")
      * @example
      * ```ts
      * // returns the schema and uiSchema for layer id=f47ac10b-58cc-4372-a567-0e02b2c3d479
 
 
      * JMap.FormJMC
-     *  .getJsonForm("f47ac10b-58cc-4372-a567-0e02b2c3d479")
+     *  .getJsonForm("f47ac10b-58cc-4372-a567-0e02b2c3d479", "en")
      *  .then(schemas => console.log("jsonForms schemas of layer f47ac10b-58cc-4372-a567-0e02b2c3d479", schemas))
      *  .catch(error => console.error("An error occurred when getting jsonForm schema", error))
      * ```
      */
-    function getJsonForm(layerId: JId): JJsonFormSchemas
+    function getJsonForm(layerId: JId, locale?: JLOCALES): JJsonFormSchemas
   }
   /**
    * **JMap.Form**
