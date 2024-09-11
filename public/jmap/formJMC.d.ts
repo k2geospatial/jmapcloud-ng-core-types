@@ -17,6 +17,9 @@ declare interface JJsonFormControlElement {
   type: "Control"
   scope: string
   label: string
+  options?: {
+    [key: string]: any
+  }
 }
 
 declare interface JJsonFormUISchema {
