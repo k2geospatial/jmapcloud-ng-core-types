@@ -572,10 +572,10 @@ declare namespace JMap {
      * Creates a new Geometry
      *
      * @param params An object containing the parameters for geometry creation.
-     * @param params.layerId The JMap layer id (string).
-     * @param params.geometry The GeoJSON geometry object.
-     * @param params.properties The values of the feature's attributes.
-     * @param params.crs An object representing the coordinate reference system of the geometry.
+     * params.layerId:  The JMap layer id (string).
+     * params.geometry: The GeoJSON geometry object.
+     * params.properties: The values of the feature's attributes.
+     * params.crs: An object representing the coordinate reference system of the geometry.
      * @throws Will throw an error if the layerId is not found.
      * @returns A promise that resolves with the created GeoJSON feature.
      *
