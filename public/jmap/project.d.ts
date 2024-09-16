@@ -36,8 +36,6 @@ declare interface JProject {
   colorBackground: string
   terrain?: JTerrainSpecification
   initialExtent: JBounds | null
-  minimumVisibleZoom: number
-  maximumVisibleZoom: number
   mapUnit: JMAP_DISTANCE_UNITS
   apiKey: {
     google: string | null

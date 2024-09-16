@@ -929,8 +929,8 @@ declare namespace JMap {
        *         styleMapScales: [
        *           {
        *             id: "a9ba5215-0511-4aa3-a724-6f14f10ab315",
-       *             maximumVisibleZoom: 23,
-       *             minimumVisibleZoom: 0,
+       *             maximumZoom: 23,
+       *             minimumZoom: 0,
        *             styleId: condition1StyleId
        *           }
        *         ]
@@ -949,8 +949,8 @@ declare namespace JMap {
        *         styleMapScales: [
        *           {
        *             id: "8fb646bb-afee-4a3c-9545-e9716049d307",
-       *             maximumVisibleZoom: 23,
-       *             minimumVisibleZoom: 0,
+       *             maximumZoom: 23,
+       *             minimumZoom: 0,
        *             styleId: condition2StyleId
        *           }
        *         ]
@@ -969,8 +969,8 @@ declare namespace JMap {
        *         styleMapScales: [
        *           {
        *             id: "d0ad4bf4-f6a7-46f1-866b-74f97a5e7775",
-       *             maximumVisibleZoom: 23,
-       *             minimumVisibleZoom: 0,
+       *             maximumZoom: 23,
+       *             minimumZoom: 0,
        *             styleId: condition3StyleId
        *           }
        *         ]
@@ -989,8 +989,8 @@ declare namespace JMap {
        *         styleMapScales: [
        *           {
        *             id: "94331295-86b3-455c-8946-d45f79b8bd21",
-       *             maximumVisibleZoom: 23,
-       *             minimumVisibleZoom: 0,
+       *             maximumZoom: 23,
+       *             minimumZoom: 0,
        *             styleId: condition4StyleId
        *           }
        *         ]

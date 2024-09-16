@@ -294,8 +294,8 @@ declare interface JLayer extends JLayerTreeElement {
   metadataSections: JLayerMetadataSection[]
   attributes: JLayerAttribute[]
   mouseOver: JMapMouseOver
-  minimumVisibleZoom: number | undefined
-  maximumVisibleZoom: number | undefined
+  minimumZoom: number | undefined
+  maximumZoom: number | undefined
   styleRules: JLayerStyleRule[]
   defaultStyleRule: JLayerStyleRule | undefined
   thematics: JLayerThematic[]
@@ -458,8 +458,8 @@ declare interface JLayerStyleRuleCondition {
 declare interface JLayerStyleScaled {
   id: string
   styleId: string
-  minimumVisibleZoom: number
-  maximumVisibleZoom: number
+  minimumZoom: number
+  maximumZoom: number
 }
 
 declare interface JLayerStyleSample {

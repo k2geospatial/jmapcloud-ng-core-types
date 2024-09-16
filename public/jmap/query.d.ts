@@ -1,9 +1,15 @@
+/**
+ * @deprecated
+ */
 declare interface JQueryGroup {
   id: JId
   name: string
   queries: JQuery[]
 }
 
+/**
+ * @deprecated
+ */
 declare interface JQuery {
   id: string // unique id, set by NG
   jmapId: JId // non unique id, set by server, used to fetch query form (associate to layer id)
@@ -11,7 +17,7 @@ declare interface JQuery {
   name: string
   layerId: JId
   maxScale: number
-  maxResults: number,
+  maxResults: number
   isInitialized: boolean
   isLoading: boolean
   hasLoadingError: boolean
