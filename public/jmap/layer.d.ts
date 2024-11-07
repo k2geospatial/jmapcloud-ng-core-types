@@ -460,6 +460,16 @@ declare interface JLayerStyleScaled {
   styleId: string
   minimumZoom: number
   maximumZoom: number
+  /**
+   * @deprecated
+   * this property will be removed in early 2025
+   */
+  minimumVisibleZoom?: number
+  /**
+   * @deprecated
+   * this property will be removed in early 2025
+   */
+  maximumVisibleZoom?: number
 }
 
 declare interface JLayerStyleSample {
