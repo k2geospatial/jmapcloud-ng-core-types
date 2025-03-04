@@ -5,6 +5,7 @@ declare interface JMapMouseOver {
   backgroundColor: string
   maximumZoom: number
   minimumZoom: number
+  url: string
 }
 
 declare interface JMouseOverContent {
