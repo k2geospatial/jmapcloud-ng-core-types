@@ -972,8 +972,8 @@ export interface JMouseOverService {
   closePopup(): void
   openPopup(params: JMouseOverOpenPopupParams): void
   openPopupForSelection(params: JMouseOverOpenPopupForSelectionParams): void
-  renderForFeaturesAtLocation(containerId: string, location: JLocation): Promise<boolean> // return true if has mouseover
-  renderForFeaturesSelection(containerId: string, selection: JMapSelection, location: JLocation): Promise<boolean> // return true if has mouseover
+  renderForFeaturesAtLocation(containerId: string, location: JLocation): boolean // return true if has mouseover
+  renderForFeaturesSelection(containerId: string, selection: JMapSelection, location: JLocation): boolean // return true if has mouseover
   openInformationReportInNewTab(layerId: JId): Promise<string>
 }
 

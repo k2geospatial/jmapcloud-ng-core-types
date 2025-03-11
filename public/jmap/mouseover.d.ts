@@ -13,6 +13,7 @@ declare interface JMouseOverContent {
   pendingLineLengthFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingPolygonAreaFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingCentroidFeatureIdsByLayerId: { [key in JId]: JId[] }
+  pendingFeatureInfoByLayerId: JId[]
   toEvalJS: string[]
 }
 
