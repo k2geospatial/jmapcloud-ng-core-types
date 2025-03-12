@@ -5612,12 +5612,13 @@ declare namespace JMap {
     /**
      * **JMap.MouseOver.renderForFeaturesSelection**
      *
-     * From the feature selection you provide, it process the mouseover for it,
-     * and render it inside the div of your choice.
+     * From the feature selection you provide, it processes the mouseover for it,
+     * and renders it inside the div of your choice.
      *
      * @throws Error if div doesn't exist in the DOM, or selection format is not good
      * @param containerId The div id where to display the mouseover content
      * @param selection A feature selection, the mouseover will be processed only for this features
+     * @param location An optional location is necessary to display the result of a getFeatureInfo, in the case of activated popups on a WMS or WMTS layer.
      * @return true if we displayed content in the div, false if no mouseover found for any layer
      * @example
      * ```ts
@@ -5634,7 +5635,7 @@ declare namespace JMap {
      * })
      * ```
      */
-    function renderForFeaturesSelection(containerId: string, selection: JMapSelection): boolean
+    function renderForFeaturesSelection(containerId: string, selection: JMapSelection, location?: JLocation): boolean
 
     /**
      * **JMap.MouseOver.openInformationReportInNewTab**

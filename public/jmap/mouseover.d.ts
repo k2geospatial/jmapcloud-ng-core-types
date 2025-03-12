@@ -5,6 +5,7 @@ declare interface JMapMouseOver {
   backgroundColor: string
   maximumZoom: number
   minimumZoom: number
+  url: string
 }
 
 declare interface JMouseOverContent {
@@ -12,6 +13,7 @@ declare interface JMouseOverContent {
   pendingLineLengthFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingPolygonAreaFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingCentroidFeatureIdsByLayerId: { [key in JId]: JId[] }
+  pendingFeatureInfoLayerIds: JId[]
   toEvalJS: string[]
 }
 

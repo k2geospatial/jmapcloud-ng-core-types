@@ -973,7 +973,7 @@ export interface JMouseOverService {
   openPopup(params: JMouseOverOpenPopupParams): void
   openPopupForSelection(params: JMouseOverOpenPopupForSelectionParams): void
   renderForFeaturesAtLocation(containerId: string, location: JLocation): boolean // return true if has mouseover
-  renderForFeaturesSelection(containerId: string, selection: JMapSelection): boolean // return true if has mouseover
+  renderForFeaturesSelection(containerId: string, selection: JMapSelection, location?: JLocation): boolean // return true if has mouseover
   openInformationReportInNewTab(layerId: JId): Promise<string>
 }
 
