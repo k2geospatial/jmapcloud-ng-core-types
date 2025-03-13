@@ -91,3 +91,13 @@ declare interface JJMapPasswordPolicyCompliance {
 declare const enum JORGANIZATION_EXTERNAL_API_KEY_TYPES {
   MAPBOX_ACCESS_TOKEN = "MAPBOX_ACCESS_TOKEN"
 }
+
+declare type JUserResourceType = "MAPS" | "EXTENSION" | "PREFERENCE_PORTAL" | "PREFERENCES_NG"
+
+declare interface JUserResource {
+  id: string
+  type: JUserResourceType
+  extensionId: string
+  projectId: string
+  content: Record<string, any>
+}
