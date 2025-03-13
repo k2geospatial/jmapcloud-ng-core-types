@@ -101,3 +101,15 @@ declare interface JUserResource {
   projectId: string
   content: Record<string, any>
 }
+
+declare interface JUserResourceCreateParams {
+  type: JUserResourceType
+  extensionId?: string
+  projectId: string
+  content: Record<string, any>
+}
+
+declare interface JUserResourceUpdateParams {
+  id: string
+  content: Record<string, any>
+}
