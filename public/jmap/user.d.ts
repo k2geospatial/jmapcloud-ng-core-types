@@ -111,5 +111,7 @@ declare interface JUserResourceCreateParams {
 
 declare interface JUserResourceUpdateParams {
   id: string
+  type: JUserResourceType
+  projectId: string
   content: Record<string, any>
 }

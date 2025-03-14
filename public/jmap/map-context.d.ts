@@ -130,7 +130,7 @@ declare interface JMapContextDataThematic {
 }
 
 declare interface JMapContext {
-  id: string
+  id?: JId
   title: string
   description: string
   shared: boolean
