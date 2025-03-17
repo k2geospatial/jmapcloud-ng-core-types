@@ -116,7 +116,15 @@ declare interface JUserResourceUpdateParams {
   content: Record<string, any>
 }
 
-declare interface JUserResourcePermission {
-  permission: "VIEW"
+type JUserResourcePermissionType = "VIEW" | "MODIFY" | "OWNER"
+type JUserViewPermissionType = Extract<JUserResourcePermissionType, "VIEW">
+
+declare interface JUserResourcePermissionParams {
+  permission: JUserViewPermissionType
+  principal: string
+}
+
+declare interface JUserResourcePermissionsResponse {
+  permissions: JUserResourcePermissionType[]
   principal: string
 }
