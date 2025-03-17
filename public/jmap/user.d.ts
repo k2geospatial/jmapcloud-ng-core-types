@@ -115,3 +115,8 @@ declare interface JUserResourceUpdateParams {
   projectId: string
   content: Record<string, any>
 }
+
+declare interface JUserResourcePermission {
+  permission: "MODIFY" | "VIEW"
+  principal: string
+}
