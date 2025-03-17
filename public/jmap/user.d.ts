@@ -117,6 +117,6 @@ declare interface JUserResourceUpdateParams {
 }
 
 declare interface JUserResourcePermission {
-  permission: "MODIFY" | "VIEW"
+  permission: "VIEW"
   principal: string
 }
