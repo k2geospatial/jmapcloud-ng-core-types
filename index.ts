@@ -70,7 +70,7 @@ export interface JMapContextService {
   setContextDescription(contextId: JId, description: string): Promise<void>
   isLinkShared(contextId: JId): boolean
   setLinkShare(contextId: JId, isShared: boolean): Promise<void>
-  isMapContextOwner(contextId: JId): boolean
+  isMapContextOwner(contextId: JId): Promise<boolean>
   getDefaultContext(): JMapContext | undefined
   isDefaultContext(contextId: JId): boolean
   setDefaultContext(contextId?: JId): Promise<void>
