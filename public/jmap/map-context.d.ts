@@ -136,7 +136,7 @@ declare interface JMapContext {
   shared: boolean
   origin: "web-ng"
   uuid?: string
-  author?: string
+  author: string
   creationDate?: string
   modificationDate?: string
   projectId?: string
@@ -150,7 +150,7 @@ declare interface JMapContextV0 {
   shared: boolean
   origin: "web-ng"
   uuid?: string
-  author: string
+  author?: string
   creationDate?: string
   modificationDate?: string
   projectId?: string
