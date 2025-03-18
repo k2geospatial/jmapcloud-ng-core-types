@@ -23,14 +23,6 @@ declare const enum JMAP_CONTEXT_SORT_BY_DIRECTIONS {
   DESC = "desc"
 }
 
-// ALL_MAP_CONTEXT_VERSIONS in all-enum.ts
-declare const enum JMAP_CONTEXT_VERSIONS {
-  V0 = 0,
-  V1 = 1
-}
-
-declare type JMapContextVersions = JMapContext | JMapContextV0 | JMapContextV1
-
 declare interface JMapContextEditResponse {
   id: JId
   uuid: string
@@ -96,7 +88,6 @@ declare interface JMapContextDataV0 {
 }
 
 declare interface JMapContextData {
-  version: JMAP_CONTEXT_VERSIONS
   layerElements: JMapContextDataLayerElement[]
   mapCenter: JLocation
   mapZoom: number
@@ -130,35 +121,14 @@ declare interface JMapContextDataThematic {
 }
 
 declare interface JMapContext {
-  id?: JId
+  id: string
   title: string
   description: string
   shared: boolean
-  origin: "web-ng"
-  uuid?: string
   author: string
-  creationDate?: string
-  modificationDate?: string
-  projectId?: string
+  creationDate: string
+  modificationDate: string
   data: JMapContextData
-}
-
-declare interface JMapContextV0 {
-  id?: number | string
-  title: string
-  description: string
-  shared: boolean
-  origin: "web-ng"
-  uuid?: string
-  author?: string
-  creationDate?: string
-  modificationDate?: string
-  projectId?: string
-  data: JMapContextDataV0
-}
-
-declare interface JMapContextV1 extends JMapContext {
-  // nothing to change here
 }
 
 declare interface JMapContextEventParams {
