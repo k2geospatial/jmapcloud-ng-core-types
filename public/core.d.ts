@@ -6249,6 +6249,19 @@ declare namespace JMap {
     function getUsername(): string
 
     /**
+     * ***JMap.User.getEmail***
+     *
+     * Returns the user email.
+     *
+     * @example
+     * ```ts
+     * // returns the email
+     * JMap.User.getEmail()
+     * ```
+     */
+    function getEmail(): string
+
+    /**
      * **JMap.User.getPreference**
      *
      * Get a user preference value from user storage. The returned Promise resolves to the value, else null if no preference has been set.

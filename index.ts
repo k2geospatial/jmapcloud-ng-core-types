@@ -928,6 +928,7 @@ export interface JUserService {
   getOrganization(): JOrganization
   getFullName(): string
   getUsername(): string
+  getEmail(): string
   getPreference(name: string): Promise<string | null>
   hasPreference(name: string): Promise<boolean>
   removePreference(name: string): Promise<string | null>
