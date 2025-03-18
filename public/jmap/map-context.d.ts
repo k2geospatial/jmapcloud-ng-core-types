@@ -131,6 +131,16 @@ declare interface JMapContext {
   data: JMapContextData
 }
 
+declare interface JMapContextCreationParams {
+  title: string
+  description: string
+  shared: boolean
+  author: string
+  creationDate: string
+  modificationDate: string
+  data: JMapContextData
+}
+
 declare interface JMapContextEventParams {
   context: JMapContext
   isExtensionDataSetById(extensionId: string): boolean
