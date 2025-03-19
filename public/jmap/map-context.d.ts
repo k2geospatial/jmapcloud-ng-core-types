@@ -36,57 +36,6 @@ declare interface JMapContextMetaData {
   thumbnailUrl?: string
 }
 
-/**
- * Never change this interface !!!
- * This is the picture of a map-context in version 0
- * Use for mapcontext migrations
- */
-declare interface JMapContextDataV0 {
-  layerElements: Array<{
-    id: string | number
-    isGroup: boolean
-    isVisible: boolean
-  }>
-  mapCenter: { x: number; y: number }
-  mapZoom: number
-  mapPitch: number
-  mapBearing: number
-  baseMap: string | undefined
-  selection: {
-    [key in string | number]: GeoJSON.Feature[]
-  }
-  measures: Array<{
-    id: string
-    type: "polygon" | "line_string" | "circle"
-    feature: GeoJSON.Feature<GeoJSON.LineString | GeoJSON.Polygon>
-    totalEdges: number
-    centroid: JPoint
-    edges: Array<{
-      popupLocation: JPoint
-      distance: number
-    }>
-    area: number
-    radius: number
-  }>
-  thumbnail: string
-  annotations: Array<{
-    id: string
-    type: "point" | "polygon" | "line_string" | "rectangle" | "circle" | "text"
-    feature: any
-  }>
-  annotationsTextMarkersProperties: Array<{
-    id: string
-    location: maplibregl.LngLatLike
-    textSize: number
-    textColor: string
-    textRotation: number
-    label: string
-    zoomRef: number
-    shapeType: string
-  }>
-  extensionData?: { [extensionId: string]: any }
-}
-
 declare interface JMapContextData {
   layerElements: JMapContextDataLayerElement[]
   mapCenter: JLocation
