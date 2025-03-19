@@ -68,16 +68,8 @@ declare interface JMapContextDataThematic {
   hiddenCategoryIndexes?: number[]
   hiddenConditionIds?: string[]
 }
-
-declare interface JMapContext {
+declare interface JMapContext extends JMapContextCreationParams {
   id: string
-  title: string
-  description: string
-  shared: boolean
-  author: string
-  creationDate: string
-  modificationDate: string
-  data: JMapContextData
 }
 
 declare interface JMapContextCreationParams {
@@ -88,6 +80,10 @@ declare interface JMapContextCreationParams {
   creationDate: string
   modificationDate: string
   data: JMapContextData
+}
+
+declare interface JMapContext extends JMapContextCreationParams {
+  id: string
 }
 
 declare interface JMapContextEventParams {

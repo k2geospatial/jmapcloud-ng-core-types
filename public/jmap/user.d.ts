@@ -93,28 +93,74 @@ declare const enum JORGANIZATION_EXTERNAL_API_KEY_TYPES {
 }
 
 declare type JUserResourceType = "MAPS" | "EXTENSION" | "PREFERENCE_PORTAL" | "PREFERENCES_NG"
+declare type JUserResourceExtensionType = Extract<JUserResourceType, "EXTENSION">
+declare type JUserResourceMapsType = Extract<JUserResourceType, "MAPS">
+declare type JUserResourcePreferencesType = Extract<JUserResourceType, "PREFERENCE_PORTAL" | "PREFERENCES_NG">
 
 declare interface JUserResource {
   id: string
   type: JUserResourceType
-  extensionId: string
-  projectId: string
-  content: Record<string, any>
-}
-
-declare interface JUserResourceCreateParams {
-  type: JUserResourceType
   extensionId?: string
-  projectId: string
+  projectId?: string
   content: Record<string, any>
 }
 
-declare interface JUserResourceUpdateParams {
-  id: string
-  type: JUserResourceType
-  projectId: string
+declare interface JUserResourceMapsBase {
+  type: JUserResourceMapsType
   content: Record<string, any>
 }
+
+declare interface JUserResourceMaps extends JUserResourceMapsBase {
+  id: string
+  projectId: string
+}
+
+declare interface JUserResourceMapsUpdateParams extends JUserResourceMapsBase {
+  projectId: string
+  id: string
+}
+
+declare interface JUserResourceMapsCreateParams extends JUserResourceMapsBase {
+  projectId: string
+}
+
+declare interface JUserResourceExtensionBase {
+  type: JUserResourceExtensionType
+  content: Record<string, any>
+}
+
+declare interface JUserResourceExtension extends JUserResourceExtensionBase {
+  id: string
+  projectId: string
+  extensionId: string
+}
+
+declare interface JUserResourceExtensionUpdateParams extends JUserResourceExtensionBase {
+  projectId: string
+  extensionId: string
+  id: string
+}
+
+declare interface JUserResourceExtensionCreateParams extends JUserResourceExtensionBase {
+  projectId: string
+  extensionId: string
+}
+
+// Eventually, the NG and Portal preferences will have an optional projectId to include in the logic below
+declare interface JUserResourcePreferencesBase {
+  type: JUserResourcePreferencesType
+  content: Record<string, any>
+}
+
+declare interface JUserResourcePreferences extends JUserResourcePreferencesBase {
+  id: string
+}
+
+declare interface JUserResourcePreferencesUpdateParams extends JUserResourcePreferencesBase {
+  id: string
+}
+
+declare interface JUserResourcePreferencesCreateParams extends JUserResourcePreferencesBase {}
 
 type JUserResourcePermissionType = "VIEW" | "MODIFY" | "OWNER"
 type JUserViewPermissionType = Extract<JUserResourcePermissionType, "VIEW">
