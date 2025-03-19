@@ -97,70 +97,39 @@ declare type JUserResourceExtensionType = Extract<JUserResourceType, "EXTENSION"
 declare type JUserResourceMapsType = Extract<JUserResourceType, "MAPS">
 declare type JUserResourcePreferencesType = Extract<JUserResourceType, "PREFERENCE_PORTAL" | "PREFERENCES_NG">
 
-declare interface JUserResource {
+declare interface JUserResourceBase {
   id: string
   type: JUserResourceType
-  extensionId?: string
-  projectId?: string
   content: Record<string, any>
 }
 
-declare interface JUserResourceMapsBase {
+declare interface JUserResourceMaps extends JUserResourceBase {
   type: JUserResourceMapsType
-  content: Record<string, any>
-}
-
-declare interface JUserResourceMaps extends JUserResourceMapsBase {
-  id: string
   projectId: string
 }
 
-declare interface JUserResourceMapsUpdateParams extends JUserResourceMapsBase {
-  projectId: string
-  id: string
-}
+declare interface JUserResourceMapsUpdateParams extends JUserResourceMaps {}
 
-declare interface JUserResourceMapsCreateParams extends JUserResourceMapsBase {
-  projectId: string
-}
+declare type JUserResourceMapsCreateParams = Omit<JUserResourceMaps, "id">
 
-declare interface JUserResourceExtensionBase {
+declare interface JUserResourceExtension extends JUserResourceBase {
   type: JUserResourceExtensionType
-  content: Record<string, any>
+  extensionId: string
+  projectId: string
 }
 
-declare interface JUserResourceExtension extends JUserResourceExtensionBase {
-  id: string
-  projectId: string
-  extensionId: string
-}
+declare interface JUserResourceExtensionUpdateParams extends JUserResourceExtension {}
 
-declare interface JUserResourceExtensionUpdateParams extends JUserResourceExtensionBase {
-  projectId: string
-  extensionId: string
-  id: string
-}
-
-declare interface JUserResourceExtensionCreateParams extends JUserResourceExtensionBase {
-  projectId: string
-  extensionId: string
-}
+declare type JUserResourceExtensionCreateParams = Omit<JUserResourceExtension, "id">
 
 // Eventually, the NG and Portal preferences will have an optional projectId to include in the logic below
-declare interface JUserResourcePreferencesBase {
+declare interface JUserResourcePreferences extends JUserResourceBase {
   type: JUserResourcePreferencesType
-  content: Record<string, any>
 }
 
-declare interface JUserResourcePreferences extends JUserResourcePreferencesBase {
-  id: string
-}
+declare interface JUserResourcePreferencesUpdateParams extends JUserResourcePreferences {}
 
-declare interface JUserResourcePreferencesUpdateParams extends JUserResourcePreferencesBase {
-  id: string
-}
-
-declare interface JUserResourcePreferencesCreateParams extends JUserResourcePreferencesBase {}
+declare type JUserResourcePreferencesCreateParams = Omit<JUserResourcePreferences, "id">
 
 type JUserResourcePermissionType = "VIEW" | "MODIFY" | "OWNER"
 type JUserViewPermissionType = Extract<JUserResourcePermissionType, "VIEW">
