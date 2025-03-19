@@ -68,9 +68,6 @@ declare interface JMapContextDataThematic {
   hiddenCategoryIndexes?: number[]
   hiddenConditionIds?: string[]
 }
-declare interface JMapContext extends JMapContextCreationParams {
-  id: string
-}
 
 declare interface JMapContextCreationParams {
   title: string
