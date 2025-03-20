@@ -439,7 +439,7 @@ export interface JMapContextState {
   isApplying: boolean
   activeTab: JMAP_CONTEXT_TABS
   contexts: JMapContext[]
-  defaultContextId: JId | undefined
+  defaultContextId: string | undefined
   filter: string
   sortBy: JMAP_CONTEXT_SORT_BY_OPTIONS
   sortByDirection: JMAP_CONTEXT_SORT_BY_DIRECTIONS
@@ -928,6 +928,7 @@ export interface JUserService {
   getOrganization(): JOrganization
   getFullName(): string
   getUsername(): string
+  getEmail(): string
   getPreference(name: string): Promise<string | null>
   hasPreference(name: string): Promise<boolean>
   removePreference(name: string): Promise<string | null>

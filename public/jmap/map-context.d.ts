@@ -23,14 +23,6 @@ declare const enum JMAP_CONTEXT_SORT_BY_DIRECTIONS {
   DESC = "desc"
 }
 
-// ALL_MAP_CONTEXT_VERSIONS in all-enum.ts
-declare const enum JMAP_CONTEXT_VERSIONS {
-  V0 = 0,
-  V1 = 1
-}
-
-declare type JMapContextVersions = JMapContext | JMapContextV0 | JMapContextV1
-
 declare interface JMapContextEditResponse {
   id: JId
   uuid: string
@@ -44,59 +36,7 @@ declare interface JMapContextMetaData {
   thumbnailUrl?: string
 }
 
-/**
- * Never change this interface !!!
- * This is the picture of a map-context in version 0
- * Use for mapcontext migrations
- */
-declare interface JMapContextDataV0 {
-  layerElements: Array<{
-    id: string | number
-    isGroup: boolean
-    isVisible: boolean
-  }>
-  mapCenter: { x: number; y: number }
-  mapZoom: number
-  mapPitch: number
-  mapBearing: number
-  baseMap: string | undefined
-  selection: {
-    [key in string | number]: GeoJSON.Feature[]
-  }
-  measures: Array<{
-    id: string
-    type: "polygon" | "line_string" | "circle"
-    feature: GeoJSON.Feature<GeoJSON.LineString | GeoJSON.Polygon>
-    totalEdges: number
-    centroid: JPoint
-    edges: Array<{
-      popupLocation: JPoint
-      distance: number
-    }>
-    area: number
-    radius: number
-  }>
-  thumbnail: string
-  annotations: Array<{
-    id: string
-    type: "point" | "polygon" | "line_string" | "rectangle" | "circle" | "text"
-    feature: any
-  }>
-  annotationsTextMarkersProperties: Array<{
-    id: string
-    location: maplibregl.LngLatLike
-    textSize: number
-    textColor: string
-    textRotation: number
-    label: string
-    zoomRef: number
-    shapeType: string
-  }>
-  extensionData?: { [extensionId: string]: any }
-}
-
 declare interface JMapContextData {
-  version: JMAP_CONTEXT_VERSIONS
   layerElements: JMapContextDataLayerElement[]
   mapCenter: JLocation
   mapZoom: number
@@ -129,36 +69,18 @@ declare interface JMapContextDataThematic {
   hiddenConditionIds?: string[]
 }
 
-declare interface JMapContext {
-  id?: JId
+declare interface JMapContextCreationParams {
   title: string
   description: string
   shared: boolean
-  origin: "web-ng"
-  uuid?: string
-  author?: string
-  creationDate?: string
-  modificationDate?: string
-  projectId?: string
+  author: string
+  creationDate: string
+  modificationDate: string
   data: JMapContextData
 }
 
-declare interface JMapContextV0 {
-  id?: number | string
-  title: string
-  description: string
-  shared: boolean
-  origin: "web-ng"
-  uuid?: string
-  author?: string
-  creationDate?: string
-  modificationDate?: string
-  projectId?: string
-  data: JMapContextDataV0
-}
-
-declare interface JMapContextV1 extends JMapContext {
-  // nothing to change here
+declare interface JMapContext extends JMapContextCreationParams {
+  id: string
 }
 
 declare interface JMapContextEventParams {
