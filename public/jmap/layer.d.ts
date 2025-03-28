@@ -316,7 +316,7 @@ declare interface JLayer extends JLayerTreeElement {
   spatialDataSourceId: string
   selectionStyleId: string
   dynamicFilter: JDynamicFilter
-  showEditingTools: boolean
+  allowClientSideEditing: boolean
 }
 
 declare interface JLayerInformationReport {
