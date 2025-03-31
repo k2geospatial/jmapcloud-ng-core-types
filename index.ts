@@ -412,6 +412,7 @@ export interface JCoreState {
   map: JMapState
   project: JProjectState
   layer: JLayerState
+  table: JTableState
   user: JUserState
   language: JLanguageState
   photo: JPhotoState
@@ -536,6 +537,12 @@ export interface JLayerState {
   allById: { [treeElementId: string]: JLayerTreeElement }
   orderedLayerIds: JId[]
   vectorLayerIds: JId[]
+}
+
+export interface JTableState {
+  isLoading: boolean
+  hasLoadingError: boolean
+  tables: JTable[]
 }
 
 export interface JPhotoState {
@@ -900,6 +907,10 @@ export interface JLayerService {
   deleteLayer(layerId: JId): void
   hasInformationReport(layerId: JId): boolean
   openInformationReportInNewTab(layerId: JId, featureIds: JId[]): Promise<string>
+}
+
+export interface JTableService {
+  getTables(): JTable[]
 }
 
 export interface JLayerSearchService {
