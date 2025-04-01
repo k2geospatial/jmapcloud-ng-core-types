@@ -578,6 +578,7 @@ export type JHistoryListener = (oldValue: string | undefined, newValue: string |
 
 export interface JFormJMCService {
   getJsonForm(layerId: string): JJsonFormSchemas
+  getForm(layerId: string): any
 }
 
 export interface JFormService {

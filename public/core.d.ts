@@ -10250,6 +10250,7 @@ declare namespace JMap {
      * ```
      */
     function getJsonForm(layerId: JId): JJsonFormSchemas
+    function getForm(layerId: JId): any
   }
   /**
    * **JMap.Form**
