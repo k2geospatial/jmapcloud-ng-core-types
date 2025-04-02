@@ -7,3 +7,10 @@ declare interface JTable {
   dataSourceId: string
   allowClientSideEditing: boolean
 }
+
+declare interface JTableData {
+  columns: string[]
+  links: Array<{ href: string; rel: string; title: string; type: string }>
+  numberReturned: number
+  rows: []
+}

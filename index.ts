@@ -26,6 +26,7 @@ export interface JCoreService extends JCoreMainService {
   MapContext: JMapContextService
   UI: JUIService
   SimpleSearch: JSimpleSearchService
+  Table: JTableService
 }
 
 export interface JUIService {
@@ -911,6 +912,7 @@ export interface JLayerService {
 
 export interface JTableService {
   getTables(): JTable[]
+  getTableData(dataSourceId: JId, startIndex: number, limit: number): Promise<JTableData[]>
 }
 
 export interface JLayerSearchService {
