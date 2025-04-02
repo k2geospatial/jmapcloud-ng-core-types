@@ -22,6 +22,20 @@ declare interface JJsonFormControlElement {
   }
 }
 
+declare interface JFormJMC {
+  id: string
+  name: JTranslateParamValues
+  createdBy: string
+  creationDate: Date
+  lastModifiedBy: string
+  lastModificationDate: Date
+  organizationId: string
+  uiSchema: FormNodeVertical
+  formSchema: JsonSchema
+  tags: JTag[]
+  dataSourceId: string
+}
+
 declare interface JJsonFormUISchema {
   type: "VerticalLayout"
   elements: JJsonFormControlElement[]
