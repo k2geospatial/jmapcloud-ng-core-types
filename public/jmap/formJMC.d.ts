@@ -24,15 +24,15 @@ declare interface JJsonFormControlElement {
 
 declare interface JFormJMC {
   id: string
-  name: JTranslateParamValues
+  name: any
   createdBy: string
   creationDate: Date
   lastModifiedBy: string
   lastModificationDate: Date
   organizationId: string
   uiSchema: FormNodeVertical
-  formSchema: JsonSchema
-  tags: JTag[]
+  formSchema: any
+  tags: any[]
   dataSourceId: string
 }
 
@@ -45,7 +45,7 @@ interface FormNodeBase {
   type: string
   designComponent: string
   id: string
-  icon: IconDefinition
+  icon: any
 }
 
 export interface FormNodeControl extends FormNodeBase {
