@@ -913,7 +913,7 @@ export interface JLayerService {
 
 export interface JTableService {
   getTables(): JTable[]
-  getTableData(dataSourceId: JId, startIndex: number, limit: number): Promise<JTableData[]>
+  getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
 }
 
 export interface JLayerSearchService {

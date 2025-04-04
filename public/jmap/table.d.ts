@@ -14,3 +14,10 @@ declare interface JTableData {
   numberReturned: number
   rows: []
 }
+
+declare interface JTableDataParams {
+  startIndex?: number
+  limit?: number
+  filter?: string
+  sort?: string
+}
