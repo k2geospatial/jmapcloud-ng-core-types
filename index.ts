@@ -477,7 +477,7 @@ export interface JSimpleSearchState {
   isLoading: boolean
   hasLoadingError: boolean
   queryString: string
-  results: JSimpleSearchResult
+  results: JSimpleSearchResult[]
 }
 
 export interface JGeolocationState {
