@@ -7036,7 +7036,7 @@ declare namespace JMap {
      *
      * All query_string reserved characters are escaped, and the following characters can't be used: "<>"
      *
-     * This method will fetch a result object indicating all matches found.
+     * This method will fetch an array of result object indicating all matches found.
      *
      * @throws if no project is loaded, if the passed search string is not a string or if it contains invalid characters.
      * @param queryString the search string to be used

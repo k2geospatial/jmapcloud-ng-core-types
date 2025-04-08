@@ -34,7 +34,7 @@ declare interface JSimpleSearchResultHit {
 }
 
 declare interface JSimpleSearchSuccessEventParams {
-  result: JSimpleSearchResult
+  result: JSimpleSearchResult[]
 }
 
 declare interface JSimpleSearchErrorEventParams {
