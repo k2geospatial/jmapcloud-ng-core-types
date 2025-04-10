@@ -1,25 +1,24 @@
 declare interface JJsonFormSchemas {
-  schema: JJsonFormSchema | null
-  uiSchema: JJsonFormUISchema | null
+  schema: JFormSchemaJMC | null
+  uiSchema: FormNodeVertical | null
 }
 
-declare interface JJsonFormSchema {
+declare interface JFormSchemaJMC {
   type: "object"
   properties: {
-    [key: string]: {
-      type: string
-      format?: string
-    }
+    [key: string]: JFormSchemaPropertyJMC
   }
   required: string[]
 }
-declare interface JJsonFormControlElement {
-  type: "Control"
-  scope: string
-  label: string
-  options?: {
-    [key: string]: any
-  }
+
+declare interface JFormSchemaPropertyJMC {
+  type: string
+  format?: string
+  title?: string
+  default?: any
+  minimum?: number
+  maximum?: number
+  enum?: any[]
 }
 
 declare interface JFormJMC {
@@ -36,11 +35,6 @@ declare interface JFormJMC {
   dataSourceId: string
 }
 
-declare interface JJsonFormUISchema {
-  type: "VerticalLayout"
-  elements: JJsonFormControlElement[]
-}
-
 interface FormNodeBase {
   type: string
   designComponent: string
@@ -48,7 +42,7 @@ interface FormNodeBase {
   icon: any
 }
 
-export interface FormNodeControl extends FormNodeBase {
+declare interface FormNodeControl extends FormNodeBase {
   type: "Control"
   title?: string
   scope: string
@@ -56,25 +50,25 @@ export interface FormNodeControl extends FormNodeBase {
     readonly: boolean
   }
 }
-export interface FormNodeLabel extends FormNodeBase {
+declare interface FormNodeLabel extends FormNodeBase {
   designComponent: "Label"
   type: "Label"
   text?: string
 }
 
-export interface FormNodeText extends FormNodeControl {
+declare interface FormNodeText extends FormNodeControl {
   designComponent: "Text"
   options: FormNodeControl["options"] & {
     multi: boolean
   }
 }
-export interface FormNodeNumber extends FormNodeControl {
+declare interface FormNodeNumber extends FormNodeControl {
   designComponent: "Number"
   options: FormNodeControl["options"] & {
     slider: boolean
   }
 }
-export interface FormNodeBoolean extends FormNodeControl {
+declare interface FormNodeBoolean extends FormNodeControl {
   designComponent: "Boolean"
   options: FormNodeControl["options"] & {
     toggle: boolean
@@ -83,49 +77,49 @@ export interface FormNodeBoolean extends FormNodeControl {
     uncheckedValue: string | number
   }
 }
-export interface FormNodeDate extends FormNodeControl {
+declare interface FormNodeDate extends FormNodeControl {
   designComponent: "Date"
 }
-export interface FormNodeList extends FormNodeControl {
+declare interface FormNodeList extends FormNodeControl {
   designComponent: "List"
   options: FormNodeControl["options"] & {
     format?: string
   }
 }
 
-export interface FormNodeLayout extends FormNodeBase {
+declare interface FormNodeLayout extends FormNodeBase {
   type: string
   elements: FormNode[]
 }
 
-export interface FormNodeVertical extends FormNodeLayout {
+declare interface FormNodeVertical extends FormNodeLayout {
   type: "VerticalLayout"
   designComponent: "VerticalLayout"
   isRoot?: boolean
 }
 
-export interface FormNodeHorizontal extends FormNodeLayout {
+declare interface FormNodeHorizontal extends FormNodeLayout {
   type: "HorizontalLayout"
   designComponent: "HorizontalLayout"
 }
-export interface FormNodeGroup extends FormNodeLayout {
+declare interface FormNodeGroup extends FormNodeLayout {
   type: "Group"
   designComponent: "Group"
   label?: string
 }
 
-export interface FormNodeTabs extends FormNodeLayout {
+declare interface FormNodeTabs extends FormNodeLayout {
   type: "Categorization"
   designComponent: "Tabs"
 }
 
-export interface FormNodeTab extends FormNodeLayout {
+declare interface FormNodeTab extends FormNodeLayout {
   type: "Category"
   designComponent: "Category"
   label?: string
 }
 
-export type FormNodesControl = FormNodeText | FormNodeNumber | FormNodeBoolean | FormNodeDate | FormNodeList
-export type FormNodesLayout = FormNodeVertical | FormNodeHorizontal | FormNodeGroup | FormNodeTabs | FormNodeTab
+declare type FormNodesControl = FormNodeText | FormNodeNumber | FormNodeBoolean | FormNodeDate | FormNodeList
+declare type FormNodesLayout = FormNodeVertical | FormNodeHorizontal | FormNodeGroup | FormNodeTabs | FormNodeTab
 
-export type FormNode = FormNodesControl | FormNodesLayout | FormNodeLabel
+declare type FormNode = FormNodesControl | FormNodesLayout | FormNodeLabel

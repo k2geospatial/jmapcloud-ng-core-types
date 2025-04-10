@@ -585,8 +585,8 @@ export interface JServerState extends JServerInfo {
 export type JHistoryListener = (oldValue: string | undefined, newValue: string | undefined) => void
 
 export interface JFormJMCService {
-  getJsonForm(layerId: string): any
-  getForm(layerId: string): any
+  getJsonForm(layerId: string): JJsonFormSchemas
+  getForm(layerId: string): Promise<JFormJMC>
 }
 
 export interface JFormService {
