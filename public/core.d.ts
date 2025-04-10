@@ -10262,7 +10262,7 @@ declare namespace JMap {
      *  .catch(error => console.error("An error occurred when getting jsonForm schema", error))
      * ```
      */
-    function getJsonForm(layerId: JId): any
+    function getJsonForm(layerId: JId): JJsonFormSchemas
 
     /**
      * ***JMap.FormJMC.getForm***
@@ -10281,7 +10281,7 @@ declare namespace JMap {
      *  .catch(error => console.error("An error occurred when getting the form for layer f47ac10b-58cc-4372-a567-0e02b2c3d479", error))
      * ```
      */
-    function getForm(layerId: JId): any
+    function getForm(layerId: JId): Promise<JFormJMC>
   }
   /**
    * **JMap.Form**
