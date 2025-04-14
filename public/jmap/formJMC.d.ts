@@ -12,13 +12,21 @@ declare interface JFormSchemaJMC {
 }
 
 declare interface JFormSchemaPropertyJMC {
-  type: string
+  type: FORMSCHEMA_TYPES
   format?: string
   title?: string
   default?: any
   minimum?: number
   maximum?: number
   enum?: any[]
+}
+
+declare const enum FORMSCHEMA_TYPES {
+  STRING = "string",
+  INTEGER = "integer",
+  NUMBER = "number",
+  BOOLEAN = "boolean",
+  ARRAY = "array"
 }
 
 declare interface JFormJMC {
