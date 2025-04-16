@@ -26,6 +26,7 @@ export interface JCoreService extends JCoreMainService {
   MapContext: JMapContextService
   UI: JUIService
   SimpleSearch: JSimpleSearchService
+  Table: JTableService
 }
 
 export interface JUIService {
@@ -412,6 +413,7 @@ export interface JCoreState {
   map: JMapState
   project: JProjectState
   layer: JLayerState
+  table: JTableState
   user: JUserState
   language: JLanguageState
   photo: JPhotoState
@@ -439,7 +441,7 @@ export interface JMapContextState {
   isApplying: boolean
   activeTab: JMAP_CONTEXT_TABS
   contexts: JMapContext[]
-  defaultContextId: JId | undefined
+  defaultContextId: string | undefined
   filter: string
   sortBy: JMAP_CONTEXT_SORT_BY_OPTIONS
   sortByDirection: JMAP_CONTEXT_SORT_BY_DIRECTIONS
@@ -475,7 +477,7 @@ export interface JSimpleSearchState {
   isLoading: boolean
   hasLoadingError: boolean
   queryString: string
-  results: JSimpleSearchResult
+  results: JSimpleSearchResult[]
 }
 
 export interface JGeolocationState {
@@ -538,6 +540,12 @@ export interface JLayerState {
   vectorLayerIds: JId[]
 }
 
+export interface JTableState {
+  isLoading: boolean
+  hasLoadingError: boolean
+  tables: JTable[]
+}
+
 export interface JPhotoState {
   selectedPhotoId: JId | undefined
   photos: JPhoto[]
@@ -578,6 +586,7 @@ export type JHistoryListener = (oldValue: string | undefined, newValue: string |
 
 export interface JFormJMCService {
   getJsonForm(layerId: string): JJsonFormSchemas
+  getForm(layerId: string): Promise<JFormJMC>
 }
 
 export interface JFormService {
@@ -902,6 +911,11 @@ export interface JLayerService {
   openInformationReportInNewTab(layerId: JId, featureIds: JId[]): Promise<string>
 }
 
+export interface JTableService {
+  getTables(): JTable[]
+  getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
+}
+
 export interface JLayerSearchService {
   byAttribute(params: JLayerSearchByAttributesParams): Promise<Feature[]>
 }
@@ -928,6 +942,7 @@ export interface JUserService {
   getOrganization(): JOrganization
   getFullName(): string
   getUsername(): string
+  getEmail(): string
   getPreference(name: string): Promise<string | null>
   hasPreference(name: string): Promise<boolean>
   removePreference(name: string): Promise<string | null>

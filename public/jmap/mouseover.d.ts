@@ -10,6 +10,7 @@ declare interface JMapMouseOver {
 
 declare interface JMouseOverContent {
   html: string
+  hasHtmlContent: boolean
   pendingLineLengthFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingPolygonAreaFeatureIdsByLayerId: { [key in JId]: JId[] }
   pendingCentroidFeatureIdsByLayerId: { [key in JId]: JId[] }

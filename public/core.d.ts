@@ -6249,6 +6249,19 @@ declare namespace JMap {
     function getUsername(): string
 
     /**
+     * ***JMap.User.getEmail***
+     *
+     * Returns the user email.
+     *
+     * @example
+     * ```ts
+     * // returns the email
+     * JMap.User.getEmail()
+     * ```
+     */
+    function getEmail(): string
+
+    /**
      * **JMap.User.getPreference**
      *
      * Get a user preference value from user storage. The returned Promise resolves to the value, else null if no preference has been set.
@@ -7023,7 +7036,7 @@ declare namespace JMap {
      *
      * All query_string reserved characters are escaped, and the following characters can't be used: "<>"
      *
-     * This method will fetch a result object indicating all matches found.
+     * This method will fetch an array of result object indicating all matches found.
      *
      * @throws if no project is loaded, if the passed search string is not a string or if it contains invalid characters.
      * @param queryString the search string to be used
@@ -10250,6 +10263,25 @@ declare namespace JMap {
      * ```
      */
     function getJsonForm(layerId: JId): JJsonFormSchemas
+
+    /**
+     * ***JMap.FormJMC.getForm***
+     *
+     * Returns the form for a layer.
+     *
+     * @param layerId the JMap layer id
+     * @example
+     * ```ts
+     * // returns the form for layer id=f47ac10b-58cc-4372-a567-0e02b2c3d479
+
+
+     * JMap.FormJMC
+     *  .getForm("f47ac10b-58cc-4372-a567-0e02b2c3d479")
+     *  .then(form => console.log("form  of layer f47ac10b-58cc-4372-a567-0e02b2c3d479", form))
+     *  .catch(error => console.error("An error occurred when getting the form for layer f47ac10b-58cc-4372-a567-0e02b2c3d479", error))
+     * ```
+     */
+    function getForm(layerId: JId): Promise<JFormJMC>
   }
   /**
    * **JMap.Form**
@@ -12692,5 +12724,51 @@ declare namespace JMap {
      * ```
      */
     function getContainerHeight(): number
+  }
+  namespace Table {
+    /**
+     * **JMap.Layer.getTables**
+     *
+     * Returns an array of JMap tables available in the current project.
+     *
+     * If no project is loaded, it returns an empty array.
+     *
+     * @returns {JTable[]} An array of `JTable` objects representing the tables in the current project.
+     *
+     * @example
+     * ```ts
+     * // Retrieves all JMap tables
+     * JMap.Layer.getTables();
+     * ```
+     */
+    function getTables(): JTable[]
+
+    /**
+     * **JMap.Table.getTableData**
+     *
+     * Asynchronously retrieves the JMap table data for a specified tabular data source ID.
+     *
+     * @throws {Error} If no data source is found for the given ID.
+     *
+     * @param {JId} dataSourceId - The ID of the JMap data source.
+     * @param {JTableDataParams} params - Includes the following optional parameters: startIndex, limit, filter, sort.
+     * startIndex: The starting index for data retrieval (zero-based).
+     * limit: The maximum number of records to retrieve.
+     * filter: A CQL filter.
+     * sort: A sort model.
+     *
+     * @returns {Promise<JTableData>} A promise that resolves to a `JTableData` object representing the table data.
+     *
+     * @example
+     * ```ts
+     * // Retrieves up to 50 rows from data source ID 3, starting at index 0, sorted in ascending order based on the "ATTRIBUTE_A" attribute
+     * JMap.Table.getTableData(3, {startIndex: 0, limit: 50, sort:"ATTRIBUTE_A ASC"}).then(tableData => {
+     *   console.log(tableData);
+     * }).catch(error => {
+     *   console.error("Failed to fetch table data:", error);
+     * });
+     * ```
+     */
+    function getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
   }
 }
