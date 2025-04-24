@@ -230,6 +230,9 @@ declare interface JCoreOptions {
   restBaseUrl?: string
 
   /**
+   *
+   * "***anonymous***" must be specified together with a valid {@link JCoreOptions.organizationId}, otherwise it will not be taken into account
+   *
    * If the project you access can be accessed anonymously,
    * you are not forced to pass a session token but you have
    * to explicitly tell the JMap Cloud NG library to log as an anonymous
@@ -247,6 +250,8 @@ declare interface JCoreOptions {
    *         restBaseUrl: "http://my-jmap-server/services/rest/v2.0",
    *         // The anonymous parameter
    *         anonymous: true
+   *         // The organization id
+   *         organizationId: "some-valid-id"
    *         ... // other optional JMAP params
    *       }
    *     </script>
@@ -261,11 +266,52 @@ declare interface JCoreOptions {
   anonymous?: boolean
 
   /**
-   * The JMap user's session token.
+   * The default authentication method in NG is now using an oAuth2 setup. This allows sharing session with JMap Cloud's Portal.
    *
-   * If you don't use the library with an anonymous user (see the ***{@link JCoreOptions.anonymous}*** parameter in this section), you must provide a JMap Server session token or a JMap Cloud refresh token to the JMap library.
+   * However, if for technical reasons you need to revert to a REST API-based technique of authentication, you can do it by setting ***legacyAuthentication*** to "true".
    *
-   * To get a session or refresh token, you can use the JMap Rest API on your JMap Server. See {@link JMap.User.setToken} for detailed examples on how to fetch a token through JMap's REST API.
+   * {@link JCoreOptions.anonymous} has precedence over ***legacyAuthentication***.
+   *
+   * If you specify a {@link JCoreOptions.token}, ***legacyAuthentication*** will automatically be activated. This may change in the future.
+   *
+   * ```html
+   * <html>
+   *   ...
+   *   <body>
+   *     <script type="text/javascript">
+   *       window.JMAP_OPTIONS = {
+   *         // a valid project id
+   *         projectId: "<project-uuid>",
+   *         // a valid JMap Cloud Rest url
+   *         restBaseUrl: "http://my-jmap-server/",
+   *         // The legacyAuthentication parameter
+   *         legacyAuthentication: true
+   *         ... // other optional JMAP params
+   *       }
+   *     </script>
+   *
+   *     ... your web page
+   *
+   *     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/jmap-core-js@x.x.x/public/"></script>
+   *   </body>
+   * </html>
+   * ```
+   */
+  legacyAuthentication?: boolean
+
+  /**
+   * A JMap user's session refresh token.
+   *
+   * If you want to open a session automatically without user interaction and you don't use the library anonymously
+   * (see the ***{@link JCoreOptions.anonymous}*** parameter in this section), you must provide a JMap Cloud refresh
+   * token to the JMap library to initialize the user session.
+   *
+   * A refresh token can be used only once.
+   *
+   * Specifying ***token*** will automatically activate {@link JCoreOptions.legacyAuthentication}
+   *
+   * To get a refresh token, you can use the JMap Rest API on your JMap Cloud Server.
+   * See {@link JMap.User.setToken} for detailed examples on how to fetch a token through JMap's REST API.
    *
    * So to start the library using the fetched token you can configure your startup options like this :
    * ```html
@@ -274,7 +320,7 @@ declare interface JCoreOptions {
    *   <body>
    *     <script type="text/javascript">
    *       window.JMAP_OPTIONS = {
-   *         token: "23558109"
+   *         token: "some-valid-refresh-token"
    *       }
    *     </script>
    *     ...

@@ -1,54 +1,82 @@
+// ALL_LOGIN_STATUS in all-enum.ts
+declare const enum LOGIN_STATUS {
+  LOGGING_IN = "LOGGING_IN",
+  LOGGED_IN = "LOGGED_IN",
+  LOGGED_OUT = "LOGGED_OUT",
+  LOGIN_ERROR = "LOGIN_ERROR",
+  LOGIN_ERROR_INSUFFICIENT_ROLES = "LOGIN_ERROR_INSUFFICIENT_ROLES",
+  SWITCHING_ORG = "SWITCHING_ORG"
+}
+
+// ALL_ROLES in all-enum.ts
+declare const enum ROLES {
+  SYS_ADMIN = "SYS_ADMIN",
+  ORG_ADMIN = "ORG_ADMIN",
+  ORG_EDITOR = "ORG_EDITOR",
+  ORG_VIEWER = "ORG_VIEWER",
+  ACCOUNT_MANAGER = "ACCOUNT_MANAGER"
+}
+
+// ALL_MEMBER_ROLES in all-enum.ts
+declare type MEMBER_ROLES = ROLES.ORG_ADMIN | ROLES.ORG_EDITOR | ROLES.ORG_VIEWER
+
 declare interface JUserEventSessionChangedParams {
   session: JSessionData
 }
 
 declare interface JTokenInfo {
   /**
-   * The JMap user session token (legacy) or access token (Saas JMap Cloud).
+   * The JMap Cloud access token.
    */
   accessToken: string
+
+  // TODO: remove
   /**
    * The refresh token.
+   * @deprecated
    */
   refreshToken: string
+
+  // TODO: remove
   /**
    * The access token expiration time in seconds.
+   * @deprecated
    */
   accessTokenExpiration: number
+
+  /**
+   * The access token expiration time in miliseconds.
+   */
+  accessTokenExpirationInMSecs: number
+  roles: ROLES[]
+  organizationId: string
+  idToken: import("@auth0/auth0-spa-js").IdToken
+  picture: string
 }
 
-declare interface JSessionData extends JTokenInfo {
+declare interface JSessionData extends JUser, JTokenInfo {
   /**
    * The user permission to change his password
+   * @deprecated
    */
   changePasswordAllowed: boolean
+
   /**
-   * The user information.
-   *
-   * @example
-   * ```ts
-   * user: {
-   *   username: "jdo@company.com",
-   *   fullName: "John Do",
-   *   admin: true
-   * }
-   * ```
-   */
-  user: JUserIdentity
-  /**
-   * Infos about the user's organizations, only for JMap Cloud servers.
+   * Infos about the user's organizations.
    */
   organizationInfos: JOrganizationInfo[]
+
   /**
-   * THe JMap Cloud organization in which the user is currently logged in, only for JMap Cloud servers.
+   * THe JMap Cloud organization in which the user is currently logged in.
    */
   currentOrganization: JOrganization
 }
 
-declare interface JUserIdentity {
-  username: string
-  fullName: string
+declare interface JUser {
+  name: string
   email: string
+  organizationInfos: JOrganizationInfo[]
+  roles: ROLES[]
 }
 
 declare interface JUserInfo {
@@ -65,6 +93,10 @@ declare interface JOrganizationInfo {
   primaryColor: string
   backgroundColor: string
   active: boolean
+  createdBy: string
+  creationDate: Date
+  lastModifiedBy: string
+  lastModificationDate: Date
 }
 
 declare interface JOrganization extends JOrganizationInfo {

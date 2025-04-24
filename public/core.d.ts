@@ -6356,8 +6356,13 @@ declare namespace JMap {
     /**
      * **JMap.User.login**
      *
-     * The login function, returns a promise. Make a call to the server and if
-     * login is successful resolve the promise providing the user session data.
+     * The login function, returns a promise.
+     *
+     * When using the new oAuth2 authentication scheme, no username or password are required. It triggers a redirect to
+     * the identity provider, resolving with not data.
+     *
+     * When using the legacy REST API-based authentication scheme, username and password are mandatory. The method will
+     * make a call to the server and if login is successful resolve the promise providing the user session data.
      *
      * If an error occurs, 3 differents string message can be returned :
      *   - ***"user.login.error.credential"*** => Bad username or password
@@ -6365,8 +6370,8 @@ declare namespace JMap {
      *   - ***"user.login.error.unexpected"*** => Unexpected error client side
      *
      * @throws Error if bad credentials or server error.
-     * @param login The user's username
-     * @param password The user's password
+     * @param login The user's username (when using {@link JCoreOptions.legacyAuthentication})
+     * @param password The user's password (when using {@link JCoreOptions.legacyAuthentication}
      * @example
      * ```ts
      * const userLogin = "jdo@mycompany.com"
@@ -6383,14 +6388,15 @@ declare namespace JMap {
      *    })
      * ```
      */
-    function login(login: string, password: string): Promise<JSessionData>
+    function login(login?: string, password?: string): Promise<void> | Promise<JSessionData>
 
     /**
      * **JMap.User.loginIntoOrganization**
      *
-     * For JMapCloud only.
+     * When using the new oAuth2 authentication setup, will redirect the user to the identity provider and be redirected back. The method resolves with nothing.
      *
-     * Sets and returns Session Data specific to a JMap Cloud organization. You need to be previously authenticated via the {@link JMap.User.login} method before calling this method.
+     * When using the legacy REST API-based authentication method, it sets and returns Session Data specific to a JMap Cloud organization. You need to be previously authenticated via the {@link JMap.User.login} method before calling this method.
+     *
      * This method can also be used to switch between organizations while a user is already logged in.
      *
      * @throws Error if user is not authenticated
@@ -6400,7 +6406,7 @@ declare namespace JMap {
      * const userLogin = "jdo@mycompany.com"
      * const userPassword = "xxx"
      *
-     * // Open a new user session, and get back user data from server
+     * // Open a new user session in a REST API-based authentication setup, and get back user data from server
      * JMap.User
      *    .login(userLogin, userPassword)
      *    .then(sessionData => {
@@ -6421,13 +6427,16 @@ declare namespace JMap {
      *    })
      * ```
      */
-    function loginIntoOrganization(organizationId: string): Promise<JSessionData>
+    function loginIntoOrganization(organizationId: string): Promise<JSessionData> | Promise<void>
 
     /**
      * **JMap.User.loginWithIdentityProvider**
      *
+     * Not currently supported in JMap Cloud
+     *
      * Logs in the user using the specified Identity Provider. See {@link JMap.Server.getAllIdentityProvidersById} for info about Identity providers
      *
+     * @deprecated
      * @example
      * ```ts
      * // fetch all Identity Providers
@@ -6445,7 +6454,7 @@ declare namespace JMap {
     /**
      * **JMap.User.logout**
      *
-     * Logout function. Make a call to the server to invalidate the session id.
+     * Logout function. Makes a call to the server to invalidate the session.
      *
      * If an error occurs, 2 differents string message can be returned :
      *   - ***"user.logout.error.server"*** => Unexpected error while requesting the server
@@ -6481,37 +6490,13 @@ declare namespace JMap {
      *
      * Sets the user session data. Useful if you want to make a call to our Rest API and set the session token by yourself.
      *
+     * Calling this method will acctivate {@link JCoreOptions.legacyAuthentication}
      *
-     * This process is a bit different for JMap Server than for JMap CLoud.
      *
-     * For JMap Server, you need to fetch a session token from the REST API, and call {@link JMap.User.setToken} without spedifying the organization Id.
-     *
-     * For JMap Cloud, you need to fetch a ***refresh token*** from the JMap Cloud Rest API, and pass this refresh token, along with the the optional organisation Id, to the {@link JMap.User.setToken} method. Beware that a refresh token can only be used once, it is invalidated afterward
+     * You need to fetch a ***refresh token*** from the JMap Cloud Rest API, and pass this refresh token, along with the optional organisation Id, to the {@link JMap.User.setToken} method. Beware that a refresh token can only be used once, it is invalidated afterward
      *
      * Fetching data from a REST API can be done with the curl command-line tool (https://curl.haxx.se/docs/)
      *
-     * a JMap Server example:
-     *
-     * ```sh
-     * # getting a session token from JMap Server
-     * curl -X POST "https://my-jmap-server/services/rest/v2.0/session" -H "accept: application/json" -H "Content-Type: application/json" -d "{ \"username\": \"jdo@company.com\", \"password\": \"xxx\", \"type\": \"NG\"}"
-     * ```
-     *
-     * will return something like:
-     *
-     * ```js
-     * {
-     *   "message": "The result is a NG session info",
-     *   "status": "OK",
-     *   "result": {
-     *     ...
-     *     "sessionId": 23558109, // session id in the Rest API response is the session token.
-     *     ...
-     *   }
-     * }
-     * ```
-     *
-     * a JMap Cloud example:
      *
      * ```sh
      * # getting a session token from JMap Cloud
@@ -6544,21 +6529,7 @@ declare namespace JMap {
      * @param organizationId The JMap Cloud organization id
      * @example
      * ```ts
-     * // Set the user session token for JMap server
-     * JMap.User.setToken("23558109")
-     *  .then(userData => {
-     *    console.log(`Session token = "${userData.accessToken}""`)
-     *    console.log(`The session belongs to ${userData.user.fullName}`)
-     *  })
-     *  .catch(error => {
-     *    if (error === "user.token.invalid") {
-     *      console.log(`Invalid token`)
-     *    } else {
-     *      console.log(`Server error`)
-     *    }
-     *  })
-     *
-     * // Set the user session token for JMap Cloud
+     * // Set the user session token
      * JMap.User.setToken("v1.MRq [.....] Rehef72YWws","my-organization-id")
      *  .then(userData => {
      *    console.log(`Session token = "${userData.accessToken}""`)

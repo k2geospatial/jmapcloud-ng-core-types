@@ -7,7 +7,8 @@ declare const enum JSERVER_MICRO_SERVICE_STATUSES {
 
 // ALL_SERVER_IDENTITY_PROVIDER_TYPES in all-enum.ts
 declare const enum JSERVER_IDENTITY_PROVIDER_TYPES {
-  JMAP_CLOUD = "jmapcloud.io", // reserved for future usage ("standard login" via REST API)
+  ANONYMOUS = "anonymous",
+  JMAP_CLOUD = "jmapcloud.io",
   AUTH0_SPA = "auth0-spa"
 }
 
@@ -23,7 +24,7 @@ declare interface JServerInfo {
   identityProviderById: JServerIdentityProviderById
   standardLoginAvailable: boolean
   version: JServerVersion
-  microServiceById: JServerMicroServiceById
+  serviceById: JServerMicroServiceById
 }
 
 declare interface JServerService {
@@ -34,7 +35,10 @@ declare interface JServerService {
   restBaseUrl: string
 }
 
-declare type JServerAnyIdentityProvider = JServerIdentityProviderAuth0Spa | JServerIdentityProviderJMapCloudNative
+declare type JServerAnyIdentityProvider =
+  | JServerIdentityProviderAuth0Spa
+  | JServerIdentityProviderJMapCloudNative
+  | JServerIdentityProviderJMapCloudAnonymous
 
 declare interface JServerIdentityProviderBase {
   id: string
@@ -46,12 +50,16 @@ declare interface JServerIdentityProviderAuth0Spa extends JServerIdentityProvide
   type: JSERVER_IDENTITY_PROVIDER_TYPES.AUTH0_SPA
   domain: string
   clientId: string
-  realm: string
+  audience: string
   logoutRedirectUrl: string
 }
 
 declare interface JServerIdentityProviderJMapCloudNative extends JServerIdentityProviderBase {
   type: JSERVER_IDENTITY_PROVIDER_TYPES.JMAP_CLOUD
+}
+
+declare interface JServerIdentityProviderJMapCloudAnonymous extends JServerIdentityProviderBase {
+  type: JSERVER_IDENTITY_PROVIDER_TYPES.ANONYMOUS
 }
 
 declare interface JServerVersion {

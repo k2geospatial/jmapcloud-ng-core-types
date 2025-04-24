@@ -565,11 +565,16 @@ export interface JUserState extends JTokenInfo {
   isLoggingIn: boolean
   isLoggingIntoOrganization: boolean
   isReloadingSession: boolean
-  identity: JUserIdentity
+  identity: JUser
   currentOrganization: JOrganization // the organization in which the user is currently logged in
   organizationInfos: JOrganizationInfo[] // the info about all organizations the user belongs to
   informations: JUserInfo[]
   changePasswordAllowed: boolean
+  identityProviderType: JSERVER_IDENTITY_PROVIDER_TYPES
+  // from portal
+  loginStatus: LOGIN_STATUS
+  loginStatusDetailTranslationKey: string
+  callbackAtTokenRefresh: (() => void) | null
 }
 
 export interface JLanguageState {
@@ -948,8 +953,8 @@ export interface JUserService {
   removePreference(name: string): Promise<string | null>
   setPreference(name: string, value: string | undefined): Promise<void>
   setToken(token: string, organizationId?: string): Promise<JSessionData>
-  login(login: string, password: string): Promise<JSessionData>
-  loginIntoOrganization(organizationId: string): Promise<JSessionData>
+  login(login?: string, password?: string): Promise<JSessionData> | Promise<void>
+  loginIntoOrganization(organizationId: string): Promise<JSessionData> | Promise<void>
   loginWithIdentityProvider(providerId: string): void
   logout(): Promise<void>
   isLoggedIn(): boolean
