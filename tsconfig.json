@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./out",
     "baseUrl": "./",
-    "types": ["maplibre-gl"],
+    "types": ["maplibre-gl","@auth0/auth0-spa-js"],
     "strict": true,
     "sourceMap": true,
     "noImplicitAny": true,
