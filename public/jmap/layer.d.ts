@@ -317,6 +317,7 @@ declare interface JLayer extends JLayerTreeElement {
   selectionStyleId: string
   dynamicFilter: JDynamicFilter
   allowClientSideEditing: boolean
+  filter: string
 }
 
 declare interface JLayerInformationReport {
@@ -367,6 +368,7 @@ declare interface JLayerTreeElement {
   id: JId
   name: string
   description: string
+  filter?: string
   initialVisibility: boolean
   visible: boolean
   isGroup: boolean
