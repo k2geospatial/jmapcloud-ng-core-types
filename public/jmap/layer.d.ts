@@ -368,7 +368,6 @@ declare interface JLayerTreeElement {
   id: JId
   name: string
   description: string
-  filter?: string
   initialVisibility: boolean
   visible: boolean
   isGroup: boolean
