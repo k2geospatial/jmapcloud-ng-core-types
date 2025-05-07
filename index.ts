@@ -562,6 +562,8 @@ export interface JQueryState {
 
 export interface JUserState extends JTokenInfo {
   isAnonymous: boolean
+  anonymousOrganizationId: string
+  anonymousProjectId: JId
   isLoggingIn: boolean
   isLoggingIntoOrganization: boolean
   isReloadingSession: boolean
@@ -958,6 +960,8 @@ export interface JUserService {
   loginWithIdentityProvider(providerId: string): void
   logout(): Promise<void>
   isLoggedIn(): boolean
+  isLoggedInOrAnonymous(): boolean
+  isAnonymous(): boolean
   getAllInfos(): JUserInfo[]
   addInfo(info: JUserInfo): void
   removeInfo(infoId: string): void
@@ -966,7 +970,6 @@ export interface JUserService {
   getMinimumPasswordLength(): number
   isPasswordCompliant(password: string): boolean
   getPasswordPolicyCompliance(password: string): JJMapPasswordPolicyCompliance
-  isPseudoUser(): boolean
   getOrganizationId(): string
 }
 

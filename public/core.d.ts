@@ -6486,6 +6486,33 @@ declare namespace JMap {
     function isLoggedIn(): boolean
 
     /**
+     * ***JMap.User.isLoggedInOrAnonymous***
+     *
+     * Returns true if a user is logged in, or connected to a public JMap Cloud project.
+     *
+     * If this method returns true, it basically means that data request can be made on JMap Cloud.
+     *
+     * @example
+     * ```ts
+     * // returns true if a user is logged in, or connected to a public JMap Cloud project
+     * JMap.User.isLoggedInOrAnonymous()
+     * ```
+     */
+    function isLoggedInOrAnonymous(): boolean
+
+    /**
+     * ***JMap.User.isAnonymous***
+     *
+     * Returns true if NG is connected to a public JMap Cloud project.
+     *
+     * @example
+     * ```ts
+     * // returns true if NG is connected to a public JMap Cloud project
+     * JMap.User.isAnonymous()
+     * ```
+     */
+    function isAnonymous(): boolean
+    /**
      * **JMap.User.setToken**
      *
      * Sets the user session data. Useful if you want to make a call to our Rest API and set the session token by yourself.
@@ -6681,19 +6708,6 @@ declare namespace JMap {
      * ```
      */
     function getPasswordPolicyCompliance(password: string): JJMapPasswordPolicyCompliance
-
-    /**
-     * ***JMap.User.isPseudoUser***
-     *
-     * Returns true if the currently logged in user is a JMap pseudo user (ex: system, anonymous, etc...).
-     *
-     * @example
-     * ```ts
-     * // returns true if current user is a pseudo user
-     * JMap.User.isPseudoUser()
-     * ```
-     */
-    function isPseudoUser(): boolean
 
     /**
      * ***JMap.User.getOrganizationId***
