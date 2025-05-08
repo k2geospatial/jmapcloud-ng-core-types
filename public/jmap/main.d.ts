@@ -1,10 +1,3 @@
-// ALL_EMPTY_VALUES in all-enum.ts
-declare const enum JEMPTY_VALUES {
-  PROJECT_ID = -1,
-  TOKEN = "-1",
-  UUID = "00000000-0000-0000-0000-000000000000"
-}
-
 // ALL_OPERATING_SYSTEMS in all-enum.ts
 declare const enum JOPERATING_SYSTEMS {
   UNKNOWN = "",
