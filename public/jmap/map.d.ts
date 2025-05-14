@@ -402,9 +402,9 @@ declare interface JCoreMapOptions {
   navigationHistoryControlVisible?: boolean
 
   /**
-   * By default the scale control panel it is not visible.
+   * By default the scale control panel is visible.
    *
-   * But if ***scaleControlVisible*** is true, it will be displayed on the map.
+   * But if ***scaleControlVisible*** is false, it will be hidden on the map.
    *
    * ```html
    * <html>
@@ -414,7 +414,7 @@ declare interface JCoreMapOptions {
    *       window.JMAP_OPTIONS = {
    *         ...
    *         map: {
-   *           scaleControlVisible: true,
+   *           scaleControlVisible: false,
    *         }
    *       }
    *     </script>
@@ -424,6 +424,54 @@ declare interface JCoreMapOptions {
    * ```
    */
   scaleControlVisible?: boolean
+
+  /**
+   * By default the Map Info control is visible.
+   *
+   * But if ***mapInfoControlVisible*** is false, it will be hidden on the map.
+   *
+   * ```html
+   * <html>
+   *   ...
+   *   <body>
+   *     <script type="text/javascript">
+   *       window.JMAP_OPTIONS = {
+   *         ...
+   *         map: {
+   *           mapInfoControlVisible: false,
+   *         }
+   *       }
+   *     </script>
+   *     ...
+   *   </body>
+   * </html>
+   * ```
+   */
+  mapInfoControlVisible?: boolean
+
+  /**
+   * By default the Terrain control is visible.
+   *
+   * But if ***terrainControlVisible*** is false, it will be hidden on the map.
+   *
+   * ```html
+   * <html>
+   *   ...
+   *   <body>
+   *     <script type="text/javascript">
+   *       window.JMAP_OPTIONS = {
+   *         ...
+   *         map: {
+   *           terrainControlVisible: false,
+   *         }
+   *       }
+   *     </script>
+   *     ...
+   *   </body>
+   * </html>
+   * ```
+   */
+  terrainControlVisible?: boolean
 
   /**
    * You can choose the position of the scale control on the map.

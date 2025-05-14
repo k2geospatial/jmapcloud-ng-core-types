@@ -510,7 +510,8 @@ export interface JMapState {
   isTerrainActive: boolean
   isScaleControlVisible: boolean
   isMapRotationControlVisible: boolean
-  isInfoControlVisible: boolean
+  isTerrainControlVisible: boolean
+  isMapInfoControlVisible: boolean
   isInfoControlExpanded: boolean
   defaultZoomOptions: JZoomOptions
   containerWidth: number
@@ -720,6 +721,7 @@ export interface JMapService {
   isTerrainAvailable(): boolean
   isTerrainActive(): boolean
   setTerrainActive(active: boolean): void
+  isTerrainControlVisible(): boolean
   setSelectionStyle(layerId: JId, style: JLayerSetStyleParams): void
   resetSelectionStyle(layerId: JId): void
   setScaleControlVisibility(isVisible: boolean, position?: JMAP_POSITIONS): void
@@ -732,6 +734,7 @@ export interface JMapService {
   setMapRotationControlVisibility(isVisible: boolean): void
   isMapInfoControlVisible(): boolean
   setMapInfoControlVisibility(isVisible: boolean): void
+  setTerrainControlVisibility(isVisible: boolean): void
   isMapInfoControlExpanded(): boolean
   setMapInfoControlExpansion(isExpanded: boolean): void
   getMaplibreSupportedJMapLayerIds(): JId[]
