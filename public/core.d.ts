@@ -3254,6 +3254,24 @@ declare namespace JMap {
     function setMapInfoControlVisibility(isVisible: boolean): void
 
     /**
+     * ***JMap.Map.setTerrainControlVisibility***
+     *
+     * Changes the Terrain control visibility on the map.
+     *
+     * @param isVisible true to display the Terrain control, false to hide
+     *
+     * @example
+     * ```ts
+     * // displays the Terrain control on the map
+     * JMap.Map.setTerrainControlVisibility(true)
+     *
+     * // hides the Terrain control on the map
+     * JMap.Map.setTerrainControlVisibility(false)
+     * ```
+     */
+    function setTerrainControlVisibility(isVisible: boolean): void
+
+    /**
      * ***JMap.Map.isMapInfoControlExpanded***
      *
      * Returns true if the Map Info control is expanded.
@@ -3322,6 +3340,19 @@ declare namespace JMap {
      * ```
      */
     function isTerrainActive(): boolean
+
+    /**
+     * ***JMap.Map.isTerrainControlVisible***
+     *
+     * Returns true if the terrain control is visible, false otherwise.
+     *
+     * @example
+     * ```ts
+     * // returns true if the terrain control is visible, false otherwise
+     * JMap.Map.isTerrainControlVisible()
+     * ```
+     */
+    function isTerrainControlVisible(): boolean
 
     /**
      * ***JMap.Map.setTerrainActive***
