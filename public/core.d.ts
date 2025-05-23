@@ -12786,5 +12786,20 @@ declare namespace JMap {
      * ```
      */
     function getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
+
+    /**
+     * **JMap.Table.getTablePermissions**
+     *
+     * Returns an array of permissions for the tables.
+     *
+     * @returns {Promise<JTABLE_PERMISSION[]} A promise that resolves to a `JTABLE_PERMISSION` array.
+     *
+     * @example
+     * ```ts
+     * // Retrieves all JMap tables
+     * JMap.Table.getTablePermissions("be4552e1-d89d-48ec-a417-7b99d14b4d7b");
+     * ```
+     */
+    function getTablePermissions(dataSourceId: JId): Promise<JTABLE_PERMISSION[]>
   }
 }

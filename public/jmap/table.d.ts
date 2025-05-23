@@ -21,3 +21,13 @@ declare interface JTableDataParams {
   filter?: string
   sort?: string
 }
+
+declare const enum JTABLE_PERMISSION {
+  OWNER = "OWNER",
+  MODIFY = "MODIFY",
+  VIEW = "VIEW",
+  TABULAR_EXTRACT_ROW = "EXTRACT_ROW",
+  TABULAR_CREATE_ROW = "CREATE_ROW",
+  TABULAR_EDIT_ROW = "EDIT_ROW",
+  TABULAR_DELETE_ROW = "DELETE_ROW"
+}
