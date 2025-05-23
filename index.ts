@@ -924,6 +924,7 @@ export interface JLayerService {
 export interface JTableService {
   getTables(): JTable[]
   getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
+  getTablePermissions(dataSourceId: JId): Promise<JTABLE_PERMISSION[]>
 }
 
 export interface JLayerSearchService {
