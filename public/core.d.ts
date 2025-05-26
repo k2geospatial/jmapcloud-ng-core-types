@@ -466,7 +466,7 @@ declare namespace JMap {
      * @example
      * ```ts
      * // returns the feature of layer id="36885146-7eed-4071-9f86-8e29c505af91" and bbox
-     * JMap.Feature.getByLayer("36885146-7eed-4071-9f86-8e29c505af91", {
+     * JMap.Feature.getByLayerId("36885146-7eed-4071-9f86-8e29c505af91", {
      *   ne: {
      *     x: -73.69935286533261,
      *     y: 45.51487645603402
