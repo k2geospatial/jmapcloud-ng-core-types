@@ -12790,17 +12790,17 @@ declare namespace JMap {
     /**
      * **JMap.Table.createRow**
      *
-     * Create a row from a Table
+     * Create a row from a table
      *
-     * @param {JId} dataSourceId - The ID of the data source.
-     * @param {{ [key: string]: any }} row - Id of the row to be deleted.
+     * @param {JId} dataSourceId - The Id of the data source.
+     * @param {{ [key: string]: any }} row - the data of the row to be updated.
      *
      * @returns {Promise<void>}
      *
      * @example
      * ```ts
      * // Create a row in the dataSet with id : "be4552e1-d89d-48ec-a417-7b99d14b4d7b" with the data: {city: Montreal, country:Canada}.
-     * JMap.Table.createRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", {city: Montreal, country:Canada});
+     * JMap.Table.createRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", {city: "Montreal", country: "Canada"});
      * ```
      */
     function createRow(dataSourceId: JId, row: { [key: string]: any }): Promise<void>
@@ -12808,7 +12808,7 @@ declare namespace JMap {
     /**
      * **JMap.Table.updateRow**
      *
-     * Create a row from a Table
+     * Update a row from a table
      *
      * @param {JId} dataSourceId - The ID of the data source.
      * @param {number} rowId - Id of the row to be updated.
@@ -12819,7 +12819,7 @@ declare namespace JMap {
      * @example
      * ```ts
      * // Update the row with an id of 3086627 from the dataSet with id : "be4552e1-d89d-48ec-a417-7b99d14b4d7b".
-     * JMap.Table.updateRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", 3086627, {city: Montreal, country:Canada});
+     * JMap.Table.updateRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", 3086627, {city: "Montreal", country: "Canada"});
      * ```
      */
     function updateRow(dataSourceId: JId, rowId: number, row: { [key: string]: any }): Promise<void>
@@ -12827,10 +12827,10 @@ declare namespace JMap {
     /**
      * **JMap.Table.deleteRow**
      *
-     * Delete a row from a Table
+     * Delete a row from a table
      *
      * @param {JId} dataSourceId - The ID of the JMap data source.
-     * @param {{ [key: string]: any }} row - the data of the row to be deleted
+     * @param {number} rowId - Id of the row to be updated.
      *
      * @returns {Promise<void>}
      *
