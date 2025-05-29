@@ -1,6 +1,6 @@
 declare interface JJsonFormSchemas {
   schema: JFormSchemaJMC | null
-  uiSchema: FormNodeVertical | null
+  uiSchema: FormNodeVertical | undefined
 }
 
 declare interface JFormSchemaJMC {

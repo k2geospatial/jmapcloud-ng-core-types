@@ -167,6 +167,7 @@ declare interface JLayerStyleSamplesById {
 declare interface JLayersConfiguration {
   metadataSchema: JLayerMetadataSchemaItem[]
   layerTree: JLayerTree
+  tables: JTable[]
   styleSamples: JLayerStyleSamplesById
 }
 
