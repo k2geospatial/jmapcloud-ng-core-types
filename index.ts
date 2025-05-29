@@ -593,7 +593,7 @@ export interface JServerState extends JServerInfo {
 export type JHistoryListener = (oldValue: string | undefined, newValue: string | undefined) => void
 
 export interface JFormJMCService {
-  getJsonForm(layerId: string): JJsonFormSchemas
+  getJsonForm(dataSourceId: string): Promise<JJsonFormSchemas>
   getForm(layerId: string): Promise<JFormJMC>
 }
 
@@ -924,7 +924,9 @@ export interface JLayerService {
 export interface JTableService {
   getTables(): JTable[]
   getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
-  getTablePermissions(dataSourceId: JId): Promise<JTABLE_PERMISSION[]>
+  createRow(dataSourceId: JId, row: { [key: string]: any }): Promise<void>
+  updateRow(dataSourceId: JId, rowId: number, row: { [key: string]: any }): Promise<void>
+  deleteRow(dataSourceId: JId, rowId: number): Promise<void>
 }
 
 export interface JLayerSearchService {

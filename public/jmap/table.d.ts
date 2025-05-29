@@ -2,10 +2,11 @@ declare interface JTable {
   id: string
   organizationId: string
   projectId: string
-  name: JLocaleTranslation
+  name: string
   description: JLocaleTranslation
   dataSourceId: string
   allowClientSideEditing: boolean
+  permissions: JTablePermissions
 }
 
 declare interface JTableData {
@@ -22,12 +23,9 @@ declare interface JTableDataParams {
   sort?: string
 }
 
-declare const enum JTABLE_PERMISSION {
-  OWNER = "OWNER",
-  MODIFY = "MODIFY",
-  VIEW = "VIEW",
-  TABULAR_EXTRACT_ROW = "EXTRACT_ROW",
-  TABULAR_CREATE_ROW = "CREATE_ROW",
-  TABULAR_EDIT_ROW = "EDIT_ROW",
-  TABULAR_DELETE_ROW = "DELETE_ROW"
+declare interface JTablePermissions {
+  EXTRACT_ROW: boolean
+  CREATE_ROW: boolean
+  EDIT_ROW: boolean
+  DELETE_ROW: boolean
 }
