@@ -12788,6 +12788,21 @@ declare namespace JMap {
     function getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
 
     /**
+     * **JMap.Table.getById**
+     *
+     * Returns the JMap table having the id.
+     *
+     * @throws Error if no table found for the id
+     * @param tableId The JMap table id
+     * @example
+     * ```ts
+     * // returns the JMap table id=3
+     * JMap.Table.getById(3)
+     * ```
+     */
+    function getById(tableId: JId): JTable
+
+    /**
      * **JMap.Table.createRow**
      *
      * Create a row from a table

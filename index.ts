@@ -924,6 +924,7 @@ export interface JLayerService {
 export interface JTableService {
   getTables(): JTable[]
   getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
+  getById(tableId: JId): JTable
   createRow(dataSourceId: JId, row: { [key: string]: any }): Promise<void>
   updateRow(dataSourceId: JId, rowId: number, row: { [key: string]: any }): Promise<void>
   deleteRow(dataSourceId: JId, rowId: number): Promise<void>
