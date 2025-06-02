@@ -2,10 +2,11 @@ declare interface JTable {
   id: string
   organizationId: string
   projectId: string
-  name: JLocaleTranslation
+  name: string
   description: JLocaleTranslation
   dataSourceId: string
   allowClientSideEditing: boolean
+  permissions: JTablePermissions
 }
 
 declare interface JTableData {
@@ -20,4 +21,11 @@ declare interface JTableDataParams {
   limit?: number
   filter?: string
   sort?: string
+}
+
+declare interface JTablePermissions {
+  EXTRACT_ROW: boolean
+  CREATE_ROW: boolean
+  EDIT_ROW: boolean
+  DELETE_ROW: boolean
 }

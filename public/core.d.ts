@@ -10262,23 +10262,23 @@ declare namespace JMap {
     /**
      * ***JMap.FormJMC.getJsonForm***
      *
-     * Returns the jsonForm schema and uiSchema for a layer.
+     * Returns the jsonForm schema and uiSchema for a data source.
      *
-     * fetch the attributes of a layer and then builds and returns the schema and uiSchema required for jsonForms. The schemas will be null if there is no attributes on the layer
+     * fetch the attributes of a data source and then builds and returns the schema and uiSchema required for jsonForms. The schemas will be null if there is no attributes on the data source
      *
-     * @param layerId the JMap layer id
+     * @param dataSourceId the JMap data source id
      * @example
      * ```ts
-     * // returns the schema and uiSchema for layer id=f47ac10b-58cc-4372-a567-0e02b2c3d479
+     * // returns the schema and uiSchema for data source id=f47ac10b-58cc-4372-a567-0e02b2c3d479
 
 
      * JMap.FormJMC
      *  .getJsonForm("f47ac10b-58cc-4372-a567-0e02b2c3d479")
-     *  .then(schemas => console.log("jsonForms schemas of layer f47ac10b-58cc-4372-a567-0e02b2c3d479", schemas))
+     *  .then(schemas => console.log("jsonForms schemas of data source f47ac10b-58cc-4372-a567-0e02b2c3d479", schemas))
      *  .catch(error => console.error("An error occurred when getting jsonForm schema", error))
      * ```
      */
-    function getJsonForm(layerId: JId): JJsonFormSchemas
+    function getJsonForm(dataSourceId: JId): Promise<JJsonFormSchemas>
 
     /**
      * ***JMap.FormJMC.getForm***
@@ -12786,5 +12786,75 @@ declare namespace JMap {
      * ```
      */
     function getTableData(dataSourceId: JId, params: JTableDataParams): Promise<JTableData>
+
+    /**
+     * **JMap.Table.getById**
+     *
+     * Returns the JMap table having the id.
+     *
+     * @throws Error if no table found for the id
+     * @param tableId The JMap table id
+     * @example
+     * ```ts
+     * // returns the JMap table id=3
+     * JMap.Table.getById(3)
+     * ```
+     */
+    function getById(tableId: JId): JTable
+
+    /**
+     * **JMap.Table.createRow**
+     *
+     * Create a row from a table
+     *
+     * @param {JId} dataSourceId - The Id of the data source.
+     * @param {{ [key: string]: any }} row - the data of the row to be updated.
+     *
+     * @returns {Promise<void>}
+     *
+     * @example
+     * ```ts
+     * // Create a row in the dataSet with id : "be4552e1-d89d-48ec-a417-7b99d14b4d7b" with the data: {city: Montreal, country:Canada}.
+     * JMap.Table.createRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", {city: "Montreal", country: "Canada"});
+     * ```
+     */
+    function createRow(dataSourceId: JId, row: { [key: string]: any }): Promise<void>
+
+    /**
+     * **JMap.Table.updateRow**
+     *
+     * Update a row from a table
+     *
+     * @param {JId} dataSourceId - The ID of the data source.
+     * @param {number} rowId - Id of the row to be updated.
+     * @param {{ [key: string]: any }} row - the data of the row to be updated.
+     *
+     * @returns {Promise<void>}
+     *
+     * @example
+     * ```ts
+     * // Update the row with an id of 3086627 from the dataSet with id : "be4552e1-d89d-48ec-a417-7b99d14b4d7b".
+     * JMap.Table.updateRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", 3086627, {city: "Montreal", country: "Canada"});
+     * ```
+     */
+    function updateRow(dataSourceId: JId, rowId: number, row: { [key: string]: any }): Promise<void>
+
+    /**
+     * **JMap.Table.deleteRow**
+     *
+     * Delete a row from a table
+     *
+     * @param {JId} dataSourceId - The ID of the JMap data source.
+     * @param {number} rowId - Id of the row to be updated.
+     *
+     * @returns {Promise<void>}
+     *
+     * @example
+     * ```ts
+     * // Delete the row with an id of 3086627 from the dataSet with id : "be4552e1-d89d-48ec-a417-7b99d14b4d7b"
+     * JMap.Table.deleteRow("be4552e1-d89d-48ec-a417-7b99d14b4d7b", 3086627);
+     * ```
+     */
+    function deleteRow(dataSourceId: JId, rowId: number): Promise<void>
   }
 }
