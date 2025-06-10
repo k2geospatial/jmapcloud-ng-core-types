@@ -525,6 +525,29 @@ declare namespace JMap {
     function geometryUpdateById(params: JFeatureGeometryUpdateParams): Promise<GeoJSON.Feature>
 
     /**
+     * **JMap.Feature.propertiesUpdateById**
+     *
+     * Change the feature properties for the given layer id, feature id and properties.
+     *
+     * @param params contains the JMap layer id, the JMap feature id and its properties
+     * @throws if layer or feature not found, or if properties are invalid
+     * @example
+     * ```ts
+     * const newProperties = { ... }
+     * // change the properties of feature id="4" on layer id="3"
+     * JMap.Feature
+     *  .propertiesUpdateById({
+     *    layerId: 3,
+     *    featureId: 4,
+     *    properties: newProperties
+     *  })
+     *  .then(feature => console.info("Feature properties' have been changed", feature))
+     *  .catch(error => console.error("An error occured", error))
+     * ```
+     */
+    function propertiesUpdateById(params: JFeaturePropertiesUpdateParams): Promise<GeoJSON.Feature>
+
+    /**
      * **JMap.Feature.deleteById**
      *
      * Deletes the feature for the given layer and feature ids.
