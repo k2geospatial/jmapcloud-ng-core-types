@@ -919,6 +919,7 @@ export interface JLayerService {
   deleteLayer(layerId: JId): void
   hasInformationReport(layerId: JId): boolean
   openInformationReportInNewTab(layerId: JId, featureIds: JId[]): Promise<string>
+  getDataSourceAttributes(dataSourceId: JId): Promise<JAttribute[]>
 }
 
 export interface JTableService {
