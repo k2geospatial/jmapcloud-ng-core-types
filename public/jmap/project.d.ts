@@ -42,7 +42,6 @@ declare interface JProject {
     bing: string | null
     mapBox: string | null
   }
-  queryGroups: JQueryGroup[]
   defaultDistanceUnit: JMAP_DISTANCE_UNITS
   base64ImageThumbnail: string
   extensions: JProjectServerExtension[]

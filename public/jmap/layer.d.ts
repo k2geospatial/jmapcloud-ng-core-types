@@ -302,7 +302,6 @@ declare interface JLayer extends JLayerTreeElement {
   styleRules: JLayerStyleRule[]
   defaultStyleRule: JLayerStyleRule | undefined
   thematics: JLayerThematic[]
-  queries: JQuery[]
   extent: JBoundaryBox | null
   permissions: JLayerPermissions
   hasAttributeForm: boolean
