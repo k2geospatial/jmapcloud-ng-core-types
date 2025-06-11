@@ -9,6 +9,12 @@ declare interface JFeatureGeometryUpdateParams {
   properties?: JAttributeValueByName
 }
 
+declare interface JFeaturePropertiesUpdateParams {
+  layerId: JId
+  featureId: JId
+  properties: JAttributeValueByName
+}
+
 declare interface JFeatureEventGeometryUpdateParams {
   layerId: JId
   updatedFeature: GeoJSON.Feature

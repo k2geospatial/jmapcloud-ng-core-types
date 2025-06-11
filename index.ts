@@ -14,7 +14,6 @@ export interface JCoreService extends JCoreMainService {
   MouseOver: JMouseOverService
   Form: JFormService
   FormJMC: JFormJMCService
-  Query: JQueryService
   Event: JEventService
   History: JHistoryService
   Extension: JExtensionService
@@ -151,6 +150,7 @@ export interface JFeatureService {
   getByIds(layerId: JId, featureIds: JId[]): Promise<GeoJSON.Feature[]>
   getByLayerId(layerId: JId, bbox: JBoundaryBox): Promise<GeoJSON.Feature[]>
   geometryUpdateById(params: JFeatureGeometryUpdateParams): Promise<GeoJSON.Feature>
+  propertiesUpdateById(params: JFeaturePropertiesUpdateParams): Promise<GeoJSON.Feature>
   deleteById(layerId: JId, featureId: JId): Promise<JId>
   // deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
   // TODO: see if the future endpoint will return detail about individual deleted features success or failure
@@ -183,17 +183,6 @@ export interface JGeolocationService {
   goToMyLocation(options?: JPanAndZoomOptions): Promise<JLocation>
 }
 
-export interface JQueryService {
-  getAllGroups(): JQueryGroup[]
-  groupExist(groupId: JId): boolean
-  getQueriesByLayerId(layerId: JId): JQuery[]
-  getQueryByLayerId(layerId: JId, queryId: string): JQuery
-  getQueriesByGroupId(groupId: JId): JQuery[]
-  getQueryByGroupId(groupId: JId, queryId: string): JQuery
-  queryExist(groupId: JId, queryId: string): boolean
-  fetchFeatures(layerId: JId, queryId: string, data: any): Promise<Feature[]>
-}
-
 export interface JAjaxService {
   get(config: JRequestConfig): Promise<any>
   post(config: JRequestConfig): Promise<any>
@@ -218,7 +207,6 @@ export interface JEventService {
   MouseOver: JMouseOverEventModule
   MapContext: JMapContextEventModule
   Server: JServerEventModule
-  Query: JQueryEventModule
 }
 
 export type JEventFunction = (params?: any) => void | Promise<any>
@@ -242,15 +230,6 @@ export interface JEventModule {
   activate(listenerId: string): void
   deactivate(listenerId: string): void
   remove(listenerId: string): void
-}
-
-export interface JQueryEventModule extends JEventModule {
-  on: {
-    queryFormLoad(listenerId: string, fn: (params: JQueryQueryFormHasLoadedEventParams) => void): void
-    beforeSubmit(listenerId: string, fn: (params: JQueryBeforeEventParams) => void): void
-    success(listenerId: string, fn: (params: JQuerySuccessEventParams) => void): void
-    error(listenerId: string, fn: (params: JQueryErrorEventParams) => void): void
-  }
 }
 
 export interface JServerEventModule extends JEventModule {
@@ -417,7 +396,6 @@ export interface JCoreState {
   user: JUserState
   language: JLanguageState
   photo: JPhotoState
-  query: JQueryState
   geocoding: JGeocodingState
   simpleSearch: JSimpleSearchState
   geolocation: JGeolocationState
@@ -554,11 +532,6 @@ export interface JPhotoState {
   isLoading: boolean
   hasLoadingError: boolean
   isDownloading: boolean
-}
-
-export interface JQueryState {
-  groups: JQueryGroup[]
-  queriesByLayerId: { [key in JId]: JQuery[] }
 }
 
 export interface JUserState extends JTokenInfo {
