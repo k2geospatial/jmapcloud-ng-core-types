@@ -151,6 +151,7 @@ export interface JFeatureService {
   getByIds(layerId: JId, featureIds: JId[]): Promise<GeoJSON.Feature[]>
   getByLayerId(layerId: JId, bbox: JBoundaryBox): Promise<GeoJSON.Feature[]>
   geometryUpdateById(params: JFeatureGeometryUpdateParams): Promise<GeoJSON.Feature>
+  propertiesUpdateById(params: JFeaturePropertiesUpdateParams): Promise<GeoJSON.Feature>
   deleteById(layerId: JId, featureId: JId): Promise<JId>
   // deleteByIds(layerId: JId, featureIds: JId[]): Promise<JFeatureDeleteByIdsResult>
   // TODO: see if the future endpoint will return detail about individual deleted features success or failure
