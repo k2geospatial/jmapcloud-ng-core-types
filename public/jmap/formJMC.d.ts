@@ -18,7 +18,7 @@ declare interface JFormSchemaPropertyJMC {
   default?: any
   minimum?: number
   maximum?: number
-  enum?: any[]
+  oneOf?: Array<{ const: string; title: string }>
 }
 
 declare const enum FORMSCHEMA_TYPES {
@@ -104,6 +104,7 @@ declare interface FormNodeVertical extends FormNodeLayout {
   type: "VerticalLayout"
   designComponent: "VerticalLayout"
   isRoot?: boolean
+  translations?: JFormTranslations
 }
 
 declare interface FormNodeHorizontal extends FormNodeLayout {
@@ -131,3 +132,7 @@ declare type FormNodesControl = FormNodeText | FormNodeNumber | FormNodeBoolean 
 declare type FormNodesLayout = FormNodeVertical | FormNodeHorizontal | FormNodeGroup | FormNodeTabs | FormNodeTab
 
 declare type FormNode = FormNodesControl | FormNodesLayout | FormNodeLabel
+
+declare type JFormTranslations = {
+  [L in JLOCALES]: Record<string, string>
+}
