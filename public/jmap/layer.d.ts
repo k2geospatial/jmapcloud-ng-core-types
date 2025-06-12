@@ -598,3 +598,38 @@ declare interface JLayerSetLayerGroupsExpansionParams {
   layerGroupId: JId
   open: boolean
 }
+
+declare interface JAttribute {
+  id: string
+  name: string
+  type: ATTRIBUTE_TYPES
+  indexed: boolean
+  title: JLocaleTranslation
+  valueDomain?: JValueDomain[]
+}
+
+declare enum ATTRIBUTE_TYPES {
+  TINYINT = "TINYINT",
+  SMALLINT = "SMALLINT",
+  INTEGER = "INTEGER",
+  BIGINT = "BIGINT",
+  FLOAT = "FLOAT",
+  REAL = "REAL",
+  DOUBLE = "DOUBLE",
+  NUMERIC = "NUMERIC",
+  DECIMAL = "DECIMAL",
+  CHAR = "CHAR",
+  VARCHAR = "VARCHAR",
+  LONGVARCHAR = "LONGVARCHAR",
+  DATE = "DATE",
+  TIME = "TIME",
+  TIMESTAMP = "TIMESTAMP",
+  ARRAY = "ARRAY",
+  BOOLEAN = "BOOLEAN"
+}
+
+declare interface JValueDomain {
+  value?: any
+  nullValue?: boolean
+  title: JLocaleTranslation
+}

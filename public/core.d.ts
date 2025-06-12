@@ -2417,6 +2417,22 @@ declare namespace JMap {
      * ```
      **/
     function openInformationReportInNewTab(layerId: JId, featureIds: JId[]): Promise<string>
+
+    /**
+     * **JMap.Layer.getDataSourceAttributes**
+     *
+     * Returns attributes, for a given dataSource.
+     *
+     * @param dataSourceId the JMap dataSource id
+     * @throws if dataSourceId not valid or dataSource not found
+     * @example
+     * ```ts
+     * // Returns attributes, for dataSource id=3
+     * JMap.Layer
+     *  .getDataSourceAttributes(3)
+     * ```
+     **/
+    function getDataSourceAttributes(dataSourceId: JId): Promise<JAttribute[]>
   }
 
   /**
